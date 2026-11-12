@@ -146,6 +146,10 @@ Header:
   Version: 4
 
 Body:
+  - Id: 7
+    Name: SM_MAGNUM
+    AfterCastActDelay: 0
+    Cooldown: 1500
   - Id: 10
     Name: MG_SIGHT
     Cooldown: 15000
