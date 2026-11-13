@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
+#include <fstream> // [RO Sandbox] luck_drop_tiers.txt
 #include <map>
 #include <unordered_map>
 #include <vector>
@@ -2805,6 +2806,152 @@ void mob_damage(mob_data *md, block_list *src, int32 damage)
 #endif
 }
 
+// [RO Sandbox] Luck drop bonus. Tier point per item: S 0.25, A 0.5, B 1, C 2.
+// Items not listed in db/import/luck_drop_tiers.txt use tier C.
+static std::unordered_map<t_itemid, double> luck_drop_tiers;
+
+// [RO Sandbox] Read db/import/luck_drop_tiers.txt: one "AegisName,Tier" per line, "//" starts a comment.
+static void mob_luck_drop_tiers_load(){
+	luck_drop_tiers.clear();
+
+	std::string path = std::string( db_path ) + "/" DBIMPORT "/luck_drop_tiers.txt";
+	std::ifstream file( path );
+
+	if( !file.is_open() ){
+		ShowWarning( "Luck drop tiers: '%s' not found, every item uses tier C.\n", path.c_str() );
+		return;
+	}
+
+	auto trim = []( const std::string& str ){
+		const char* ws = " \t\r\n";
+		size_t start = str.find_first_not_of( ws );
+
+		if( start == std::string::npos ){
+			return std::string();
+		}
+
+		return str.substr( start, str.find_last_not_of( ws ) - start + 1 );
+	};
+
+	std::string line;
+	int32 lineno = 0;
+
+	while( std::getline( file, line ) ){
+		lineno++;
+
+		size_t comment = line.find( "//" );
+
+		if( comment != std::string::npos ){
+			line.erase( comment );
+		}
+
+		line = trim( line );
+
+		if( line.empty() ){
+			continue;
+		}
+
+		size_t comma = line.find( ',' );
+
+		if( comma == std::string::npos ){
+			ShowWarning( "Luck drop tiers: line %d has no comma, skipping.\n", lineno );
+			continue;
+		}
+
+		std::string name = trim( line.substr( 0, comma ) );
+		std::string tier = trim( line.substr( comma + 1 ) );
+		double point;
+
+		if( tier == "S" ){
+			point = 0.25;
+		}else if( tier == "A" ){
+			point = 0.5;
+		}else if( tier == "B" ){
+			point = 1;
+		}else if( tier == "C" ){
+			point = 2;
+		}else{
+			ShowWarning( "Luck drop tiers: unknown tier '%s' on line %d, skipping.\n", tier.c_str(), lineno );
+			continue;
+		}
+
+		std::shared_ptr<item_data> id = item_db.search_aegisname( name.c_str() );
+
+		if( id == nullptr ){
+			ShowWarning( "Luck drop tiers: unknown item '%s' on line %d, skipping.\n", name.c_str(), lineno );
+			continue;
+		}
+
+		luck_drop_tiers[id->nameid] = point;
+	}
+
+	ShowStatus( "Done reading '" CL_WHITE "%d" CL_RESET "' entries in '" CL_WHITE "%s" CL_RESET "'.\n", (int32)luck_drop_tiers.size(), path.c_str() );
+}
+
+/**
+ * [RO Sandbox] Luck drop bonus for one item, in drop-rate units (10000 = 100%).
+ * bonus % = min(LUK, 99) x tier point x (1 + level x 0.09999) / 100, added as flat points.
+ * Cards and equipment use the player's Base Level; other items use the monster's level.
+ * The bonus is cut by the gap between the player's Base Level and the monster's level:
+ * gap 0-9 100%, 10-11 90%, 12-14 80%, 15-17 70%, 18-19 60%, 20+ 50%.
+ */
+static int32 mob_luck_drop_bonus( map_session_data* sd, std::shared_ptr<s_mob_db> mob, mob_data* md, t_itemid nameid ){
+	if( sd == nullptr || nameid == 0 ){
+		return 0;
+	}
+
+	std::shared_ptr<item_data> id = item_db.find( nameid );
+
+	if( id == nullptr ){
+		return 0;
+	}
+
+	double point = 2; // tier C
+	auto tier = luck_drop_tiers.find( nameid );
+
+	if( tier != luck_drop_tiers.end() ){
+		point = tier->second;
+	}
+
+	int32 mob_level = ( md != nullptr ) ? md->level : mob->lv;
+	int32 level;
+
+	switch( id->type ){
+		case IT_CARD:
+		case IT_WEAPON:
+		case IT_ARMOR:
+		case IT_SHADOWGEAR:
+			level = sd->status.base_level;
+			break;
+		default:
+			level = mob_level;
+			break;
+	}
+
+	int32 luk = cap_value( (int32)status_get_luk( sd ), 0, 99 );
+
+	// Level-gap cut, in either direction
+	int32 gap = std::abs( (int32)sd->status.base_level - mob_level );
+	double kept;
+
+	if( gap >= 20 ){
+		kept = 0.5;
+	}else if( gap >= 18 ){
+		kept = 0.6;
+	}else if( gap >= 15 ){
+		kept = 0.7;
+	}else if( gap >= 12 ){
+		kept = 0.8;
+	}else if( gap >= 10 ){
+		kept = 0.9;
+	}else{
+		kept = 1;
+	}
+
+	// percent x 100 = drop-rate units, so the "/ 100" cancels out
+	return (int32)( 0.5 + luk * point * ( 1 + level * 0.09999 ) * kept );
+}
+
 /**
  * Get modified drop rate
  * @param src: Source object
@@ -2813,9 +2960,10 @@ void mob_damage(mob_data *md, block_list *src, int32 damage)
  * @param drop_modifier: RENEWAL_DROP level modifier
  * @param md: the actual monster killed
  * @param factor: factor which is applied to all multiplicative bonuses and upper bound caps
+ * @param nameid: dropped item, for the Luck drop bonus (0 = no bonus) [RO Sandbox]
  * @return Modified drop rate
  */
-int32 mob_getdroprate(block_list *src, std::shared_ptr<s_mob_db> mob, int32 base_rate, int32 drop_modifier, mob_data* md, int32 factor)
+int32 mob_getdroprate(block_list *src, std::shared_ptr<s_mob_db> mob, int32 base_rate, int32 drop_modifier, mob_data* md, int32 factor, t_itemid nameid)
 {
 	int32 drop_rate = base_rate;
 
@@ -2863,6 +3011,9 @@ int32 mob_getdroprate(block_list *src, std::shared_ptr<s_mob_db> mob, int32 base
 			cap *= factor;
 
 			drop_rate = (int32)( 0.5 + drop_rate * drop_rate_bonus / 100. );
+
+			// [RO Sandbox] Luck drop bonus: flat points, before the cap and the level-gap cut
+			drop_rate += mob_luck_drop_bonus( sd, mob, md, nameid ) * factor;
 
 			// Now limit the drop rate to never be exceed the cap (default: 90%), unless it is originally above it already.
 			if( drop_rate > cap && base_rate < cap ){
@@ -3329,7 +3480,7 @@ int32 mob_dead(mob_data *md, block_list *src, int32 type)
 			if (it == nullptr)
 				continue;
 
-			drop_rate = mob_getdroprate(src, md->db, entry->rate, drop_modifier, md);
+			drop_rate = mob_getdroprate(src, md->db, entry->rate, drop_modifier, md, 1, entry->nameid); // [RO Sandbox] item for the Luck bonus
 
 			// attempt to drop the item
 			if (rnd() % 10000 >= drop_rate)
@@ -3489,6 +3640,7 @@ int32 mob_dead(mob_data *md, block_list *src, int32 type)
 					continue;
 
 				temp = entry->rate;
+				temp += mob_luck_drop_bonus( mvp_sd, md->db, md, entry->nameid ); // [RO Sandbox] Luck drop bonus
 
 #if defined(RENEWAL_DROP)
 				temp = cap_value( apply_rate( temp, penalty ), 0, 10000 );
@@ -7214,6 +7366,7 @@ static void mob_load(void)
 	mob_avail_db.load();
 	mob_summon_db.load();
 	map_drop_db.load();
+	mob_luck_drop_tiers_load(); // [RO Sandbox]
 
 	mob_drop_ratio_adjust();
 	mob_skill_db_set();

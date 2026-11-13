@@ -8173,7 +8173,7 @@ ACMD_FUNC(mobinfo)
 				if (id == nullptr)
 					continue;
 
-				int32 droprate = mob_getdroprate( sd, mob, entry->rate, drop_modifier );
+				int32 droprate = mob_getdroprate( sd, mob, entry->rate, drop_modifier, nullptr, 1, entry->nameid ); // [RO Sandbox] show the Luck bonus
 
 				sprintf(atcmd_output2, " - %s  %02.02f%%", item_db.create_item_link( id ).c_str(), (float)droprate / 100);
 				strcat(atcmd_output, atcmd_output2);
