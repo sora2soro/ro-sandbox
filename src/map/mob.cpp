@@ -2892,6 +2892,8 @@ static void mob_luck_drop_tiers_load(){
  * [RO Sandbox] Luck drop bonus for one item, in drop-rate units (10000 = 100%).
  * bonus % = min(LUK, 99) x tier point x (1 + level x 0.09999) / 100, added as flat points.
  * Cards and equipment use the player's Base Level; other items use the monster's level.
+ * The bonus is cut by the gap between the player's Base Level and the monster's level:
+ * gap 0-9 100%, 10-11 90%, 12-14 80%, 15-17 70%, 18-19 60%, 20+ 50%.
  */
 static int32 mob_luck_drop_bonus( map_session_data* sd, std::shared_ptr<s_mob_db> mob, mob_data* md, t_itemid nameid ){
 	if( sd == nullptr || nameid == 0 ){
@@ -2911,6 +2913,7 @@ static int32 mob_luck_drop_bonus( map_session_data* sd, std::shared_ptr<s_mob_db
 		point = tier->second;
 	}
 
+	int32 mob_level = ( md != nullptr ) ? md->level : mob->lv;
 	int32 level;
 
 	switch( id->type ){
@@ -2921,14 +2924,32 @@ static int32 mob_luck_drop_bonus( map_session_data* sd, std::shared_ptr<s_mob_db
 			level = sd->status.base_level;
 			break;
 		default:
-			level = ( md != nullptr ) ? md->level : mob->lv;
+			level = mob_level;
 			break;
 	}
 
 	int32 luk = cap_value( (int32)status_get_luk( sd ), 0, 99 );
 
+	// Level-gap cut, in either direction
+	int32 gap = std::abs( (int32)sd->status.base_level - mob_level );
+	double kept;
+
+	if( gap >= 20 ){
+		kept = 0.5;
+	}else if( gap >= 18 ){
+		kept = 0.6;
+	}else if( gap >= 15 ){
+		kept = 0.7;
+	}else if( gap >= 12 ){
+		kept = 0.8;
+	}else if( gap >= 10 ){
+		kept = 0.9;
+	}else{
+		kept = 1;
+	}
+
 	// percent x 100 = drop-rate units, so the "/ 100" cancels out
-	return (int32)( 0.5 + luk * point * ( 1 + level * 0.09999 ) );
+	return (int32)( 0.5 + luk * point * ( 1 + level * 0.09999 ) * kept );
 }
 
 /**
