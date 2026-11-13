@@ -54,12 +54,6 @@ valkyrie,44,39,5	script	Lord Knight#Valkyrie	56,{
 			mes "Honor to the warriors!";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[Lord Knight]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
-			close;
-		}
 		jobchange Job_Lord_Knight;
 		set ADVJOB,0;
 		mes "[Lord Knight]";

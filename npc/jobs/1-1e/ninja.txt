@@ -271,16 +271,6 @@ que_ng,30,65,3	script	Kuuga Gai#nq	730,{
 				mes "against Wildcat Joe!";
 				close;
 			}
-			if (SkillPoint != 0) {
-				mes "[Kuuga Gai]";
-				mes "Whoa, whoa...";
-				mes "You still have some";
-				mes "leftover Skill Points.";
-				mes "You'd better spend all";
-				mes "of them before you";
-				mes "change jobs, right?";
-				close;
-			}
 			mes "[Kuuga Gai]";
 			mes "Ah, you're back with";
 			mes "everything that I need.";

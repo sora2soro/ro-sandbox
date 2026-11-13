@@ -56,12 +56,6 @@ valkyrie,44,47,5	script	High Wizard#Valkyrie	735,{
 			mes "Honors to the warriors!";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[High Wizard]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
-			close;
-		}
 		jobchange Job_high_Wizard;
 		set ADVJOB,0;
 		mes "[High Wizard]";

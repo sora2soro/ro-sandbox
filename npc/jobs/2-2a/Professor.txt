@@ -61,12 +61,6 @@ valkyrie,53,47,3	script	Scholar#Valkyrie	743,{
 			mes "Honor to the warriors!";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[Scholar]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
-			close;
-		}
 		jobchange Job_Professor;
 		set ADVJOB,0;
 		mes "[Scholar]";

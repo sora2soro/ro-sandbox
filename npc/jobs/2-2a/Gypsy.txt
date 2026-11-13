@@ -53,12 +53,6 @@ valkyrie,53,56,3	script	Gypsy#Valkyrie	101,{
 			mes "Honor to the warriors!";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[Gypsy]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
-			close;
-		}
 		jobchange Job_Gypsy;
 		set ADVJOB,0;
 		mes "[Gypsy]";

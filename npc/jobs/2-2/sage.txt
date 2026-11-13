@@ -135,13 +135,6 @@ yuno_in02,38,61,5	script	Dean of the Academy#sa	743,{
 				cutin "job_sage_kayron",255;
 				end;
 			}
-			if (SkillPoint) {
-				mes "You possess remaining skill points...";
-				mes "Before you submit your dissertation, please take care this matter first.";
-				close2;
-				cutin "job_sage_kayron",255;
-				end;
-			}
 			mes "Ho~ So? Did you finally complete your dissertation? Well done.";
 			mes "Let me see.";
 			next;
@@ -307,12 +300,6 @@ yuno_in03,154,35,4	script	Staff of the Academy#a	742,{
 					mes "[Metheus Sylphe]";
 					mes "I'm sorry, but you haven't met the basic requirements yet.";
 					mes "Please go study more and reach Mage job level 40 first.";
-					close;
-				}
-				if (SkillPoint) {
-					mes "[Metheus Sylphe]";
-					mes "You have unused skill points left. Please go learn all those skills you've been planning to learn.";
-					mes "We do not accept any ambiguous candidates.";
 					close;
 				}
 				mes "[Metheus Sylphe]";

@@ -138,11 +138,6 @@ ein_in01,18,28,4	script	Guildsman#BLS	731,{
 		close;
 	}
 	else if (BaseJob == Job_Merchant) {
-		if (SkillPoint) {
-			mes "[Altiregen]";
-			mes "You can't change to the Blacksmith Job Class without first using all your skill points. Please come back after wisely using your skill points.";
-			close;
-		}
 		if (BSMITH_Q == 0) {
 			mes "[Altiregen]";
 			mes "Why don't you stop struggling";
@@ -153,12 +148,7 @@ ein_in01,18,28,4	script	Guildsman#BLS	731,{
 			next;
 			switch(select("Fill out Application.:What are the requirements?:Um, I need to think about it.")) {
 			case 1:
-				if (SkillPoint) {
-					mes "[Altiregen]";
-					mes "You can't change to the Blacksmith Job Class without first using all your skill points. Please come back after wisely using your skill points.";
-					close;
-				}
-				else if (JobLevel > 39 && BSMITH_Q == 0) {
+				if (JobLevel > 39 && BSMITH_Q == 0) {
 					mes "[Altiregen]";
 					mes "Hmmm...";
 					mes "Looks like you";

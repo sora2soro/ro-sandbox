@@ -846,21 +846,6 @@ comodo,226,123,5	script	Wandering Bard	741,{
 			set .@selection,select("Just change my job please.:I'd be thankful for a present.");
 		}
 		if ((.@selection == 1) || (BARD_Q == 5)) {
-			if(SkillPoint) {
-				cutin "job_bard_aiolo01",2;
-				mes "[Lalo]";
-				mes "Ah... Everything is good, but you still have some skill points left.";
-				mes "Go learn the rest of the skills and come back.";
-				next;
-				mes "[Lalo]";
-				mes "And I am going to give you a small present...";
-				mes "So bring some trunks.";
-				mes "It doesn't matter what kind, as long as they are 60 of the same kind...";
-				close2;
-				cutin "job_bard_aiolo01",255;
-				end;
-			}
-			else {
 				switch(BARD_Q) {
 				case 5:
 					if(countitem(1019) > 59) callsub S_ChangeJob,1019,1901;
@@ -891,7 +876,6 @@ comodo,226,123,5	script	Wandering Bard	741,{
 					cutin "job_bard_aiolo01",255;
 					end;
 				}
-			}
 		}
 		changequest 3003,3004;
 		mes "[Lalo]";

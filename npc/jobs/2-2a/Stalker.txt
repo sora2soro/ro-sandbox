@@ -62,12 +62,6 @@ valkyrie,53,58,3	script	Stalker#Valkyrie	747,{
 			mes "Honor to the warriors!";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[Stalker]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
-			close;
-		}
 		jobchange Job_Stalker;
 		set ADVJOB,0;
 		mes "[Stalker]";

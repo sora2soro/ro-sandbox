@@ -129,14 +129,6 @@ que_ng,152,167,3	script	Master Miller	901,{
 			close;
 		}
 		else if (GUNS_Q == 5) {
-			if (SkillPoint != 0) {
-				mes "[Master Miller]";
-				mes "Hey, you have leftover";
-				mes "Skill Points. You better";
-				mes "use them all up before you";
-				mes "come and talk to me again.";
-				close;
-			}
 			mes "[Master Miller]";
 			mes "Oh, you've brought a";
 			mes "voucher from Wise Bull Horn?";

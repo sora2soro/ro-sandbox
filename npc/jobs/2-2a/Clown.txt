@@ -53,12 +53,6 @@ valkyrie,53,54,3	script	Minstrel#Valkyrie	741,{
 			mes "Honor to the warriors!";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[Minstrel]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
-			close;
-		}
 		jobchange Job_Clown;
 		set ADVJOB,0;
 		mes "[Minstrel]";

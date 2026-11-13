@@ -73,12 +73,6 @@ in_rogue,363,122,4	script	Rogue Guildsman#rg	747,{
 		close;
 	}
 	if (BaseJob == Job_Thief) {
-		if (SkillPoint) {
-			mes "[Rogue Guildsman]";
-			mes "Yo, what are you doin'?!";
-			mes "You can't change your job if you got unused skill points, so use 'em all up. You bettah check yo-self before you wreck yo-self.";
-			close;
-		}
 		if (JobLevel > 39) {
 			if (ROGUE_Q == 0) {
 				mes "[Rogue Guildsman]";

@@ -374,18 +374,6 @@ comodo,172,230,3	script	Wandering Master#job_sta	730,{
 			mes "service of the grand cosmos?";
 			next;
 			if (select("Yes, let me take the test!:Wait, I need to think about this!") == 1) {
-				if (SkillPoint) {
-					mes "[Moogang]";
-					mes "Hm? You still have Skill";
-					mes "Points that you haven't yet";
-					mes "allocated. Use them, learn";
-					if (Sex == SEX_FEMALE)
-						mes "and improve your Taekwon Girl";
-					else
-						mes "and improve your Taekwon Boy";
-					mes "skills. When you are finished, come back here for your training.";
-					close;
-				}
 				mes "[Moogang]";
 				mes "Taekwon Do sets the basics.";
 				mes "Mind, body, soul. These are not";
