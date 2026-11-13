@@ -2119,7 +2119,7 @@ ACMD_FUNC(go)
 #ifdef RENEWAL
 		{ MAP_IZLUDE,      128, 146 }, //  5=Izlude (Renewal)
 #else
-		{ MAP_IZLUDE,      128, 114 }, //  5=Izlude
+		{ MAP_IZLUDE,      128, 146 }, //  5=Izlude [RO Sandbox] renewal Izlude map
 #endif
 		{ MAP_ALDEBARAN,   140, 131 }, //  6=Al de Baran
 		{ MAP_LUTIE,       147, 134 }, //  7=Lutie
