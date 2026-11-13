@@ -2898,7 +2898,8 @@ uint64 pc_calc_skilltree_normalize_job_sub( map_session_data *sd ){
 		// Novice's skill points for basic skill.
 		std::shared_ptr<s_job_info> novice_job = job_db.find(JOB_NOVICE);
 
-		int32 novice_skills = novice_job->max_job_level - 1;
+		// [RO Sandbox] Phase 5: Job Lv N means N skill points (the first one is free), so no - 1.
+		int32 novice_skills = novice_job->max_job_level;
 
 		if (skill_point < novice_skills) {
 			return MAPID_NOVICE;
@@ -2922,11 +2923,11 @@ uint64 pc_calc_skilltree_normalize_job_sub( map_session_data *sd ){
 			pc_setglobalreg( sd, add_str( JOBCHANGE2ND_VAR ), sd->change_level_2nd );
 		}
 
-		if( class_1st > 0 && skill_point < ( sd->change_level_2nd - 1 ) ){
+		if( class_1st > 0 && skill_point < sd->change_level_2nd ){
 			return mapid_1st;
 		}
 
-		skill_point -= ( sd->change_level_2nd - 1 );
+		skill_point -= sd->change_level_2nd; // [RO Sandbox] Phase 5: no - 1, see above
 	}
 
 	// 2nd Class Job LV Check
@@ -2944,11 +2945,11 @@ uint64 pc_calc_skilltree_normalize_job_sub( map_session_data *sd ){
 			pc_setglobalreg( sd, add_str( JOBCHANGE3RD_VAR ), sd->change_level_3rd );
 		}
 
-		if( class_2nd > 0 && skill_point < ( sd->change_level_3rd - 1 ) ){
+		if( class_2nd > 0 && skill_point < sd->change_level_3rd ){
 			return mapid_2nd;
 		}
 
-		skill_point -= ( sd->change_level_3rd - 1 );
+		skill_point -= sd->change_level_3rd; // [RO Sandbox] Phase 5: no - 1, see above
 	}
 
 	// 3rd Class Job LV Check
@@ -2966,11 +2967,11 @@ uint64 pc_calc_skilltree_normalize_job_sub( map_session_data *sd ){
 			pc_setglobalreg( sd, add_str( JOBCHANGE4TH_VAR ), sd->change_level_4th );
 		}
 
-		if( class_3rd > 0 && skill_point < ( sd->change_level_4th - 1 ) ){
+		if( class_3rd > 0 && skill_point < sd->change_level_4th ){
 			return mapid_3rd;
 		}
 
-		skill_point -= ( sd->change_level_4th - 1 );
+		skill_point -= sd->change_level_4th; // [RO Sandbox] Phase 5: no - 1, see above
 	}
 
 	return sd->class_;
@@ -10919,6 +10920,9 @@ bool pc_jobchange(map_session_data *sd,int32 job, char upper)
 	sd->class_ = b_class;
 	sd->status.job_level=1;
 	sd->status.job_exp=0;
+	// [RO Sandbox] Phase 5: 1 skill point per Job Level, so Job Lv 1 of every new job already has 1 skill point.
+	sd->status.skill_point++;
+	clif_updatestatus(*sd,SP_SKILLPOINT);
 
 	if (sd->status.base_level > pc_maxbaselv(sd)) {
 		sd->status.base_level = pc_maxbaselv(sd);
