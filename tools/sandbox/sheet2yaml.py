@@ -20,7 +20,10 @@
 #                          more from monsters up to Lv 25 and 3x more up
 #                          to Lv 35 (EQUIP_BOOST). Monsters on the
 #                          RO_Monster_Drops sheet's Leveling Route tab get
-#                          that tab's Job EXP Bonus on top.
+#                          that tab's Job EXP Bonus on top. Every monster
+#                          that gives EXP is written with the server's EXP
+#                          rates already applied (SERVER_EXP_RATE), since
+#                          conf/battle/exp.conf keeps Base and Job EXP at 1x.
 # With --client, also writes the client's SystemEN/itemInfo_C.lua (ROTP's
 # custom item file), borrowing each item's icon from its "Client Look (ID)".
 #
@@ -61,6 +64,10 @@ CARD_CHANCE = [(1, 10.0), (30, 5.0), (50, 0.5)]  # % a player gets the card
 ITEMS_PER_KILL = [(1, 5.0), (30, 3.0)]  # average drops per kill
 RAISE_FROM = 1.0  # only common and healing drops already at this % or more
 EXP_BOOST = [(1, 250, 500), (30, 0, 0)]  # extra base and job EXP, in %
+# Base and Job EXP rates, moved here from conf/battle/exp.conf (now 100 there).
+# Applied to every monster after the boosts, the way the map server applies
+# exp.conf (multiply, then drop the fraction), so EXP per kill is unchanged.
+SERVER_EXP_RATE = (375, 750)  # base, job, in % like exp.conf
 # Weapon and armor drop multiplier: (up to this monster level, factor).
 EQUIP_BOOST = [(25, 5), (35, 3)]
 # Server drop multipliers, read like the map server does (later files win).
@@ -386,6 +393,11 @@ def drops_from_sheet(rows):
     return mobs
 
 
+def server_exp(exp, rate):
+    """EXP after a server rate in %, truncated like mob.cpp does at load."""
+    return exp * rate // 100
+
+
 def drop_key(d):
     return (d["Item"], d["Rate"], d["Mvp"], d["Steal"])
 
@@ -615,6 +627,11 @@ def main():
             boosted["drops"] += 1
         if base_exp is not None or job_exp is not None:
             boosted["EXP"] += 1
+        # Server EXP rates, applied to every monster that gives EXP.
+        base_exp = server_exp(info["BaseExp"] if base_exp is None else base_exp, SERVER_EXP_RATE[0])
+        job_exp = server_exp(info["JobExp"] if job_exp is None else job_exp, SERVER_EXP_RATE[1])
+        base_exp = base_exp if base_exp != info["BaseExp"] else None
+        job_exp = job_exp if job_exp != info["JobExp"] else None
         changed = (mob_id in sheet_drops
                    or Counter(map(drop_key, drops)) != Counter(map(drop_key, ra_mobs.get(mob_id, []))))
         if changed or base_exp is not None or job_exp is not None:
