@@ -4295,6 +4295,17 @@ int32 status_calc_pc_sub(map_session_data* sd, uint8 opt)
 	if (pc_checkskill(sd, SU_POWEROFLAND) > 0)
 		base_status->int_ += 20;
 
+	// [RO Sandbox] Phase 5: transcended jobs get +25 to every stat (was +10 in the design notes).
+	// The +25% max HP and SP for transcended jobs already exists in status_calc_maxhpsp_pc below.
+	if (sd->class_&JOBL_UPPER) {
+		base_status->str += 25;
+		base_status->agi += 25;
+		base_status->vit += 25;
+		base_status->int_ += 25;
+		base_status->dex += 25;
+		base_status->luk += 25;
+	}
+
 	// Bonuses from cards and equipment as well as base stat, remember to avoid overflows.
 	i = base_status->str + sd->status.str + sd->indexed_bonus.param_bonus[PARAM_STR] + sd->indexed_bonus.param_equip[PARAM_STR];
 	base_status->str = cap_value(i,0,USHRT_MAX);

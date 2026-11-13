@@ -40,6 +40,7 @@
 //= 3.1 Added Izlude Renewal coordinates.
 //============================================================ 
 
+// [RO Sandbox] Phase 5: the only requirement to transcend is Job Lv 50 in a 2nd job (no Base Level requirement).
 valkyrie,48,86,4	script	Valkyrie#	811,{
 	if (ADVJOB != 0 || Upper == 1) {
 		mes "[Valkyrie]";
@@ -54,7 +55,7 @@ valkyrie,48,86,4	script	Valkyrie#	811,{
 		mes "Honor to the warriors!";
 		close;
 	}
-	else if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
+	else if (JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		mes "[Valkyrie]";
 		mes "Welcome";
 		mes "to Valhalla,";
@@ -202,7 +203,7 @@ valkyrie,48,86,4	script	Valkyrie#	811,{
 }
 
 yuno_in02,88,164,5	script	Metheus Sylphe#Library	742,{
-	if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
+	if (JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		if (valkyrie_Q == 0) {
 			mes "[Metheus Sylphe]";
 			mes "Welcome to the Library of the Schweicherbil Magic Academy.";
@@ -267,7 +268,7 @@ yuno_in02,93,207,1	script	Book of Ymir	111,{
 		warp "valkyrie",48,8;
 		end;
 	}
-	else if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
+	else if (JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		if (valkyrie_Q != 0) {
 			mes "[The Book of Ymir]";
 			mes "...Therefore, ancient heroes were";
@@ -335,7 +336,7 @@ yuno_in02,93,207,1	script	Book of Ymir	111,{
 }
 
 yuno_in05,49,43,1	script	Heart of Ymir	111,{
-	if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
+	if (JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		if (valkyrie_Q == 2) warp "valkyrie",48,8;
 	}
 	end;
