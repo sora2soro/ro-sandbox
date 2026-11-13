@@ -29,6 +29,8 @@ void SkillLordOfVermilion::calculateSkillRatio(const Damage* wd, const block_lis
 #else
 	base_skillratio += 20 * skill_lv - 20;
 #endif
+	// [RO Sandbox] Phase 5: +25% damage to make up for the long cooldown.
+	base_skillratio = base_skillratio * 125 / 100;
 }
 
 void SkillLordOfVermilion::applyAdditionalEffects(block_list* src, block_list* target, uint16 skill_lv, t_tick tick, int32 attack_type, enum damage_lv dmg_lv) const {

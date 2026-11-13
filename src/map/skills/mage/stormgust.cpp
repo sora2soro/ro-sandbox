@@ -24,6 +24,8 @@ void SkillStormGust::calculateSkillRatio(const Damage* wd, const block_list* src
 #else
 	base_skillratio += 40 * skill_lv;
 #endif
+	// [RO Sandbox] Phase 5: +25% damage to make up for the long cooldown.
+	base_skillratio = base_skillratio * 125 / 100;
 }
 
 void SkillStormGust::applyAdditionalEffects(block_list* src, block_list* target, uint16 skill_lv, t_tick tick, int32 attack_type, enum damage_lv dmg_lv) const {

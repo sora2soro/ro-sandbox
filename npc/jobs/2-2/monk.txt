@@ -328,12 +328,6 @@ monk_in,99,58,1	script	Sensei Moohae#mk	60,{
 	mes "Greetings, you seem to be on a pure path.";
 	mes "Come in, come in, what can I do for you today?";
 	next;
-	if (SkillPoint) {
-		mes "[Sensei Moohae]";
-		mes "If you have free skill points, you will lose them during a job change.";
-		mes "Make sure to use any skill points you have.";
-		close;
-	}
 	if (BaseJob == Job_Acolyte && MONK_Q == 2 && JobLevel > 39) {
 		mes "[Sensei Moohae]";
 		mes "I sense a fighting spirit, do you wish to become a monk? ";

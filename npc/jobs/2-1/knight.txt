@@ -129,12 +129,6 @@ prt_in,88,101,4	script	Chivalry Captain#knt	56,{
 					mes "Of course I understand your strong desire to join us, but now is not the time. Go out and fight some more monsters. We will be here waiting.";
 					close;
 				}
-				if (SkillPoint) {
-					mes "Ah...!";
-					mes "You cannot change jobs if you have unused skill points remaining. Return when you have used";
-					mes "all of your skill points.";
-					close;
-				}
 				set KNIGHT_Q,1;
 				setquest 9000;
 				mes "Let me see...";
@@ -302,11 +296,6 @@ prt_in,88,101,4	script	Chivalry Captain#knt	56,{
 		close;
 	}
 	else if (KNIGHT_Q == 14) {
-		if (SkillPoint) {
-			mes "Oh...!";
-			mes "You cannot change jobs if you have unused skill points remaining. Return once you have distributed all your skill points.";
-			close;
-		}
 		mes "Oh, have you completed all the tests? But not everyone who completes the tests can";
 		mes "become a Knight.";
 		next;

@@ -54,12 +54,6 @@ valkyrie,53,39,3	script	Paladin#Valkyrie	752,{
 			mes "Honor to the warriors!";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[Paladin]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
-			close;
-		}
 		jobchange Job_Paladin;
 		set ADVJOB,0;
 		mes "[Paladin]";

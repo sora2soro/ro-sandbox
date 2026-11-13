@@ -1672,22 +1672,6 @@ alde_alche,101,184,4	script	Master Alchemist#am	122,{
 			cutin "",255;
 			end;
 		}
-		if (SkillPoint) {
-			mes "Ah, you're almost";
-			mes "ready to become an";
-			mes "Alchemist, but you must";
-			mes "first allocate your unused";
-			mes "Skill Points.";
-			next;
-			mes "[Vincent Carsciallo]";
-			mes "Talk to me again";
-			mes "once you have spent";
-			mes "all of your extra";
-			mes "Skill Points.";
-			close2;
-			cutin "",255;
-			end;
-		}
 		if (checkquest(2039) != -1) {
 			changequest 2039,2040;
 		}

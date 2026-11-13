@@ -1885,6 +1885,9 @@ void unit_set_attackdelay(block_list& bl, t_tick tick, e_delay_event event)
 						// Skills used from items don't seem to give any attack or act delay
 						return;
 					}
+					// [RO Sandbox] Phase 5: Bash has no cast delay at all, so ASPD must not delay it or the next action.
+					if (ud->skill_id == SM_BASH)
+						return;
 					[[fallthrough]];
 				case DELAY_EVENT_ATTACK:
 				case DELAY_EVENT_PARRY:

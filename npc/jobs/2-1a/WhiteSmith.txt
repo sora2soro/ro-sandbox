@@ -58,12 +58,6 @@ valkyrie,44,50,5	script	MasterSmith#Valkyrie	731,{
 			mes "Honor to the warriors!";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[MasterSmith]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
-			close;
-		}
 		jobchange Job_Whitesmith;
 		set ADVJOB,0;
 		mes "[MasterSmith]";

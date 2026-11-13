@@ -258,15 +258,6 @@ morocc_in,174,30,6	script	Kid#link1	716,{
 			close;
 		}
 		else if (SOUL_Q == 2) {
-			if (SkillPoint) {
-				mes "[Maia]";
-				mes "You still have some";
-				mes "unallocated Skill Points.";
-				mes "Use them all to learn some";
-				mes "Taekwon Do skills, and then";
-				mes "return when you're ready.";
-				close;
-			}
 			if (.SoulLinkerTest == 1) {
 				mes "[Maia]";
 				mes "Right now, someone else";
@@ -440,10 +431,6 @@ OnTouch_:
 			mes "powers as a Soul Linker";
 			mes "wisely and for just purposes.";
 			next;
-			if (SkillPoint) {
-				mes "^0000ffYou still have unused skill points. Please use all remaining skill points and try again!^000000";
-				close;
-			}
 			completequest 6008;
 			callfunc "Job_Change",Job_Soul_Linker;
 			callfunc "F_ClearJobVar";	// clears all job variables for the current player

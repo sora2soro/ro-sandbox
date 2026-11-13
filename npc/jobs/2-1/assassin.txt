@@ -57,11 +57,6 @@ in_moc_16,19,33,1	script	Guildsman#asn	55,{
 		mes "I've never met anyone as intimidating as you! For some reason, I don't like you. I think you should leave!";
 		close;
 	}
-	if (SkillPoint) {
-		mes "[Ferocious-looking guy]";
-		mes "You can't change your job if you have any unused skill points from the 1st job. You better go and use those up first.";
-		close;
-	}
 	if (ASSIN_Q == 4) {
 		mes "[Ferocious-looking guy]";
 		mes "Oh, stop making that face. Can you really be in that much pain?";
@@ -230,12 +225,6 @@ in_moc_16,19,33,1	script	Guildsman#asn	55,{
 			close;
 		}
 		else if (BaseJob == Job_Thief && JobLevel > 39) {
-			if (SkillPoint) {
-				mes "[Ferocious-looking guy]";
-				mes "You can't change your job if you still have unused skill points from First Job. You better use up those skill points first.";
-				close;
-			}
-			else {
 				mes "[Ferocious-looking guy]";
 				mes "Hmm...";
 				mes "A Thief...?";
@@ -276,7 +265,6 @@ in_moc_16,19,33,1	script	Guildsman#asn	55,{
 					mes "you think you're ready.";
 					close;
 				}
-			}
 		}
 		else {
 			mes "[Ferocious-looking guy]";

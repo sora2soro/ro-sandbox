@@ -235,12 +235,6 @@ prt_church,16,41,4	script	High Bishop#prst	60,{
 					mes "There are still things that you must learn as an Acolyte. However, I look forward to meeting you again very soon.";
 					close;
 				}
-				if (SkillPoint) {
-					mes "[Bishop Paul]";
-					mes "You have skill points left.";
-					mes "I strongly recommend that you use all of these skill points before you apply for the Priest job change test.";
-					close;
-				}
 				set PRIEST_Q,1;
 				setquest 8009;
 					mes "[Bishop Paul]";
@@ -490,11 +484,6 @@ prt_church,16,41,4	script	High Bishop#prst	60,{
 		close;
 	}
 	else if (PRIEST_Q == 9) {
-		if (SkillPoint) {
-			mes "[Bishop Paul]";
-			mes "You have remaining skills points. Please use these skill points to upgrade your skills, and then return to me.";
-			close;
-		}
 		mes "[Bishop Paul]";
 		mes "Congratulations, you have completed the trials required of all Priests. Let me promote you to the position of Priest right away.";
 		next;

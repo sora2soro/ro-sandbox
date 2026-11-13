@@ -128,11 +128,6 @@
 					mes "Train yourself more as a Swordsman and wait for your calling. I understand your intent, but as of now, you cannot join us.";
 					close;
 				} 
-				if (SkillPoint) {
-					mes "[Michael Halig]";
-					mes "You haven't finished learning everything as a Swordsman. Use all of your remaining skill points, and then return to me.";
-					close;
-				}
 				mes "[Michael Halig]";
 				mes "Then...";
 				mes "I shall test you to see if you are fit to become a Crusader.";
@@ -275,10 +270,6 @@
 		close;
 	}
 	else if(CRUS_Q == 10) {
-		if(SkillPoint) {
-			mes "You haven't finished learning everything as a Swordsman. Use all of your remaining skill points, and then return to me.";
-			close;
-		}
 		mes "Congratulations on completing all of your tests. You are truly worthy of fighting alongside side us in the Holy War as a Crusader.";
 		next;
 		mes "[Michael Halig]";

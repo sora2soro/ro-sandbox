@@ -411,14 +411,6 @@ job_duncer,43,93,4	script	Aile#da	724,{
 }
 
 job_duncer,95,93,4	script	Bijou#da	101,{
-	if (SkillPoint) {
-		mes "[Bijou]";
-		mes "You can't change jobs";
-		mes "if you still have skill";
-		mes "points left. Use the rest";
-		mes "and come back later.";
-		close;
-	}
 	if (BaseJob != Job_Archer) {
 		if (BaseJob == Job_Bard) {
 			mes "[Bijou]";
@@ -850,14 +842,6 @@ job_duncer,95,93,4	script	Bijou#da	101,{
 		end;
 	}
 	else if (DANC_Q == 9) {
-		if (SkillPoint) {
-			mes "[Bijou]";
-			mes "You can't change jobs";
-			mes "if you still have skill";
-			mes "points left. Use the rest";
-			mes "and come back later.";
-			close;
-		}
 		mes "[Bijou]";
 		mes "Oh my...";
 		mes "I saw your";

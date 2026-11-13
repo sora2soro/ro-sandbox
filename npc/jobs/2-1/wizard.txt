@@ -110,12 +110,6 @@ gef_tower,111,37,4	script	Wizard Guildsman	70,{
 					mes "When I deem you're qualified, I will accept your application.";
 					close;
 				}
-				if (SkillPoint) {
-					mes "[Catherine]";
-					mes "Umm... You're well qualified, but you have some unused skill points left.";
-					mes "You'd better learn more skills before applying again.";
-					close;
-				}
 				mes "[Catherine]";
 				mes "Very well then, I accept your application.";
 				mes "Your name is..." + strcharinfo(0) + ", isn't it? I am not sure if I pronounced it correctly?";
@@ -403,12 +397,6 @@ gef_tower,111,37,4	script	Wizard Guildsman	70,{
 			mes "[Catherine]";
 			mes "There is nothing to be in hurry, so why don't you take your time for studying?";
 			mes "When the time comes, I will welcome you with open arms.";
-			close;
-		}
-		if (SkillPoint) {
-			mes "[Catherine]";
-			mes "Are you done with all the tests? Oh drats, it seems like you still have some skill points left.";
-			mes "Learn some other skills with your remaining points, and then come talk to me again.";
 			close;
 		}
 		mes "[Catherine]";

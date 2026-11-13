@@ -66,18 +66,6 @@ valkyrie,44,58,5	script	Assassin Cross#Valkyrie	725,{
 			mes "the warriors.";
 			close;
 		}
-		if (SkillPoint) {
-			mes "[Assassin Cross]";
-			mes "You still haven't";
-			mes "learned everything";
-			mes "that you can.";
-			next;
-			mes "[Assassin Cross]";
-			mes "Use all your";
-			mes "Skill Points";
-			mes "and then come back.";
-			close;
-		}
 		jobchange Job_Assassin_Cross;
 		set ADVJOB,0;
 		mes "[Assassin Cross]";

@@ -7576,8 +7576,6 @@ enum damage_lv battle_weapon_attack(block_list* src, block_list* target, t_tick 
 		sp = skill_get_sp(skill_id,skill_lv) * 2 / 3;
 
 		if (status_charge(src, 0, sp)) {
-			struct unit_data *ud = unit_bl2ud(src);
-
 			switch (skill_get_casttype(skill_id)) {
 				case CAST_GROUND:
 					skill_castend_pos2(src, target->x, target->y, skill_id, skill_lv, tick, flag);
@@ -7589,15 +7587,8 @@ enum damage_lv battle_weapon_attack(block_list* src, block_list* target, t_tick 
 					skill_castend_damage_id(src, target, skill_id, skill_lv, tick, flag);
 					break;
 			}
-			if (ud) {
-				int32 autospell_tick = skill_delayfix(src, skill_id, skill_lv);
-
-				if (DIFF_TICK(ud->canact_tick, tick + autospell_tick) < 0) {
-					ud->canact_tick = i64max(tick + autospell_tick, ud->canact_tick);
-					if (battle_config.display_status_timers && sd)
-						clif_status_change(src, EFST_POSTDELAY, 1, autospell_tick, 0, 0, 0);
-				}
-			}
+			// [RO Sandbox] Phase 5: Hindsight (SC_AUTOSPELL) autocasts give no after-cast delay.
+			// Item and card autocasts (battle_config / skill_additional_effect) keep theirs.
 		}
 	}
 	if (sd) {
