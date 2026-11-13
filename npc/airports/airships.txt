@@ -662,7 +662,7 @@ OnTouch_:
 		if(checkre(0))
 			warp "izlude",200,73;
 		else
-			warp "izlude",200,56;
+			warp "izlude",200,73;
 		end;
 	case 2: warp "yuno",12,261; end;
 	}

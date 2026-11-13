@@ -137,7 +137,7 @@ function	script	F_CashCity	{
 	case 1: // Yellow - Rune-Midgarts
 		switch(select("Prontera:Izlude:Geffen:Payon:Morocc:Alberta:Al de Baran")) {
 			case 1: warp "prontera",122,87; end;
-			case 2: if (checkre(0)) warp "izlude",130,90; else warp "izlude",91,105; end;
+			case 2: if (checkre(0)) warp "izlude",130,90; else warp "izlude",128,98; end;
 			case 3: warp "geffen",128,48; end;
 			case 4: warp "payon",164,123; end;
 			case 5: warp "morocc",160,100; end;
@@ -189,7 +189,7 @@ function	script	F_CashTele	{
 		case 1: warp "prontera",119,77; end;
 		case 2: warp "geffen",119,39; end;
 		case 3: warp "aldebaran",165,107; end;
-		case 4: if (checkre(0)) warp "izlude",128,105; else warp "izlude",91,105; end;
+		case 4: if (checkre(0)) warp "izlude",128,105; else warp "izlude",128,98; end;
 		case 5: warp "SavePoint",0,0; end;
 		}
 	case 2:
