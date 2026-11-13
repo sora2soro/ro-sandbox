@@ -1152,8 +1152,8 @@ Header:
 
 Body:
   - Id: 1001
-    BaseExp: 435
-    JobExp: 358
+    BaseExp: 1631
+    JobExp: 2685
     Drops:
       - Item: Boody_Red
         Rate: 70
@@ -1181,8 +1181,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1002
-    BaseExp: 7
-    JobExp: 6
+    BaseExp: 26
+    JobExp: 45
     Drops:
       - Item: Jellopy
         Rate: 10000
@@ -1210,8 +1210,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1004
-    BaseExp: 55
-    JobExp: 72
+    BaseExp: 206
+    JobExp: 540
     Drops:
       - Item: Wind_Of_Verdure
         Rate: 80
@@ -1236,8 +1236,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1005
-    BaseExp: 81
-    JobExp: 72
+    BaseExp: 303
+    JobExp: 540
     Drops:
       - Item: Tooth_Of_Bat
         Rate: 10000
@@ -1265,8 +1265,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1007
-    BaseExp: 10
-    JobExp: 12
+    BaseExp: 37
+    JobExp: 90
     Drops:
       - Item: Fluff
         Rate: 10000
@@ -1294,8 +1294,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1008
-    BaseExp: 7
-    JobExp: 23
+    BaseExp: 26
+    JobExp: 172
     Drops:
       - Item: Phracon
         Rate: 80
@@ -1323,8 +1323,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1009
-    BaseExp: 19
-    JobExp: 27
+    BaseExp: 71
+    JobExp: 202
     Drops:
       - Item: Talon
         Rate: 10000
@@ -1352,8 +1352,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1010
-    BaseExp: 16
-    JobExp: 33
+    BaseExp: 60
+    JobExp: 247
     Drops:
       - Item: Tree_Root
         Rate: 10000
@@ -1381,8 +1381,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1011
-    BaseExp: 16
-    JobExp: 22
+    BaseExp: 60
+    JobExp: 165
     Drops:
       - Item: Iron
         Rate: 50
@@ -1410,8 +1410,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1012
-    BaseExp: 19
-    JobExp: 27
+    BaseExp: 71
+    JobExp: 202
     Drops:
       - Item: Sticky_Webfoot
         Rate: 10000
@@ -1433,8 +1433,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1013
-    BaseExp: 471
-    JobExp: 371
+    BaseExp: 1766
+    JobExp: 2782
     Drops:
       - Item: Emveretarcon
         Rate: 20
@@ -1462,8 +1462,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1014
-    BaseExp: 146
-    JobExp: 554
+    BaseExp: 547
+    JobExp: 4155
     Drops:
       - Item: Mushroom_Spore
         Rate: 10000
@@ -1494,8 +1494,8 @@ Body:
         Rate: 9761
         Index: 8
   - Id: 1015
-    BaseExp: 115
-    JobExp: 177
+    BaseExp: 431
+    JobExp: 1327
     Drops:
       - Item: Decayed_Nail
         Rate: 10000
@@ -1517,6 +1517,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1016
+    BaseExp: 1811
+    JobExp: 2122
     Drops:
       - Item: Skel_Bone
         Rate: 4500
@@ -1544,8 +1546,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1018
-    BaseExp: 232
-    JobExp: 239
+    BaseExp: 870
+    JobExp: 1792
     Drops:
       - Item: Powder_Of_Butterfly
         Rate: 10000
@@ -1573,8 +1575,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1019
-    BaseExp: 310
-    JobExp: 314
+    BaseExp: 1162
+    JobExp: 2355
     Drops:
       - Item: Bill_Of_Birds
         Rate: 10000
@@ -1602,8 +1604,8 @@ Body:
         Rate: 6738
         Index: 7
   - Id: 1020
-    BaseExp: 115
-    JobExp: 131
+    BaseExp: 431
+    JobExp: 982
     Drops:
       - Item: Yellow_Live
         Rate: 50
@@ -1634,8 +1636,8 @@ Body:
         Rate: 10000
         Index: 8
   - Id: 1023
-    BaseExp: 619
-    JobExp: 2200
+    BaseExp: 2321
+    JobExp: 16500
     Drops:
       - Item: Iron
         Rate: 7548
@@ -1666,8 +1668,8 @@ Body:
         Rate: 10000
         Index: 8
   - Id: 1024
-    BaseExp: 140
-    JobExp: 150
+    BaseExp: 525
+    JobExp: 1125
     Drops:
       - Item: Yellow_Live
         Rate: 60
@@ -1695,8 +1697,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1025
-    BaseExp: 165
-    JobExp: 172
+    BaseExp: 618
+    JobExp: 1290
     Drops:
       - Item: Scale_Of_Snakes
         Rate: 10000
@@ -1724,6 +1726,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1026
+    BaseExp: 2253
+    JobExp: 2385
     Drops:
       - Item: Danggie
         Rate: 10000
@@ -1751,8 +1755,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1028
-    BaseExp: 404
-    JobExp: 265
+    BaseExp: 1515
+    JobExp: 1987
     Drops:
       - Item: Skel_Bone
         Rate: 10000
@@ -1780,6 +1784,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1029
+    BaseExp: 13908
+    JobExp: 11625
     Drops:
       - Item: Scales_Shell
         Rate: 5335
@@ -1807,8 +1813,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1030
-    BaseExp: 481
-    JobExp: 329
+    BaseExp: 1803
+    JobExp: 2467
     Drops:
       - Item: Emveretarcon
         Rate: 50
@@ -1836,8 +1842,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1031
-    BaseExp: 193
-    JobExp: 248
+    BaseExp: 723
+    JobExp: 1860
     Drops:
       - Item: Sticky_Mucus
         Rate: 10000
@@ -1865,6 +1871,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1032
+    BaseExp: 3131
+    JobExp: 3877
     Drops:
       - Item: Immortal_Heart
         Rate: 9000
@@ -1892,8 +1900,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1033
-    BaseExp: 304
-    JobExp: 275
+    BaseExp: 1140
+    JobExp: 2062
     Drops:
       - Item: Boody_Red
         Rate: 50
@@ -1921,8 +1929,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1034
-    BaseExp: 370
-    JobExp: 328
+    BaseExp: 1387
+    JobExp: 2460
     Drops:
       - Item: Emveretarcon
         Rate: 45
@@ -1947,6 +1955,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1035
+    BaseExp: 5688
+    JobExp: 7140
     Drops:
       - Item: Rough_Wind
         Rate: 30
@@ -1974,6 +1984,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1036
+    BaseExp: 4080
+    JobExp: 4665
     Drops:
       - Item: Horrendous_Mouth
         Rate: 6000
@@ -2001,6 +2013,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1037
+    BaseExp: 7485
+    JobExp: 7447
     Drops:
       - Item: Shining_Scales
         Rate: 5335
@@ -2027,9 +2041,15 @@ Body:
         Rate: 5
         Index: 7
         StealProtected: true
+  - Id: 1038
+    BaseExp: 268125
+    JobExp: 214500
+  - Id: 1039
+    BaseExp: 402187
+    JobExp: 284212
   - Id: 1040
-    BaseExp: 665
-    JobExp: 175
+    BaseExp: 2493
+    JobExp: 1312
     Drops:
       - Item: Steel
         Rate: 3024
@@ -2057,6 +2077,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1041
+    BaseExp: 3000
+    JobExp: 4515
     Drops:
       - Item: Rotten_Bandage
         Rate: 9000
@@ -2084,8 +2106,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1042
-    BaseExp: 231
-    JobExp: 230
+    BaseExp: 866
+    JobExp: 1725
     Drops:
       - Item: Wind_Of_Verdure
         Rate: 90
@@ -2113,6 +2135,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1044
+    BaseExp: 2415
+    JobExp: 3052
     Drops:
       - Item: Mistic_Frozen
         Rate: 13
@@ -2140,7 +2164,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1045
-    JobExp: 4219
+    BaseExp: 3705
+    JobExp: 31642
     Drops:
       - Item: Mistic_Frozen
         Rate: 18
@@ -2167,9 +2192,12 @@ Body:
         Rate: 8
         Index: 7
         StealProtected: true
+  - Id: 1046
+    BaseExp: 193050
+    JobExp: 80437
   - Id: 1047
-    BaseExp: 13
-    JobExp: 23
+    BaseExp: 48
+    JobExp: 172
     Drops:
       - Item: Phracon
         Rate: 7511
@@ -2197,8 +2225,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1048
-    BaseExp: 26
-    JobExp: 22
+    BaseExp: 97
+    JobExp: 165
     Drops:
       - Item: Phracon
         Rate: 10000
@@ -2226,8 +2254,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1049
-    BaseExp: 13
-    JobExp: 17
+    BaseExp: 48
+    JobExp: 127
     Drops:
       - Item: Feather_Of_Birds
         Rate: 10000
@@ -2255,8 +2283,8 @@ Body:
         Rate: 10000
         Index: 7
   - Id: 1050
-    BaseExp: 16
-    JobExp: 22
+    BaseExp: 60
+    JobExp: 165
     Drops:
       - Item: Feather_Of_Birds
         Rate: 10000
@@ -2284,8 +2312,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1051
-    BaseExp: 52
-    JobExp: 26
+    BaseExp: 195
+    JobExp: 195
     Drops:
       - Item: Worm_Peelings
         Rate: 10000
@@ -2310,8 +2338,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1052
-    BaseExp: 56
-    JobExp: 111
+    BaseExp: 210
+    JobExp: 832
     Drops:
       - Item: Grasshopper's_Leg
         Rate: 10000
@@ -2342,8 +2370,8 @@ Body:
         Rate: 10000
         Index: 8
   - Id: 1053
-    BaseExp: 95
-    JobExp: 80
+    BaseExp: 356
+    JobExp: 600
     Drops:
       - Item: Worm_Peelings
         Rate: 10000
@@ -2371,8 +2399,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1054
-    BaseExp: 434
-    JobExp: 269
+    BaseExp: 1627
+    JobExp: 2017
     Drops:
       - Item: Emveretarcon
         Rate: 40
@@ -2400,8 +2428,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1055
-    BaseExp: 579
-    JobExp: 584
+    BaseExp: 2171
+    JobExp: 4380
     Drops:
       - Item: Yellow_Live
         Rate: 70
@@ -2429,8 +2457,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1056
-    BaseExp: 273
-    JobExp: 264
+    BaseExp: 1023
+    JobExp: 1980
     Drops:
       - Item: Raccoon_Leaf
         Rate: 10000
@@ -2458,8 +2486,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1057
-    BaseExp: 497
-    JobExp: 283
+    BaseExp: 1863
+    JobExp: 2122
     Drops:
       - Item: Yoyo_Tail
         Rate: 10000
@@ -2487,8 +2515,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1058
-    BaseExp: 407
-    JobExp: 2444
+    BaseExp: 1526
+    JobExp: 18330
     Drops:
       - Item: Boody_Red
         Rate: 60
@@ -2515,9 +2543,12 @@ Body:
         Rate: 13
         Index: 7
         StealProtected: true
+  - Id: 1059
+    BaseExp: 147468
+    JobExp: 203775
   - Id: 1060
-    BaseExp: 444
-    JobExp: 350
+    BaseExp: 1665
+    JobExp: 2625
     Drops:
       - Item: Bear's_Foot
         Rate: 10000
@@ -2548,6 +2579,8 @@ Body:
         Rate: 2546
         Index: 8
   - Id: 1061
+    BaseExp: 7170
+    JobExp: 14340
     Drops:
       - Item: Horseshoe
         Rate: 6000
@@ -2575,8 +2608,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1062
-    BaseExp: 13
-    JobExp: 28
+    BaseExp: 48
+    JobExp: 210
     Drops:
       - Item: Candy
         Rate: 10000
@@ -2601,8 +2634,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1063
-    BaseExp: 20
-    JobExp: 11
+    BaseExp: 75
+    JobExp: 82
     Drops:
       - Item: Clover
         Rate: 10000
@@ -2633,8 +2666,8 @@ Body:
         Rate: 7357
         Index: 8
   - Id: 1064
-    BaseExp: 326
-    JobExp: 269
+    BaseExp: 1222
+    JobExp: 2017
     Drops:
       - Item: Rotten_Scale
         Rate: 10000
@@ -2662,6 +2695,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1065
+    BaseExp: 11550
+    JobExp: 15735
     Drops:
       - Item: Fin
         Rate: 5335
@@ -2689,8 +2724,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1066
-    BaseExp: 263
-    JobExp: 246
+    BaseExp: 986
+    JobExp: 1845
     Drops:
       - Item: Crystal_Blue
         Rate: 40
@@ -2718,8 +2753,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1067
-    BaseExp: 385
-    JobExp: 329
+    BaseExp: 1443
+    JobExp: 2467
     Drops:
       - Item: Crystal_Blue
         Rate: 45
@@ -2747,8 +2782,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1068
-    BaseExp: 140
-    JobExp: 150
+    BaseExp: 525
+    JobExp: 1125
     Drops:
       - Item: Emveretarcon
         Rate: 25
@@ -2773,6 +2808,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1069
+    BaseExp: 4691
+    JobExp: 4785
     Drops:
       - Item: Mistic_Frozen
         Rate: 10
@@ -2800,8 +2837,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1070
-    BaseExp: 100
-    JobExp: 120
+    BaseExp: 375
+    JobExp: 900
     Drops:
       - Item: Crystal_Blue
         Rate: 30
@@ -2832,8 +2869,8 @@ Body:
         Rate: 6405
         Index: 8
   - Id: 1071
-    BaseExp: 333
-    JobExp: 264
+    BaseExp: 1248
+    JobExp: 1980
     Drops:
       - Item: Skel_Bone
         Rate: 10000
@@ -2860,9 +2897,12 @@ Body:
         Rate: 12
         Index: 7
         StealProtected: true
+  - Id: 1072
+    BaseExp: 14962
+    JobExp: 3375
   - Id: 1073
-    BaseExp: 304
-    JobExp: 275
+    BaseExp: 1140
+    JobExp: 2062
     Drops:
       - Item: Crap_Shell
         Rate: 10000
@@ -2887,8 +2927,8 @@ Body:
         Rate: 6728
         Index: 6
   - Id: 1074
-    BaseExp: 151
-    JobExp: 158
+    BaseExp: 566
+    JobExp: 1185
     Drops:
       - Item: Clam_Shell
         Rate: 10000
@@ -2916,8 +2956,8 @@ Body:
         Rate: 8434
         Index: 7
   - Id: 1076
-    BaseExp: 49
-    JobExp: 93
+    BaseExp: 183
+    JobExp: 697
     Drops:
       - Item: Phracon
         Rate: 90
@@ -2942,8 +2982,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1077
-    BaseExp: 362
-    JobExp: 1816
+    BaseExp: 1357
+    JobExp: 13620
     Drops:
       - Item: Poison_Spore
         Rate: 10000
@@ -2971,8 +3011,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1078
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Red_Herb
         Rate: 10000
@@ -3000,8 +3038,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1079
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Blue_Herb
         Rate: 10000
@@ -3029,8 +3065,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1080
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Green_Herb
         Rate: 10000
@@ -3058,8 +3092,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1081
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Yellow_Herb
         Rate: 10000
@@ -3087,8 +3119,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1082
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: White_Herb
         Rate: 10000
@@ -3116,8 +3146,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1083
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Blue_Herb
         Rate: 10000
@@ -3145,8 +3173,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1084
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Alchol
         Rate: 50
@@ -3174,8 +3200,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1085
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Alchol
         Rate: 50
@@ -3203,6 +3227,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1086
+    BaseExp: 53625
+    JobExp: 53625
     MvpDrops:
       - Item: Gold_Ring
         Rate: 2000
@@ -3239,9 +3265,12 @@ Body:
       - Item: Recipe_Blade_Golden_Lining
         Rate: 100
         Index: 8
+  - Id: 1087
+    BaseExp: 219862
+    JobExp: 246675
   - Id: 1088
-    BaseExp: 224
-    JobExp: 270
+    BaseExp: 840
+    JobExp: 2025
     Drops:
       - Item: Oldman's_Romance
         Rate: 250
@@ -3268,9 +3297,24 @@ Body:
         Rate: 15
         Index: 7
         StealProtected: true
+  - Id: 1089
+    BaseExp: 375
+    JobExp: 375
+  - Id: 1090
+    BaseExp: 112
+    JobExp: 75
+  - Id: 1091
+    BaseExp: 330
+    JobExp: 330
+  - Id: 1092
+    BaseExp: 926
+    JobExp: 1320
+  - Id: 1093
+    BaseExp: 225
+    JobExp: 412
   - Id: 1094
-    BaseExp: 141
-    JobExp: 149
+    BaseExp: 528
+    JobExp: 1117
     Drops:
       - Item: Crystal_Blue
         Rate: 50
@@ -3298,8 +3342,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1095
-    BaseExp: 231
-    JobExp: 345
+    BaseExp: 866
+    JobExp: 2587
     Drops:
       - Item: Worm_Peelings
         Rate: 10000
@@ -3326,9 +3370,12 @@ Body:
         Rate: 15
         Index: 7
         StealProtected: true
+  - Id: 1096
+    BaseExp: 611
+    JobExp: 1080
   - Id: 1097
-    BaseExp: 16
-    JobExp: 33
+    BaseExp: 60
+    JobExp: 247
     Drops:
       - Item: Phracon
         Rate: 4645
@@ -3352,7 +3399,12 @@ Body:
         Rate: 19
         Index: 6
         StealProtected: true
+  - Id: 1098
+    BaseExp: 105000
+    JobExp: 165000
   - Id: 1099
+    BaseExp: 6738
+    JobExp: 6367
     Drops:
       - Item: Short_Leg
         Rate: 5335
@@ -3377,8 +3429,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1100
-    BaseExp: 555
-    JobExp: 350
+    BaseExp: 2081
+    JobExp: 2625
     Drops:
       - Item: Spiderweb
         Rate: 10000
@@ -3405,7 +3457,12 @@ Body:
         Rate: 12
         Index: 7
         StealProtected: true
+  - Id: 1101
+    BaseExp: 10147
+    JobExp: 11100
   - Id: 1102
+    BaseExp: 9386
+    JobExp: 7755
     Drops:
       - Item: Sparkling_Dust
         Rate: 200
@@ -3433,8 +3490,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1103
-    BaseExp: 423
-    JobExp: 358
+    BaseExp: 1586
+    JobExp: 2685
     Drops:
       - Item: Porcupine_Spike
         Rate: 10000
@@ -3459,8 +3516,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1104
-    BaseExp: 254
-    JobExp: 253
+    BaseExp: 952
+    JobExp: 1897
     Drops:
       - Item: Acorn
         Rate: 10000
@@ -3488,8 +3545,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1105
-    BaseExp: 263
-    JobExp: 369
+    BaseExp: 986
+    JobExp: 2767
     Drops:
       - Item: Worm_Peelings
         Rate: 10000
@@ -3517,8 +3574,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1106
-    BaseExp: 537
-    JobExp: 404
+    BaseExp: 2013
+    JobExp: 3030
     Drops:
       - Item: Katar_
         Rate: 15
@@ -3546,8 +3603,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1107
-    BaseExp: 56
-    JobExp: 74
+    BaseExp: 210
+    JobExp: 555
     Drops:
       - Item: Phracon
         Rate: 85
@@ -3575,6 +3632,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1108
+    BaseExp: 37455
+    JobExp: 54052
     Drops:
       - Item: Mistic_Frozen
         Rate: 25
@@ -3602,6 +3661,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1109
+    BaseExp: 9982
+    JobExp: 9585
     Drops:
       - Item: Petite_DiablOfs_Horn
         Rate: 5335
@@ -3629,6 +3690,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1110
+    BaseExp: 3333
+    JobExp: 3412
     Drops:
       - Item: Dokkaebi_Horn
         Rate: 9000
@@ -3656,8 +3719,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1111
-    BaseExp: 654
-    JobExp: 358
+    BaseExp: 2452
+    JobExp: 2685
     Drops:
       - Item: Emveretarcon
         Rate: 60
@@ -3684,9 +3747,12 @@ Body:
         Rate: 13
         Index: 7
         StealProtected: true
+  - Id: 1112
+    BaseExp: 107250
+    JobExp: 171600
   - Id: 1113
-    BaseExp: 13
-    JobExp: 17
+    BaseExp: 48
+    JobExp: 127
     Drops:
       - Item: Jellopy
         Rate: 10000
@@ -3714,8 +3780,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1114
-    BaseExp: 387
-    JobExp: 2410
+    BaseExp: 1451
+    JobExp: 18075
     Drops:
       - Item: Moth_Dust
         Rate: 10000
@@ -3739,9 +3805,12 @@ Body:
         Rate: 14
         Index: 6
         StealProtected: true
+  - Id: 1115
+    BaseExp: 93843
+    JobExp: 96525
   - Id: 1116
-    BaseExp: 326
-    JobExp: 3024
+    BaseExp: 1222
+    JobExp: 22680
     Drops:
       - Item: Scell
         Rate: 10000
@@ -3768,9 +3837,12 @@ Body:
         Rate: 13
         Index: 7
         StealProtected: true
+  - Id: 1117
+    BaseExp: 10837
+    JobExp: 13702
   - Id: 1118
-    BaseExp: 480
-    JobExp: 2578
+    BaseExp: 1800
+    JobExp: 19335
     Drops:
       - Item: Blossom_Of_Maneater
         Rate: 10000
@@ -3798,7 +3870,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1119
-    JobExp: 2153
+    BaseExp: 1983
+    JobExp: 16147
     Drops:
       - Item: Lizard_Scruff
         Rate: 10000
@@ -3825,9 +3898,12 @@ Body:
         Rate: 10
         Index: 7
         StealProtected: true
+  - Id: 1120
+    BaseExp: 378
+    JobExp: 810
   - Id: 1121
-    BaseExp: 538
-    JobExp: 353
+    BaseExp: 2017
+    JobExp: 2647
     Drops:
       - Item: Great_Nature
         Rate: 30
@@ -3852,8 +3928,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1122
-    BaseExp: 444
-    JobExp: 350
+    BaseExp: 1665
+    JobExp: 2625
     Drops:
       - Item: Iron
         Rate: 10000
@@ -3881,8 +3957,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1123
-    BaseExp: 435
-    JobExp: 358
+    BaseExp: 1631
+    JobExp: 2685
     Drops:
       - Item: Iron
         Rate: 10000
@@ -3910,8 +3986,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1124
-    BaseExp: 542
-    JobExp: 358
+    BaseExp: 2032
+    JobExp: 2685
     Drops:
       - Item: Iron
         Rate: 6408
@@ -3939,8 +4015,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1125
-    BaseExp: 423
-    JobExp: 362
+    BaseExp: 1586
+    JobExp: 2715
     Drops:
       - Item: Yellow_Live
         Rate: 10000
@@ -3968,8 +4044,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1126
-    BaseExp: 407
-    JobExp: 362
+    BaseExp: 1526
+    JobExp: 2715
     Drops:
       - Item: Iron
         Rate: 5399
@@ -3997,8 +4073,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1127
-    BaseExp: 740
-    JobExp: 3422
+    BaseExp: 2775
+    JobExp: 25665
     Drops:
       - Item: Yellow_Live
         Rate: 10000
@@ -4026,8 +4102,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1128
-    BaseExp: 273
-    JobExp: 264
+    BaseExp: 1023
+    JobExp: 1980
     Drops:
       - Item: Yellow_Live
         Rate: 80
@@ -4052,6 +4128,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1129
+    BaseExp: 2947
+    JobExp: 3592
     Drops:
       - Item: Stone_Heart
         Rate: 6500
@@ -4079,6 +4157,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1130
+    BaseExp: 5280
+    JobExp: 6600
     Drops:
       - Item: Pumpkin_Head
         Rate: 9000
@@ -4102,7 +4182,12 @@ Body:
         Rate: 7
         Index: 6
         StealProtected: true
+  - Id: 1131
+    BaseExp: 13897
+    JobExp: 17715
   - Id: 1132
+    BaseExp: 16417
+    JobExp: 20625
     Drops:
       - Item: Skel_Bone
         Rate: 8000
@@ -4133,6 +4218,8 @@ Body:
         Rate: 5
         Index: 8
   - Id: 1133
+    BaseExp: 3705
+    JobExp: 4687
     Drops:
       - Item: Steel
         Rate: 100
@@ -4160,6 +4247,8 @@ Body:
         Rate: 500
         Index: 7
   - Id: 1134
+    BaseExp: 3022
+    JobExp: 3052
     Drops:
       - Item: Steel
         Rate: 100
@@ -4184,6 +4273,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1135
+    BaseExp: 2415
+    JobExp: 3052
     Drops:
       - Item: Boody_Red
         Rate: 35
@@ -4211,8 +4302,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1138
-    BaseExp: 529
-    JobExp: 419
+    BaseExp: 1983
+    JobExp: 3142
     Drops:
       - Item: Old_Frying_Pan
         Rate: 10000
@@ -4240,8 +4331,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1139
-    BaseExp: 529
-    JobExp: 419
+    BaseExp: 1983
+    JobExp: 3142
     Drops:
       - Item: Yellow_Live
         Rate: 1316
@@ -4269,6 +4360,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1140
+    BaseExp: 4642
+    JobExp: 5640
     Drops:
       - Item: Flame_Heart
         Rate: 35
@@ -4296,8 +4389,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1141
-    BaseExp: 387
-    JobExp: 357
+    BaseExp: 1451
+    JobExp: 2677
     Drops:
       - Item: Single_Cell
         Rate: 10000
@@ -4322,8 +4415,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1142
-    BaseExp: 540
-    JobExp: 382
+    BaseExp: 2025
+    JobExp: 2865
     Drops:
       - Item: Tendon
         Rate: 10000
@@ -4348,6 +4441,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1143
+    BaseExp: 4042
+    JobExp: 9570
     Drops:
       - Item: Golden_Hair
         Rate: 9000
@@ -4375,6 +4470,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1144
+    BaseExp: 2197
+    JobExp: 2775
     Drops:
       - Item: Chinese_Ink
         Rate: 9000
@@ -4402,8 +4499,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1145
-    BaseExp: 273
-    JobExp: 264
+    BaseExp: 1023
+    JobExp: 1980
     Drops:
       - Item: Moustache_Of_Mole
         Rate: 10000
@@ -4431,6 +4528,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1146
+    BaseExp: 3626
+    JobExp: 3052
     Drops:
       - Item: Matyr's_Flea_Guard
         Rate: 30
@@ -4454,9 +4553,21 @@ Body:
         Rate: 10
         Index: 6
         StealProtected: true
+  - Id: 1147
+    BaseExp: 160875
+    JobExp: 134062
+  - Id: 1148
+    BaseExp: 25785
+    JobExp: 35227
   - Id: 1149
-    JobExp: 3792
+    BaseExp: 10312
+    JobExp: 28440
+  - Id: 1150
+    BaseExp: 103125
+    JobExp: 107250
   - Id: 1151
+    BaseExp: 5216
+    JobExp: 5160
     Drops:
       - Item: Gas_Mask
         Rate: 2
@@ -4484,8 +4595,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1152
-    BaseExp: 369
-    JobExp: 261
+    BaseExp: 1383
+    JobExp: 1957
     Drops:
       - Item: Orcish_Cuspid
         Rate: 10000
@@ -4510,8 +4621,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1153
-    BaseExp: 297
-    JobExp: 1647
+    BaseExp: 1113
+    JobExp: 12352
     Drops:
       - Item: Nail_Of_Orc
         Rate: 10000
@@ -4526,8 +4637,12 @@ Body:
         Rate: 13
         Index: 3
         StealProtected: true
+  - Id: 1154
+    BaseExp: 15326
+    JobExp: 16012
   - Id: 1155
-    JobExp: 2844
+    BaseExp: 6288
+    JobExp: 21330
     Drops:
       - Item: Dragon_Canine
         Rate: 5335
@@ -4555,7 +4670,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1156
-    JobExp: 2956
+    BaseExp: 6592
+    JobExp: 22170
     Drops:
       - Item: Dragon_Scale
         Rate: 5335
@@ -4585,9 +4701,12 @@ Body:
       - Item: Green_Gemstone
         Rate: 200
         Index: 8
+  - Id: 1157
+    BaseExp: 431212
+    JobExp: 314242
   - Id: 1158
-    BaseExp: 480
-    JobExp: 382
+    BaseExp: 1800
+    JobExp: 2865
     Drops:
       - Item: Fish_Tail
         Rate: 10000
@@ -4611,9 +4730,12 @@ Body:
         Rate: 12
         Index: 6
         StealProtected: true
+  - Id: 1159
+    BaseExp: 120656
+    JobExp: 123337
   - Id: 1160
-    BaseExp: 248
-    JobExp: 358
+    BaseExp: 930
+    JobExp: 2685
     Drops:
       - Item: Worm_Peelings
         Rate: 10000
@@ -4641,8 +4763,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1161
-    BaseExp: 63
-    JobExp: 80
+    BaseExp: 236
+    JobExp: 600
     Drops:
       - Item: Single_Cell
         Rate: 10000
@@ -4670,8 +4792,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1162
-    BaseExp: 706
-    JobExp: 1079
+    BaseExp: 2647
+    JobExp: 8092
     Drops:
       - Item: Root_Of_Maneater
         Rate: 10000
@@ -4699,6 +4821,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1163
+    BaseExp: 12787
+    JobExp: 13462
     Drops:
       - Item: Elunium
         Rate: 106
@@ -4729,6 +4853,8 @@ Body:
         Rate: 5
         Index: 8
   - Id: 1164
+    BaseExp: 3000
+    JobExp: 3435
     Drops:
       - Item: Old_Blue_Box
         Rate: 35
@@ -4756,7 +4882,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1165
-    JobExp: 3321
+    BaseExp: 3037
+    JobExp: 24907
     Drops:
       - Item: Great_Nature
         Rate: 35
@@ -4784,8 +4911,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1166
-    BaseExp: 701
-    JobExp: 419
+    BaseExp: 2628
+    JobExp: 3142
     Drops:
       - Item: Wild_Boar's_Mane
         Rate: 10000
@@ -4816,8 +4943,8 @@ Body:
         Rate: 10000
         Index: 8
   - Id: 1167
-    BaseExp: 42
-    JobExp: 90
+    BaseExp: 157
+    JobExp: 675
     Drops:
       - Item: Animal's_Skin
         Rate: 10000
@@ -4845,6 +4972,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1169
+    BaseExp: 1488
+    JobExp: 1800
     Drops:
       - Item: Iron
         Rate: 5343
@@ -4872,7 +5001,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1170
-    JobExp: 3071
+    BaseExp: 2771
+    JobExp: 23032
     Drops:
       - Item: Long_Hair
         Rate: 9000
@@ -4900,8 +5030,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1174
-    BaseExp: 232
-    JobExp: 239
+    BaseExp: 870
+    JobExp: 1792
     Drops:
       - Item: Wind_Of_Verdure
         Rate: 70
@@ -4932,8 +5062,8 @@ Body:
         Rate: 10
         Index: 8
   - Id: 1175
-    BaseExp: 150
-    JobExp: 120
+    BaseExp: 562
+    JobExp: 900
     Drops:
       - Item: Rat_Tail
         Rate: 10000
@@ -4955,8 +5085,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1176
-    BaseExp: 304
-    JobExp: 275
+    BaseExp: 1140
+    JobExp: 2062
     Drops:
       - Item: Yellow_Live
         Rate: 90
@@ -4984,6 +5114,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1177
+    BaseExp: 3626
+    JobExp: 3052
     Drops:
       - Item: Tooth_Of_
         Rate: 5500
@@ -5008,8 +5140,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1178
-    BaseExp: 385
-    JobExp: 329
+    BaseExp: 1443
+    JobExp: 2467
     Drops:
       - Item: Emveretarcon
         Rate: 55
@@ -5037,6 +5169,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1179
+    BaseExp: 2216
+    JobExp: 4492
     Drops:
       - Item: Sparkling_Dust
         Rate: 150
@@ -5054,9 +5188,10 @@ Body:
         Rate: 9
         Index: 4
         StealProtected: true
+  - Id: 1180
+    BaseExp: 10545
+    JobExp: 6187
   - Id: 1182
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Mushroom_Of_Thief_1
         Rate: 10000
@@ -5065,8 +5200,8 @@ Body:
         Rate: 10000
         Index: 1
   - Id: 1183
-    BaseExp: 16
-    JobExp: 22
+    BaseExp: 60
+    JobExp: 165
     Drops:
       - Item: Iron
         Rate: 50
@@ -5091,8 +5226,7 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1184
-    BaseExp: 4
-    JobExp: 0
+    BaseExp: 15
     Drops:
       - Item: Fluff
         Rate: 10000
@@ -5116,6 +5250,8 @@ Body:
         Rate: 1000
         Index: 6
   - Id: 1185
+    BaseExp: 2013
+    JobExp: 4087
     Drops:
       - Item: Sparkling_Dust
         Rate: 10
@@ -5127,6 +5263,8 @@ Body:
         Rate: 3
         Index: 2
   - Id: 1186
+    BaseExp: 2013
+    JobExp: 4087
     Drops:
       - Item: Sparkling_Dust
         Rate: 150
@@ -5145,9 +5283,11 @@ Body:
         Index: 4
         StealProtected: true
   - Id: 1187
-    BaseExp: 4
-    JobExp: 6
+    BaseExp: 15
+    JobExp: 45
   - Id: 1188
+    BaseExp: 1590
+    JobExp: 1815
     Drops:
       - Item: Short_Daenggie
         Rate: 5500
@@ -5175,6 +5315,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1189
+    BaseExp: 6483
+    JobExp: 13402
     Drops:
       - Item: Sharpened_Cuspid
         Rate: 4656
@@ -5201,7 +5343,12 @@ Body:
         Rate: 2
         Index: 7
         StealProtected: true
+  - Id: 1190
+    BaseExp: 233268
+    JobExp: 64350
   - Id: 1191
+    BaseExp: 618
+    JobExp: 1237
     Drops:
       - Item: Old_Violet_Box
         Rate: 5
@@ -5231,8 +5378,30 @@ Body:
       - Item: Recipe_Golden_Cursed_Ring
         Rate: 5
         Index: 8
+  - Id: 1192
+    BaseExp: 8246
+    JobExp: 8242
+  - Id: 1193
+    BaseExp: 14951
+    JobExp: 17250
+  - Id: 1194
+    BaseExp: 3225
+    JobExp: 7500
+  - Id: 1195
+    BaseExp: 7526
+    JobExp: 23295
+  - Id: 1196
+    BaseExp: 9247
+    JobExp: 11715
+  - Id: 1197
+    BaseExp: 9881
+    JobExp: 12930
+  - Id: 1198
+    BaseExp: 45720
+    JobExp: 38640
   - Id: 1199
-    JobExp: 2841
+    BaseExp: 6371
+    JobExp: 21307
     Drops:
       - Item: Mould_Powder
         Rate: 5335
@@ -5259,7 +5428,39 @@ Body:
         Rate: 5
         Index: 7
         StealProtected: true
+  - Id: 1200
+    BaseExp: 13530
+    JobExp: 17280
+  - Id: 1201
+    BaseExp: 23688
+    JobExp: 26400
+  - Id: 1202
+    BaseExp: 25597
+    JobExp: 25822
+  - Id: 1203
+    BaseExp: 24213
+    JobExp: 38692
+  - Id: 1204
+    BaseExp: 20295
+    JobExp: 31762
+  - Id: 1205
+    BaseExp: 17737
+    JobExp: 26520
+  - Id: 1206
+    BaseExp: 22125
+    JobExp: 27750
+  - Id: 1207
+    BaseExp: 15303
+    JobExp: 22275
+  - Id: 1208
+    BaseExp: 21697
+    JobExp: 35475
+  - Id: 1209
+    BaseExp: 8625
+    JobExp: 11347
   - Id: 1211
+    BaseExp: 6847
+    JobExp: 9982
     Drops:
       - Item: Glitter_Shell
         Rate: 5335
@@ -5287,6 +5488,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1212
+    BaseExp: 5381
+    JobExp: 11400
     Drops:
       - Item: Tail_Of_Steel_Scorpion
         Rate: 5335
@@ -5310,7 +5513,12 @@ Body:
         Rate: 3
         Index: 6
         StealProtected: true
+  - Id: 1213
+    BaseExp: 13567
+    JobExp: 12292
   - Id: 1214
+    BaseExp: 4743
+    JobExp: 9487
     Drops:
       - Item: Claw_Of_Monkey
         Rate: 5335
@@ -5338,6 +5546,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1215
+    BaseExp: 5445
+    JobExp: 7042
     Drops:
       - Item: Tough_Scalelike_Stem
         Rate: 5335
@@ -5364,9 +5574,15 @@ Body:
         Rate: 6
         Index: 7
         StealProtected: true
+  - Id: 1216
+    BaseExp: 10762
+    JobExp: 16500
+  - Id: 1219
+    BaseExp: 31758
+    JobExp: 47010
   - Id: 1220
-    BaseExp: 488
-    JobExp: 367
+    BaseExp: 1830
+    JobExp: 2752
     Drops:
       - Item: Katar_
         Rate: 15
@@ -5391,8 +5607,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1221
-    BaseExp: 480
-    JobExp: 382
+    BaseExp: 1800
+    JobExp: 2865
     Drops:
       - Item: Wild_Boar's_Mane
         Rate: 10000
@@ -5417,8 +5633,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1229
-    BaseExp: 10
-    JobExp: 12
+    BaseExp: 37
+    JobExp: 90
     Drops:
       - Item: Fluff
         Rate: 10000
@@ -5446,8 +5662,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1230
-    BaseExp: 7
-    JobExp: 23
+    BaseExp: 26
+    JobExp: 172
     Drops:
       - Item: Phracon
         Rate: 4232
@@ -5475,8 +5691,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1231
-    BaseExp: 212
-    JobExp: 218
+    BaseExp: 795
+    JobExp: 1635
     Drops:
       - Item: Powder_Of_Butterfly
         Rate: 10000
@@ -5501,8 +5717,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1232
-    BaseExp: 13
-    JobExp: 23
+    BaseExp: 48
+    JobExp: 172
     Drops:
       - Item: Phracon
         Rate: 7506
@@ -5530,8 +5746,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1234
-    BaseExp: 263
-    JobExp: 246
+    BaseExp: 986
+    JobExp: 1845
     Drops:
       - Item: Yoyo_Tail
         Rate: 10000
@@ -5559,8 +5775,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1235
-    BaseExp: 396
-    JobExp: 326
+    BaseExp: 1485
+    JobExp: 2445
     Drops:
       - Item: Iron
         Rate: 10000
@@ -5588,8 +5804,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1236
-    BaseExp: 16
-    JobExp: 22
+    BaseExp: 60
+    JobExp: 165
     Drops:
       - Item: Phracon
         Rate: 2655
@@ -5614,8 +5830,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1237
-    BaseExp: 231
-    JobExp: 230
+    BaseExp: 866
+    JobExp: 1725
     Drops:
       - Item: Worm_Peelings
         Rate: 10000
@@ -5643,8 +5859,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1238
-    BaseExp: 248
-    JobExp: 239
+    BaseExp: 930
+    JobExp: 1792
     Drops:
       - Item: Worm_Peelings
         Rate: 10000
@@ -5672,8 +5888,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1239
-    BaseExp: 263
-    JobExp: 246
+    BaseExp: 986
+    JobExp: 1845
     Drops:
       - Item: Worm_Peelings
         Rate: 10000
@@ -5701,8 +5917,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1240
-    BaseExp: 13
-    JobExp: 17
+    BaseExp: 48
+    JobExp: 127
     Drops:
       - Item: Feather_Of_Birds
         Rate: 10000
@@ -5727,8 +5943,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1241
-    BaseExp: 16
-    JobExp: 22
+    BaseExp: 60
+    JobExp: 165
     Drops:
       - Item: Feather_Of_Birds
         Rate: 10000
@@ -5753,8 +5969,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1242
-    BaseExp: 151
-    JobExp: 158
+    BaseExp: 566
+    JobExp: 1185
     Drops:
       - Item: Garlet
         Rate: 10000
@@ -5782,6 +5998,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1243
+    BaseExp: 1983
+    JobExp: 2392
     Drops:
       - Item: Zargon
         Rate: 5691
@@ -5809,6 +6027,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1244
+    BaseExp: 4173
+    JobExp: 5160
     Drops:
       - Item: Pumpkin_Head
         Rate: 5335
@@ -5836,8 +6056,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1245
-    BaseExp: 404
-    JobExp: 318
+    BaseExp: 1515
+    JobExp: 2385
     Drops:
       - Item: Packing_Ribbon
         Rate: 10000
@@ -5865,8 +6085,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1246
-    BaseExp: 540
-    JobExp: 382
+    BaseExp: 2025
+    JobExp: 2865
     Drops:
       - Item: Well_Baked_Cookie
         Rate: 10000
@@ -5894,8 +6114,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1247
-    BaseExp: 8
-    JobExp: 9
+    BaseExp: 30
+    JobExp: 67
     Drops:
       - Item: Red_Socks_With_Holes
         Rate: 10000
@@ -5923,6 +6143,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1248
+    BaseExp: 4125
+    JobExp: 3375
     Drops:
       - Item: Manacles
         Rate: 900
@@ -5950,6 +6172,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1249
+    BaseExp: 4173
+    JobExp: 5160
     Drops:
       - Item: Candy_Striper
         Rate: 90
@@ -5977,6 +6201,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1250
+    BaseExp: 5692
+    JobExp: 7095
     Drops:
       - Item: Matchstick
         Rate: 2500
@@ -6003,7 +6229,15 @@ Body:
         Rate: 5
         Index: 7
         StealProtected: true
+  - Id: 1251
+    BaseExp: 241312
+    JobExp: 160875
+  - Id: 1252
+    BaseExp: 187687
+    JobExp: 150150
   - Id: 1253
+    BaseExp: 6187
+    JobExp: 12375
     Drops:
       - Item: Zargon
         Rate: 3880
@@ -6025,8 +6259,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1254
-    BaseExp: 387
-    JobExp: 357
+    BaseExp: 1451
+    JobExp: 2677
     Drops:
       - Item: Cyfar
         Rate: 10000
@@ -6054,6 +6288,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1255
+    BaseExp: 4222
+    JobExp: 5130
     Drops:
       - Item: Earthworm_Peeling
         Rate: 5100
@@ -6081,6 +6317,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1256
+    BaseExp: 4642
+    JobExp: 5640
     Drops:
       - Item: Earthworm_Peeling
         Rate: 5500
@@ -6105,6 +6343,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1257
+    BaseExp: 7942
+    JobExp: 11160
     Drops:
       - Item: Steel
         Rate: 300
@@ -6135,8 +6375,8 @@ Body:
         Rate: 5
         Index: 8
   - Id: 1258
-    BaseExp: 540
-    JobExp: 382
+    BaseExp: 2025
+    JobExp: 2865
     Drops:
       - Item: Goblini_Mask
         Rate: 9
@@ -6163,7 +6403,15 @@ Body:
         Rate: 11
         Index: 7
         StealProtected: true
+  - Id: 1259
+    BaseExp: 22110
+    JobExp: 33000
+  - Id: 1260
+    BaseExp: 13695
+    JobExp: 24532
   - Id: 1261
+    BaseExp: 4173
+    JobExp: 5160
     Drops:
       - Item: Cyfar
         Rate: 5335
@@ -6190,7 +6438,12 @@ Body:
         Rate: 7
         Index: 7
         StealProtected: true
+  - Id: 1262
+    BaseExp: 17737
+    JobExp: 26520
   - Id: 1263
+    BaseExp: 9090
+    JobExp: 11160
     Drops:
       - Item: Zargon
         Rate: 4559
@@ -6221,10 +6474,11 @@ Body:
         Rate: 500
         Index: 8
   - Id: 1264
-    JobExp: 8250
+    BaseExp: 16875
+    JobExp: 61875
   - Id: 1265
-    BaseExp: 444
-    JobExp: 350
+    BaseExp: 1665
+    JobExp: 2625
     Drops:
       - Item: Well_Baked_Cookie
         Rate: 10000
@@ -6252,8 +6506,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1266
-    BaseExp: 248
-    JobExp: 239
+    BaseExp: 930
+    JobExp: 1792
     Drops:
       - Item: Sticky_Mucus
         Rate: 10000
@@ -6277,7 +6531,15 @@ Body:
         Rate: 15
         Index: 6
         StealProtected: true
+  - Id: 1267
+    BaseExp: 7222
+    JobExp: 10147
+  - Id: 1268
+    BaseExp: 37950
+    JobExp: 51150
   - Id: 1269
+    BaseExp: 12787
+    JobExp: 21780
     Drops:
       - Item: Needle_Of_Alarm
         Rate: 5335
@@ -6307,7 +6569,12 @@ Body:
       - Item: Recipe_Safety_Ring
         Rate: 5
         Index: 8
+  - Id: 1270
+    BaseExp: 16417
+    JobExp: 21375
   - Id: 1271
+    BaseExp: 5171
+    JobExp: 6495
     Drops:
       - Item: Zargon
         Rate: 1000
@@ -6328,8 +6595,12 @@ Body:
         Rate: 5
         Index: 5
         StealProtected: true
+  - Id: 1272
+    BaseExp: 246675
+    JobExp: 337837
   - Id: 1273
-    JobExp: 2747
+    BaseExp: 2415
+    JobExp: 20602
     Drops:
       - Item: Cyfar
         Rate: 4656
@@ -6357,6 +6628,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1274
+    BaseExp: 6592
+    JobExp: 8062
     Drops:
       - Item: Zargon
         Rate: 100
@@ -6377,7 +6650,15 @@ Body:
         Rate: 4
         Index: 5
         StealProtected: true
+  - Id: 1275
+    BaseExp: 13436
+    JobExp: 18000
+  - Id: 1276
+    BaseExp: 11343
+    JobExp: 15937
   - Id: 1277
+    BaseExp: 4642
+    JobExp: 5640
     Drops:
       - Item: Brigan
         Rate: 2000
@@ -6404,7 +6685,12 @@ Body:
         Rate: 6
         Index: 7
         StealProtected: true
+  - Id: 1278
+    BaseExp: 21780
+    JobExp: 20212
   - Id: 1279
+    BaseExp: 1447
+    JobExp: 1650
     Drops:
       - Item: Cyfar
         Rate: 100
@@ -6429,6 +6715,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1280
+    BaseExp: 3240
+    JobExp: 3712
     Drops:
       - Item: Scell
         Rate: 2500
@@ -6456,6 +6744,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1281
+    BaseExp: 4331
+    JobExp: 9900
     Drops:
       - Item: Librarian_Glove
         Rate: 5
@@ -6483,6 +6773,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1282
+    BaseExp: 2771
+    JobExp: 3412
     Drops:
       - Item: Zargon
         Rate: 250
@@ -6509,7 +6801,45 @@ Body:
         Rate: 9
         Index: 7
         StealProtected: true
+  - Id: 1283
+    BaseExp: 18562
+    JobExp: 22500
+  - Id: 1285
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1286
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1287
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1289
+    BaseExp: 39360
+    JobExp: 29197
+  - Id: 1290
+    BaseExp: 30637
+    JobExp: 25275
+  - Id: 1291
+    BaseExp: 38778
+    JobExp: 27135
+  - Id: 1292
+    BaseExp: 31485
+    JobExp: 27915
+  - Id: 1293
+    BaseExp: 27618
+    JobExp: 20182
+  - Id: 1294
+    BaseExp: 24408
+    JobExp: 17745
+  - Id: 1295
+    BaseExp: 41126
+    JobExp: 36082
+  - Id: 1296
+    BaseExp: 27870
+    JobExp: 20347
   - Id: 1297
+    BaseExp: 30150
+    JobExp: 26242
     Drops:
       - Item: Rotten_Bandage
         Rate: 4413
@@ -6539,7 +6869,60 @@ Body:
       - Item: Recipe_Ancient_Cape
         Rate: 5
         Index: 8
+  - Id: 1298
+    BaseExp: 28537
+    JobExp: 21195
+  - Id: 1299
+    BaseExp: 22635
+    JobExp: 16380
+  - Id: 1300
+    BaseExp: 23520
+    JobExp: 23302
+  - Id: 1301
+    BaseExp: 28908
+    JobExp: 20175
+  - Id: 1302
+    BaseExp: 41861
+    JobExp: 31357
+  - Id: 1303
+    BaseExp: 21693
+    JobExp: 15045
+  - Id: 1304
+    BaseExp: 23291
+    JobExp: 16095
+  - Id: 1305
+    BaseExp: 30652
+    JobExp: 28365
+  - Id: 1306
+    BaseExp: 22541
+    JobExp: 16282
+  - Id: 1307
+    BaseExp: 40758
+    JobExp: 32122
+  - Id: 1308
+    BaseExp: 27045
+    JobExp: 20227
+  - Id: 1309
+    BaseExp: 24843
+    JobExp: 21750
+  - Id: 1310
+    BaseExp: 31968
+    JobExp: 28492
+  - Id: 1311
+    BaseExp: 21802
+    JobExp: 17820
+  - Id: 1312
+    BaseExp: 68257
+    JobExp: 73500
+  - Id: 1313
+    BaseExp: 16590
+    JobExp: 12660
+  - Id: 1314
+    BaseExp: 14085
+    JobExp: 14662
   - Id: 1315
+    BaseExp: 18202
+    JobExp: 19905
     Drops:
       - Item: Turtle_Shell
         Rate: 4413
@@ -6569,11 +6952,39 @@ Body:
       - Item: Recipe_Critical_Ring
         Rate: 5
         Index: 8
+  - Id: 1316
+    BaseExp: 16717
+    JobExp: 14632
   - Id: 1317
-    JobExp: 5016
+    BaseExp: 14118
+    JobExp: 37620
+  - Id: 1318
+    BaseExp: 14122
+    JobExp: 17692
+  - Id: 1319
+    BaseExp: 13743
+    JobExp: 16477
+  - Id: 1320
+    BaseExp: 27063
+    JobExp: 26055
   - Id: 1321
-    JobExp: 3996
+    BaseExp: 13451
+    JobExp: 29970
+  - Id: 1322
+    BaseExp: 14932
+    JobExp: 13245
+  - Id: 1323
+    BaseExp: 11430
+    JobExp: 12315
+  - Id: 1365
+    BaseExp: 24525
+    JobExp: 37012
+  - Id: 1366
+    BaseExp: 24262
+    JobExp: 29092
   - Id: 1367
+    BaseExp: 11898
+    JobExp: 14032
     Drops:
       - Item: Burning_Heart
         Rate: 4850
@@ -6588,7 +6999,33 @@ Body:
         Rate: 5
         Index: 3
         StealProtected: true
+  - Id: 1368
+    BaseExp: 10181
+    JobExp: 15000
+  - Id: 1369
+    BaseExp: 8951
+    JobExp: 10207
+  - Id: 1370
+    BaseExp: 20088
+    JobExp: 32415
+  - Id: 1371
+    BaseExp: 12641
+    JobExp: 14617
+  - Id: 1372
+    BaseExp: 12588
+    JobExp: 15112
+  - Id: 1373
+    BaseExp: 492536
+    JobExp: 325087
+  - Id: 1374
+    BaseExp: 19702
+    JobExp: 31590
+  - Id: 1375
+    BaseExp: 10683
+    JobExp: 14985
   - Id: 1376
+    BaseExp: 13357
+    JobExp: 15997
     Drops:
       - Item: Harpy's_Feather
         Rate: 4850
@@ -6615,7 +7052,27 @@ Body:
       - Item: Green_Gemstone
         Rate: 1000
         Index: 7
+  - Id: 1377
+    BaseExp: 21187
+    JobExp: 25560
+  - Id: 1378
+    BaseExp: 11805
+    JobExp: 13627
+  - Id: 1379
+    BaseExp: 25061
+    JobExp: 32692
+  - Id: 1380
+    BaseExp: 12056
+    JobExp: 13950
+  - Id: 1381
+    BaseExp: 12528
+    JobExp: 15090
+  - Id: 1382
+    BaseExp: 13732
+    JobExp: 16672
   - Id: 1383
+    BaseExp: 9015
+    JobExp: 12315
     Drops:
       - Item: Wing_Of_Red_Bat
         Rate: 5500
@@ -6637,12 +7094,32 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1384
-    JobExp: 5682
+    BaseExp: 12761
+    JobExp: 42615
   - Id: 1385
-    JobExp: 5682
+    BaseExp: 12761
+    JobExp: 42615
+  - Id: 1386
+    BaseExp: 13511
+    JobExp: 16080
+  - Id: 1387
+    BaseExp: 14752
+    JobExp: 15292
+  - Id: 1388
+    BaseExp: 15570
+    JobExp: 16297
+  - Id: 1389
+    BaseExp: 450588
+    JobExp: 291525
+  - Id: 1390
+    BaseExp: 23823
+    JobExp: 26467
+  - Id: 1391
+    BaseExp: 12015
+    JobExp: 14745
   - Id: 1392
-    BaseExp: 502
-    JobExp: 400
+    BaseExp: 1882
+    JobExp: 3000
     Drops:
       - Item: Large_Jellopy
         Rate: 3282
@@ -6669,10 +7146,12 @@ Body:
         Rate: 12
         Index: 7
         StealProtected: true
-  - Id: 1394
-    BaseExp: 0
-    JobExp: 0
+  - Id: 1399
+    BaseExp: 981562
+    JobExp: 627637
   - Id: 1400
+    BaseExp: 1833
+    JobExp: 2415
     Drops:
       - Item: Oil_Paper
         Rate: 7822
@@ -6699,7 +7178,12 @@ Body:
         Rate: 10
         Index: 7
         StealProtected: true
+  - Id: 1401
+    BaseExp: 18637
+    JobExp: 22575
   - Id: 1402
+    BaseExp: 7233
+    JobExp: 10927
     Drops:
       - Item: Poison_Toad's_Skin
         Rate: 5500
@@ -6727,6 +7211,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1403
+    BaseExp: 4848
+    JobExp: 7522
     Drops:
       - Item: Iron
         Rate: 5500
@@ -6754,6 +7240,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1404
+    BaseExp: 2981
+    JobExp: 3397
     Drops:
       - Item: Glossy_Hair
         Rate: 5335
@@ -6780,7 +7268,12 @@ Body:
         Rate: 9
         Index: 7
         StealProtected: true
+  - Id: 1405
+    BaseExp: 15776
+    JobExp: 21322
   - Id: 1406
+    BaseExp: 8542
+    JobExp: 11640
     Drops:
       - Item: Yellow_Plate
         Rate: 6500
@@ -6807,9 +7300,12 @@ Body:
         Rate: 6
         Index: 7
         StealProtected: true
+  - Id: 1408
+    BaseExp: 7946
+    JobExp: 11715
   - Id: 1409
-    BaseExp: 291
-    JobExp: 226
+    BaseExp: 1091
+    JobExp: 1695
     Drops:
       - Item: Bamboo_Cut
         Rate: 7073
@@ -6833,7 +7329,15 @@ Body:
         Rate: 12
         Index: 6
         StealProtected: true
+  - Id: 1410
+    BaseExp: 9716
+    JobExp: 13492
+  - Id: 1412
+    BaseExp: 12390
+    JobExp: 16485
   - Id: 1413
+    BaseExp: 3892
+    JobExp: 5190
     Drops:
       - Item: Leaflet_Of_Hinal
         Rate: 3500
@@ -6861,6 +7365,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1415
+    BaseExp: 1320
+    JobExp: 1507
     Drops:
       - Item: Leopard_Skin
         Rate: 5200
@@ -6884,7 +7390,12 @@ Body:
         Rate: 10
         Index: 6
         StealProtected: true
+  - Id: 1416
+    BaseExp: 14793
+    JobExp: 19492
   - Id: 1417
+    BaseExp: 1387
+    JobExp: 1687
     Drops:
       - Item: Black_Bear's_Skin
         Rate: 4462
@@ -6905,37 +7416,18 @@ Body:
         Rate: 8
         Index: 5
         StealProtected: true
-  - Id: 1419
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1428
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1430
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1432
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1434
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1445
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1457
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1462
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1463
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1470
-    BaseExp: 0
-    JobExp: 0
+  - Id: 1418
+    BaseExp: 128580
+    JobExp: 134625
+  - Id: 1492
+    BaseExp: 124106
+    JobExp: 136605
+  - Id: 1493
+    BaseExp: 10361
+    JobExp: 11197
   - Id: 1494
+    BaseExp: 2546
+    JobExp: 3315
     Drops:
       - Item: Solid_Peeling
         Rate: 6500
@@ -6957,6 +7449,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1495
+    BaseExp: 4642
+    JobExp: 5640
     Drops:
       - Item: Solid_Twig
         Rate: 5000
@@ -6980,7 +7474,12 @@ Body:
         Rate: 5
         Index: 6
         StealProtected: true
+  - Id: 1497
+    BaseExp: 7222
+    JobExp: 10147
   - Id: 1498
+    BaseExp: 3322
+    JobExp: 3397
     Drops:
       - Item: Air_Rifle
         Rate: 4500
@@ -7008,6 +7507,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1499
+    BaseExp: 6712
+    JobExp: 6247
     Drops:
       - Item: Meat
         Rate: 4500
@@ -7035,6 +7536,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1500
+    BaseExp: 4117
+    JobExp: 10897
     Drops:
       - Item: Germinating_Sprout
         Rate: 5500
@@ -7061,7 +7564,27 @@ Body:
         Rate: 2
         Index: 7
         StealProtected: true
+  - Id: 1502
+    BaseExp: 327187
+    JobExp: 209212
+  - Id: 1503
+    BaseExp: 15041
+    JobExp: 13680
+  - Id: 1504
+    BaseExp: 16938
+    JobExp: 22222
+  - Id: 1505
+    BaseExp: 24903
+    JobExp: 32355
+  - Id: 1506
+    BaseExp: 10556
+    JobExp: 14392
+  - Id: 1507
+    BaseExp: 36532
+    JobExp: 26692
   - Id: 1508
+    BaseExp: 1552
+    JobExp: 2295
     Drops:
       - Item: Piece_Of_Black_Cloth
         Rate: 3200
@@ -7083,6 +7606,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1509
+    BaseExp: 1470
+    JobExp: 1852
     Drops:
       - Item: Pumpkin_Bucket
         Rate: 3200
@@ -7106,7 +7631,30 @@ Body:
         Rate: 8
         Index: 6
         StealProtected: true
+  - Id: 1510
+    BaseExp: 8677
+    JobExp: 9727
+  - Id: 1511
+    BaseExp: 327240
+    JobExp: 269182
+  - Id: 1512
+    BaseExp: 8246
+    JobExp: 7665
+  - Id: 1513
+    BaseExp: 15086
+    JobExp: 20625
+  - Id: 1514
+    BaseExp: 11362
+    JobExp: 5767
+  - Id: 1515
+    BaseExp: 3832
+    JobExp: 22350
+  - Id: 1516
+    BaseExp: 10350
+    JobExp: 15825
   - Id: 1517
+    BaseExp: 6161
+    JobExp: 12322
     Drops:
       - Item: Tiger_Skin_Panties
         Rate: 4500
@@ -7124,9 +7672,15 @@ Body:
         Rate: 2
         Index: 4
         StealProtected: true
+  - Id: 1518
+    BaseExp: 20962
+    JobExp: 12442
+  - Id: 1519
+    BaseExp: 8985
+    JobExp: 7447
   - Id: 1520
-    BaseExp: 193
-    JobExp: 161
+    BaseExp: 723
+    JobExp: 1207
     Drops:
       - Item: Rice_Ball
         Rate: 10000
@@ -7140,55 +7694,21 @@ Body:
       - Item: Great_Leaf
         Rate: 10000
         Index: 3
-  - Id: 1534
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1535
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1536
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1537
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1538
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1540
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1557
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1559
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1561
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1562
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1572
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1574
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1575
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1577
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1579
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1581
-    BaseExp: 0
-    JobExp: 0
+  - Id: 1582
+    BaseExp: 791
+    JobExp: 3090
+  - Id: 1583
+    BaseExp: 221906
+    JobExp: 78337
+  - Id: 1584
+    BaseExp: 14295
+    JobExp: 412
+  - Id: 1585
+    BaseExp: 750
+    JobExp: 165
   - Id: 1586
+    BaseExp: 618
+    JobExp: 9090
     Drops:
       - Item: Great_Leaf
         Rate: 4365
@@ -7215,9 +7735,12 @@ Body:
         Rate: 7
         Index: 7
         StealProtected: true
+  - Id: 1587
+    BaseExp: 772
+    JobExp: 9915
   - Id: 1588
-    BaseExp: 396
-    JobExp: 326
+    BaseExp: 1485
+    JobExp: 2445
     Drops:
       - Item: Iron
         Rate: 2798
@@ -7244,24 +7767,12 @@ Body:
         Rate: 13
         Index: 7
         StealProtected: true
-  - Id: 1589
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1595
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1603
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1607
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1608
-    BaseExp: 0
-    JobExp: 0
+  - Id: 1609
+    BaseExp: 11362
+    JobExp: 5767
   - Id: 1613
-    BaseExp: 662
-    JobExp: 421
+    BaseExp: 2482
+    JobExp: 3157
     Drops:
       - Item: Tube
         Rate: 10000
@@ -7288,7 +7799,15 @@ Body:
         Rate: 12
         Index: 7
         StealProtected: true
+  - Id: 1614
+    BaseExp: 13361
+    JobExp: 13260
+  - Id: 1615
+    BaseExp: 10496
+    JobExp: 13515
   - Id: 1616
+    BaseExp: 6746
+    JobExp: 8122
     Drops:
       - Item: Old_Pick
         Rate: 3000
@@ -7315,9 +7834,15 @@ Body:
         Rate: 5
         Index: 7
         StealProtected: true
+  - Id: 1617
+    BaseExp: 16545
+    JobExp: 8512
+  - Id: 1618
+    BaseExp: 30791
+    JobExp: 1065
   - Id: 1619
-    BaseExp: 600
-    JobExp: 465
+    BaseExp: 2250
+    JobExp: 3487
     Drops:
       - Item: Jubilee
         Rate: 10000
@@ -7342,6 +7867,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1620
+    BaseExp: 2617
+    JobExp: 5235
     Drops:
       - Item: Poisonous_Gas
         Rate: 1000
@@ -7363,6 +7890,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1621
+    BaseExp: 6675
+    JobExp: 9600
     Drops:
       - Item: Air_Pollutant
         Rate: 5000
@@ -7383,9 +7912,21 @@ Body:
         Rate: 5
         Index: 5
         StealProtected: true
+  - Id: 1622
+    BaseExp: 22091
+    JobExp: 25912
+  - Id: 1623
+    BaseExp: 116287
+    JobExp: 240082
+  - Id: 1625
+    BaseExp: 3840
+    JobExp: 5197
+  - Id: 1626
+    BaseExp: 3
+    JobExp: 7
   - Id: 1627
-    BaseExp: 159
-    JobExp: 121
+    BaseExp: 596
+    JobExp: 907
     Drops:
       - Item: Wing_Of_Fly
         Rate: 10000
@@ -7398,6 +7939,8 @@ Body:
         Index: 2
         StealProtected: true
   - Id: 1628
+    BaseExp: 1005
+    JobExp: 1290
     Drops:
       - Item: Moustache_Of_Mole
         Rate: 5000
@@ -7416,6 +7959,8 @@ Body:
         Index: 4
         StealProtected: true
   - Id: 1629
+    BaseExp: 6750
+    JobExp: 8250
     Drops:
       - Item: Meat
         Rate: 1000
@@ -7427,7 +7972,135 @@ Body:
         Rate: 5
         Index: 2
         StealProtected: true
+  - Id: 1630
+    BaseExp: 169687
+    JobExp: 123337
+  - Id: 1631
+    BaseExp: 15960
+    JobExp: 6900
+  - Id: 1632
+    BaseExp: 16331
+    JobExp: 13260
+  - Id: 1633
+    BaseExp: 18078
+    JobExp: 28665
+  - Id: 1634
+    BaseExp: 375000
+    JobExp: 873450
+  - Id: 1635
+    BaseExp: 375000
+    JobExp: 748500
+  - Id: 1636
+    BaseExp: 375000
+    JobExp: 844050
+  - Id: 1637
+    BaseExp: 375000
+    JobExp: 883500
+  - Id: 1638
+    BaseExp: 375000
+    JobExp: 886950
+  - Id: 1639
+    BaseExp: 375000
+    JobExp: 873525
+  - Id: 1640
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1641
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1642
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1643
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1644
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1645
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1646
+    BaseExp: 18133500
+    JobExp: 11774775
+  - Id: 1647
+    BaseExp: 15312750
+    JobExp: 11942850
+  - Id: 1648
+    BaseExp: 15008775
+    JobExp: 10657500
+  - Id: 1649
+    BaseExp: 15963750
+    JobExp: 9891000
+  - Id: 1650
+    BaseExp: 15348750
+    JobExp: 11445000
+  - Id: 1651
+    BaseExp: 15030750
+    JobExp: 12275250
+  - Id: 1652
+    BaseExp: 18262
+    JobExp: 735
+  - Id: 1653
+    BaseExp: 15765
+    JobExp: 157
+  - Id: 1654
+    BaseExp: 15030
+    JobExp: 262
+  - Id: 1655
+    BaseExp: 16878
+    JobExp: 502
+  - Id: 1656
+    BaseExp: 15337
+    JobExp: 645
+  - Id: 1657
+    BaseExp: 17325
+    JobExp: 225
+  - Id: 1658
+    BaseExp: 970350
+    JobExp: 645000
+  - Id: 1664
+    BaseExp: 14625
+    JobExp: 13500
+  - Id: 1665
+    BaseExp: 16125
+    JobExp: 15000
+  - Id: 1666
+    BaseExp: 11625
+    JobExp: 20250
+  - Id: 1667
+    BaseExp: 14250
+    JobExp: 17250
+  - Id: 1668
+    BaseExp: 30000
+    JobExp: 37500
+  - Id: 1670
+    BaseExp: 24000
+    JobExp: 26250
+  - Id: 1671
+    BaseExp: 30000
+    JobExp: 37500
+  - Id: 1672
+    BaseExp: 22125
+    JobExp: 21000
+  - Id: 1673
+    BaseExp: 21750
+    JobExp: 33750
+  - Id: 1676
+    BaseExp: 15000
+    JobExp: 15000
+  - Id: 1677
+    BaseExp: 15000
+    JobExp: 15000
+  - Id: 1678
+    BaseExp: 16875
+    JobExp: 15000
+  - Id: 1679
+    BaseExp: 15000
+    JobExp: 15000
   - Id: 1680
+    BaseExp: 7995
+    JobExp: 12915
     Drops:
       - Item: Harpy's_Feather
         Rate: 4000
@@ -7445,9 +8118,18 @@ Body:
         Rate: 4
         Index: 4
         StealProtected: true
+  - Id: 1681
+    BaseExp: 82590
+    JobExp: 70815
+  - Id: 1682
+    BaseExp: 14366
+    JobExp: 9585
+  - Id: 1685
+    BaseExp: 750000
+    JobExp: 750000
   - Id: 1686
-    BaseExp: 391
-    JobExp: 3787
+    BaseExp: 1466
+    JobExp: 28402
     Drops:
       - Item: Large_Jellopy
         Rate: 10000
@@ -7474,9 +8156,16 @@ Body:
       - Item: Flour
         Rate: 10000
         Index: 7
+  - Id: 1687
+    BaseExp: 9000
+    JobExp: 15375
+  - Id: 1688
+    BaseExp: 243731
+    JobExp: 324165
+  - Id: 1689
+    BaseExp: 169687
+    JobExp: 123337
   - Id: 1690
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Hometown_Gift
         Rate: 100
@@ -7490,7 +8179,15 @@ Body:
       - Item: Bag_Of_Nuts
         Rate: 10000
         Index: 3
+  - Id: 1692
+    BaseExp: 8962
+    JobExp: 10050
+  - Id: 1693
+    BaseExp: 8250
+    JobExp: 15750
   - Id: 1694
+    BaseExp: 7500
+    JobExp: 7500
     Drops:
       - Item: Scell
         Rate: 100
@@ -7512,6 +8209,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1695
+    BaseExp: 7500
+    JobExp: 7500
     Drops:
       - Item: Scell
         Rate: 100
@@ -7533,6 +8232,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1696
+    BaseExp: 7500
+    JobExp: 7500
     Drops:
       - Item: Scell
         Rate: 100
@@ -7554,6 +8255,8 @@ Body:
         Index: 5
         StealProtected: true
   - Id: 1697
+    BaseExp: 7500
+    JobExp: 7500
     Drops:
       - Item: Scell
         Rate: 100
@@ -7574,7 +8277,60 @@ Body:
         Rate: 4
         Index: 5
         StealProtected: true
+  - Id: 1698
+    BaseExp: 11197
+    JobExp: 36840
+  - Id: 1699
+    BaseExp: 11062
+    JobExp: 19875
+  - Id: 1700
+    BaseExp: 149520
+    JobExp: 248400
+  - Id: 1701
+    BaseExp: 108787
+    JobExp: 188325
+  - Id: 1702
+    BaseExp: 106245
+    JobExp: 248400
+  - Id: 1703
+    BaseExp: 78750
+    JobExp: 188325
+  - Id: 1704
+    BaseExp: 331575
+    JobExp: 479100
+  - Id: 1705
+    BaseExp: 232503
+    JobExp: 384150
+  - Id: 1706
+    BaseExp: 212621
+    JobExp: 479100
+  - Id: 1707
+    BaseExp: 162000
+    JobExp: 384150
+  - Id: 1708
+    BaseExp: 13747500
+    JobExp: 16087950
+  - Id: 1709
+    BaseExp: 37500
+    JobExp: 37500
+  - Id: 1710
+    BaseExp: 37500
+    JobExp: 37500
+  - Id: 1711
+    BaseExp: 37500
+    JobExp: 37500
+  - Id: 1712
+    BaseExp: 37500
+    JobExp: 37500
+  - Id: 1713
+    BaseExp: 105161
+    JobExp: 60172
+  - Id: 1714
+    BaseExp: 30348
+    JobExp: 29640
   - Id: 1715
+    BaseExp: 4950
+    JobExp: 7515
     Drops:
       - Item: Green_Herb
         Rate: 3000
@@ -7589,7 +8345,15 @@ Body:
         Rate: 5
         Index: 3
         StealProtected: true
+  - Id: 1716
+    BaseExp: 53970
+    JobExp: 31522
+  - Id: 1717
+    BaseExp: 25312
+    JobExp: 16725
   - Id: 1718
+    BaseExp: 5291
+    JobExp: 8250
     Drops:
       - Item: Yellow_Herb
         Rate: 2000
@@ -7604,7 +8368,14 @@ Body:
         Rate: 5
         Index: 3
         StealProtected: true
+  - Id: 1719
+    BaseExp: 1094437
+    JobExp: 924780
+  - Id: 1720
+    BaseExp: 312937
+    JobExp: 18600
   - Id: 1721
+    BaseExp: 25275
     Drops:
       - Item: Elunium
         Rate: 5
@@ -7631,31 +8402,75 @@ Body:
         Rate: 5
         Index: 7
         StealProtected: true
-  - Id: 1725
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1726
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1727
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1728
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1741
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1747
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1748
-    BaseExp: 0
-    JobExp: 0
-  - Id: 1750
-    BaseExp: 0
-    JobExp: 0
+  - Id: 1722
+    BaseExp: 386
+    JobExp: 750
+  - Id: 1731
+    BaseExp: 11250000
+    JobExp: 15000000
+  - Id: 1733
+    BaseExp: 136875
+    JobExp: 175537
+  - Id: 1734
+    BaseExp: 8835750
+    JobExp: 3844515
+  - Id: 1735
+    BaseExp: 33337
+    JobExp: 40650
+  - Id: 1736
+    BaseExp: 48825
+    JobExp: 30045
+  - Id: 1737
+    BaseExp: 24686
+    JobExp: 25500
+  - Id: 1738
+    BaseExp: 12112
+    JobExp: 870
+  - Id: 1751
+    BaseExp: 10705875
+    JobExp: 23358900
+  - Id: 1752
+    BaseExp: 103575
+    JobExp: 75
+  - Id: 1753
+    BaseExp: 77325
+    JobExp: 75
+  - Id: 1754
+    BaseExp: 341625
+    JobExp: 75
+  - Id: 1755
+    BaseExp: 372000
+    JobExp: 75
+  - Id: 1765
+    BaseExp: 37500
+    JobExp: 75000
+  - Id: 1768
+    BaseExp: 3608156
+    JobExp: 2073337
+  - Id: 1769
+    BaseExp: 36675
+    JobExp: 49665
+  - Id: 1770
+    BaseExp: 50850
+    JobExp: 32250
+  - Id: 1771
+    BaseExp: 15761
+    JobExp: 6757
+  - Id: 1772
+    BaseExp: 11253
+    JobExp: 22507
+  - Id: 1773
+    BaseExp: 25432
+    JobExp: 15165
+  - Id: 1774
+    BaseExp: 21266
+    JobExp: 32085
+  - Id: 1775
+    BaseExp: 22057
+    JobExp: 20242
   - Id: 1776
+    BaseExp: 8362
+    JobExp: 7537
     Drops:
       - Item: Ice_Heart
         Rate: 1000
@@ -7674,8 +8489,20 @@ Body:
         Index: 4
         StealProtected: true
   - Id: 1777
-    JobExp: 21802
+    BaseExp: 52020
+    JobExp: 163515
+  - Id: 1778
+    BaseExp: 21592
+    JobExp: 15562
+  - Id: 1779
+    BaseExp: 10200187
+    JobExp: 8400150
+  - Id: 1780
+    BaseExp: 6397
+    JobExp: 12795
   - Id: 1781
+    BaseExp: 9795
+    JobExp: 7665
     Drops:
       - Item: Sticky_Poison
         Rate: 3000
@@ -7700,6 +8527,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1782
+    BaseExp: 6258
+    JobExp: 9495
     Drops:
       - Item: Rotten_Meat
         Rate: 3000
@@ -7717,9 +8546,12 @@ Body:
         Rate: 10
         Index: 4
         StealProtected: true
+  - Id: 1783
+    BaseExp: 37575
+    JobExp: 25260
   - Id: 1784
-    BaseExp: 532
-    JobExp: 488
+    BaseExp: 1995
+    JobExp: 3660
     Drops:
       - Item: Jellopy
         Rate: 10000
@@ -7743,9 +8575,13 @@ Body:
         Rate: 13
         Index: 6
         StealProtected: true
+  - Id: 1785
+    BaseExp: 1108312
+    JobExp: 891712
+  - Id: 1789
+    BaseExp: 18
+    JobExp: 37
   - Id: 1790
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Golden_Jewel_
         Rate: 10000
@@ -7756,12 +8592,49 @@ Body:
       - Item: Blue_Jewel_
         Rate: 10000
         Index: 2
-  - Id: 1792
-    BaseExp: 0
-    JobExp: 0
+  - Id: 1796
+    BaseExp: 15382
+    JobExp: 30765
+  - Id: 1797
+    BaseExp: 15382
+    JobExp: 30765
+  - Id: 1799
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1800
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1801
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1802
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1803
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1804
+    BaseExp: 67500
+    JobExp: 75000
+  - Id: 1805
+    BaseExp: 18133500
+    JobExp: 11774775
+  - Id: 1806
+    BaseExp: 15312750
+    JobExp: 11942850
+  - Id: 1807
+    BaseExp: 15008775
+    JobExp: 10657500
+  - Id: 1808
+    BaseExp: 15963750
+    JobExp: 9891000
+  - Id: 1809
+    BaseExp: 15348750
+    JobExp: 11445000
+  - Id: 1810
+    BaseExp: 15030750
+    JobExp: 12275250
   - Id: 1811
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Sunglasses
         Rate: 500
@@ -7778,23 +8651,26 @@ Body:
       - Item: Bamboo_Basket
         Rate: 6638
         Index: 4
+  - Id: 1813
+    BaseExp: 15000000
+    JobExp: 15000000
+  - Id: 1814
+    BaseExp: 112500
+    JobExp: 225000
+  - Id: 1817
+    BaseExp: 16875000
+    JobExp: 18750000
   - Id: 1820
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Wooden_Block_
         Rate: 10000
         Index: 0
   - Id: 1821
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Wooden_Block_
         Rate: 10000
         Index: 0
   - Id: 1825
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Wooden_Block_
         Rate: 10000
@@ -7804,7 +8680,24 @@ Body:
       - Item: Wooden_Block_
         Rate: 10000
         Index: 0
+  - Id: 1829
+    BaseExp: 581298
+    JobExp: 919530
+  - Id: 1830
+    BaseExp: 188058
+    JobExp: 172545
+  - Id: 1831
+    BaseExp: 270000
+    JobExp: 412500
+  - Id: 1832
+    BaseExp: 11828703
+    JobExp: 23358900
+  - Id: 1833
+    BaseExp: 183750
+    JobExp: 285000
   - Id: 1836
+    BaseExp: 7912
+    JobExp: 14325
     Drops:
       - Item: Burning_Heart
         Rate: 3000
@@ -7816,9 +8709,51 @@ Body:
         Rate: 6
         Index: 2
         StealProtected: true
+  - Id: 1837
+    BaseExp: 94500
+    JobExp: 83077
+  - Id: 1838
+    BaseExp: 8257
+    JobExp: 30172
+  - Id: 1839
+    BaseExp: 71250
+    JobExp: 71250
+  - Id: 1840
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1841
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1842
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1843
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1844
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1846
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1847
+    BaseExp: 3750000
+    JobExp: 7500000
+  - Id: 1848
+    BaseExp: 3750
+    JobExp: 7500
+  - Id: 1849
+    BaseExp: 7500
+    JobExp: 15000
+  - Id: 1850
+    BaseExp: 11250
+    JobExp: 22500
+  - Id: 1851
+    BaseExp: 7
+    JobExp: 15
   - Id: 1854
-    BaseExp: 579
-    JobExp: 389
+    BaseExp: 2171
+    JobExp: 2917
     Drops:
       - Item: Yellow_Live
         Rate: 70
@@ -7846,8 +8781,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1855
-    BaseExp: 362
-    JobExp: 269
+    BaseExp: 1357
+    JobExp: 2017
     Drops:
       - Item: Poison_Spore
         Rate: 10000
@@ -7875,8 +8810,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1856
-    BaseExp: 529
-    JobExp: 419
+    BaseExp: 1983
+    JobExp: 3142
     Drops:
       - Item: Old_Frying_Pan
         Rate: 10000
@@ -7904,8 +8839,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1857
-    BaseExp: 151
-    JobExp: 158
+    BaseExp: 566
+    JobExp: 1185
     Drops:
       - Item: Garlet
         Rate: 10000
@@ -7933,8 +8868,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1858
-    BaseExp: 63
-    JobExp: 80
+    BaseExp: 236
+    JobExp: 600
     Drops:
       - Item: Single_Cell
         Rate: 10000
@@ -7962,8 +8897,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1859
-    BaseExp: 115
-    JobExp: 131
+    BaseExp: 431
+    JobExp: 982
     Drops:
       - Item: Yellow_Live
         Rate: 50
@@ -7991,8 +8926,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1860
-    BaseExp: 254
-    JobExp: 253
+    BaseExp: 952
+    JobExp: 1897
     Drops:
       - Item: Acorn
         Rate: 10000
@@ -8020,6 +8955,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1861
+    BaseExp: 4743
+    JobExp: 9487
     Drops:
       - Item: Claw_Of_Monkey
         Rate: 5335
@@ -8047,8 +8984,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1862
-    BaseExp: 273
-    JobExp: 264
+    BaseExp: 1023
+    JobExp: 1980
     Drops:
       - Item: Moustache_Of_Mole
         Rate: 10000
@@ -8076,8 +9013,6 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1863
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Peeps
         Rate: 10000
@@ -8088,9 +9023,37 @@ Body:
       - Item: Marshmallow
         Rate: 10000
         Index: 2
+  - Id: 1864
+    BaseExp: 45000
+    JobExp: 63750
+  - Id: 1865
+    BaseExp: 31875
+    JobExp: 41250
+  - Id: 1866
+    BaseExp: 15000
+    JobExp: 22500
+  - Id: 1867
+    BaseExp: 63750
+    JobExp: 90000
+  - Id: 1869
+    BaseExp: 11250
+    JobExp: 19500
+  - Id: 1870
+    BaseExp: 168750
+    JobExp: 262500
+  - Id: 1871
+    BaseExp: 4166666
+    JobExp: 8333332
+  - Id: 1874
+    BaseExp: 24999997
+    JobExp: 49999995
+  - Id: 1875
+    BaseExp: 3
+    JobExp: 7
+  - Id: 1876
+    BaseExp: 492536
+    JobExp: 325087
   - Id: 1878
-    BaseExp: 0
-    JobExp: 0
     Drops:
       - Item: Love_Flower
         Rate: 10000
@@ -8110,20 +9073,79 @@ Body:
       - Item: Fluff
         Rate: 5000
         Index: 5
-  - Id: 1898
-    BaseExp: 0
-    JobExp: 0
+  - Id: 1880
+    BaseExp: 8253
+    JobExp: 11640
+  - Id: 1881
+    BaseExp: 5703
+    JobExp: 6840
+  - Id: 1882
+    BaseExp: 9686
+    JobExp: 19372
+  - Id: 1883
+    BaseExp: 15007
+    JobExp: 22522
+  - Id: 1884
+    BaseExp: 31128
+    JobExp: 47647
+  - Id: 1885
+    BaseExp: 169687
+    JobExp: 123337
+  - Id: 1888
+    BaseExp: 375
+    JobExp: 750
+  - Id: 1889
+    BaseExp: 3750
+    JobExp: 7500
+  - Id: 1890
+    BaseExp: 3750
+    JobExp: 7500
   - Id: 1901
-    BaseExp: 316
-    JobExp: 531
+    BaseExp: 1185
+    JobExp: 3982
     Drops:
       - Item: Heart_Box
         Rate: 10000
         Index: 0
-  - Id: 1962
-    BaseExp: 0
-    JobExp: 0
+  - Id: 1904
+    BaseExp: 1728
+    JobExp: 2130
+  - Id: 1916
+    BaseExp: 25125000
+    JobExp: 33750000
+  - Id: 1917
+    BaseExp: 13500000
+    JobExp: 22500000
+  - Id: 1918
+    BaseExp: 228750
+    JobExp: 1050000
+  - Id: 1919
+    BaseExp: 243750
+    JobExp: 900000
+  - Id: 1920
+    BaseExp: 187500
+    JobExp: 600000
+  - Id: 1921
+    BaseExp: 191250
+    JobExp: 525000
+  - Id: 1929
+    BaseExp: 16950000
+    JobExp: 18900000
+  - Id: 1956
+    BaseExp: 15000000
+    JobExp: 15000000
+  - Id: 1957
+    BaseExp: 10125000
+    JobExp: 10125000
+  - Id: 1963
+    BaseExp: 8985
+    JobExp: 7447
+  - Id: 1964
+    BaseExp: 1920
+    JobExp: 2902
   - Id: 1968
+    BaseExp: 23100
+    JobExp: 31470
     Drops:
       - Item: Fin
         Rate: 5335
@@ -8151,6 +9173,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1969
+    BaseExp: 7410
+    JobExp: 9375
     Drops:
       - Item: Mistic_Frozen
         Rate: 36
@@ -8178,6 +9202,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1970
+    BaseExp: 4830
+    JobExp: 6105
     Drops:
       - Item: Mistic_Frozen
         Rate: 26
@@ -8205,8 +9231,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1971
-    BaseExp: 526
-    JobExp: 492
+    BaseExp: 1972
+    JobExp: 3690
     Drops:
       - Item: Crystal_Blue
         Rate: 40
@@ -8234,8 +9260,8 @@ Body:
         Index: 7
         StealProtected: true
   - Id: 1972
-    BaseExp: 774
-    JobExp: 714
+    BaseExp: 2902
+    JobExp: 5355
     Drops:
       - Item: Single_Cell
         Rate: 10000
@@ -8260,8 +9286,8 @@ Body:
         Index: 6
         StealProtected: true
   - Id: 1973
-    BaseExp: 7
-    JobExp: 6
+    BaseExp: 26
+    JobExp: 45
     Drops:
       - Item: Jellopy
         Rate: 10000
@@ -8278,3 +9304,138 @@ Body:
       - Item: Water_Of_Blessing
         Rate: 3000
         Index: 4
+  - Id: 1974
+    BaseExp: 112500
+    JobExp: 180000
+  - Id: 1975
+    BaseExp: 33750
+    JobExp: 85500
+  - Id: 1976
+    BaseExp: 46245
+    JobExp: 77842
+  - Id: 1977
+    BaseExp: 34950
+    JobExp: 66232
+  - Id: 1978
+    BaseExp: 174997
+    JobExp: 240000
+  - Id: 1979
+    BaseExp: 102048
+    JobExp: 122250
+  - Id: 1980
+    BaseExp: 375000
+    JobExp: 750000
+  - Id: 1981
+    BaseExp: 13567
+    JobExp: 12292
+  - Id: 1982
+    BaseExp: 6483
+    JobExp: 13402
+  - Id: 1983
+    BaseExp: 16878
+    JobExp: 502
+  - Id: 1984
+    BaseExp: 18262
+    JobExp: 735
+  - Id: 1986
+    BaseExp: 88875
+    JobExp: 103687
+  - Id: 1987
+    BaseExp: 102738
+    JobExp: 119865
+  - Id: 1988
+    BaseExp: 19406
+    JobExp: 19402
+  - Id: 1989
+    BaseExp: 77850
+    JobExp: 90825
+  - Id: 1990
+    BaseExp: 3102750
+    JobExp: 3102750
+  - Id: 1991
+    BaseExp: 2742997
+    JobExp: 2742997
+  - Id: 1992
+    BaseExp: 115702
+    JobExp: 33202
+  - Id: 1993
+    BaseExp: 113850
+    JobExp: 122610
+  - Id: 1994
+    BaseExp: 61125
+    JobExp: 85575
+  - Id: 1995
+    BaseExp: 25650
+    JobExp: 25650
+  - Id: 1999
+    BaseExp: 13500
+    JobExp: 36000
+  - Id: 2008
+    BaseExp: 375000
+    JobExp: 750000
+  - Id: 2009
+    BaseExp: 375000
+    JobExp: 750000
+  - Id: 2010
+    BaseExp: 37
+    JobExp: 75
+  - Id: 2013
+    BaseExp: 22875
+    JobExp: 30750
+  - Id: 2014
+    BaseExp: 4500
+    JobExp: 12000
+  - Id: 2015
+    BaseExp: 29025
+    JobExp: 39000
+  - Id: 2016
+    BaseExp: 20362
+    JobExp: 114750
+  - Id: 2017
+    BaseExp: 262545
+    JobExp: 255000
+  - Id: 2018
+    BaseExp: 311362
+    JobExp: 390000
+  - Id: 2019
+    BaseExp: 41325
+    JobExp: 66750
+  - Id: 2020
+    BaseExp: 7650
+    JobExp: 45000
+  - Id: 2021
+    BaseExp: 11400
+    JobExp: 49500
+  - Id: 2022
+    BaseExp: 18000000
+    JobExp: 29250000
+  - Id: 2023
+    BaseExp: 78750
+    JobExp: 105000
+  - Id: 2024
+    BaseExp: 52500
+    JobExp: 141900
+  - Id: 2026
+    BaseExp: 187500
+    JobExp: 187500
+  - Id: 2068
+    BaseExp: 278580
+    JobExp: 584625
+  - Id: 2069
+    BaseExp: 20688
+    JobExp: 11250
+  - Id: 2070
+    BaseExp: 14538
+    JobExp: 15172
+  - Id: 2071
+    BaseExp: 24997
+    JobExp: 30832
+  - Id: 2072
+    BaseExp: 6825
+    JobExp: 7590
+  - Id: 2073
+    BaseExp: 3757
+    JobExp: 11640
+  - Id: 2074
+    BaseExp: 4533
+    JobExp: 6375
