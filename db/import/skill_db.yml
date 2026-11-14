@@ -385,12 +385,12 @@ Body:
     Name: PR_REDEMPTIO
     CastTime: 15000
     Cooldown: 60000
-  - Id: 9001
+  - Id: 5520
     Name: NV_LLSMILE
     Description: Lady Luck Smile
     MaxLevel: 10
     TargetType: Passive
-  - Id: 9002
+  - Id: 5521
     Name: TF_RSTRIKES
     Description: Rapid Strikes
     MaxLevel: 10
@@ -417,7 +417,7 @@ Body:
         Time: 2789
       - Level: 10
         Time: 3000
-  - Id: 9003
+  - Id: 5522
     Name: TF_TWINNEEDLE
     Description: Twin Needle
     MaxLevel: 10
@@ -426,12 +426,12 @@ Body:
     Range: 7
     HitCount: 2
     Element: Poison
-  - Id: 9004
+  - Id: 5523
     Name: TF_SWIFT
     Description: Improve Swiftness
     MaxLevel: 10
     TargetType: Passive
-  - Id: 9005
+  - Id: 5524
     Name: TF_ESCAPADE
     Description: Escapade
     MaxLevel: 10
@@ -439,22 +439,22 @@ Body:
     Flags:
       AllowWhenHidden: true
     Cooldown: 10000
-  - Id: 9006
+  - Id: 5525
     Name: TF_RUTHLESS
     Description: Ruthless Strikes
     MaxLevel: 1
     TargetType: Passive
-  - Id: 9007
+  - Id: 5526
     Name: AS_GRIMMARK
     Description: Grim Reaper's Mark
     MaxLevel: 10
     TargetType: Passive
-  - Id: 9008
+  - Id: 5527
     Name: AS_CLOAKDAGGER
     Description: Cloak and Dagger
     MaxLevel: 5
     TargetType: Passive
-  - Id: 9009
+  - Id: 5528
     Name: AS_MULTISHADOW
     Description: Multi-Shadow Strike
     MaxLevel: 10
@@ -463,7 +463,7 @@ Body:
     Range: 7
     AfterCastActDelay: 1000
     Cooldown: 60000
-  - Id: 9010
+  - Id: 5529
     Name: RG_CORROSIVE
     Description: Corrosive Shower
     MaxLevel: 10
@@ -476,17 +476,17 @@ Body:
     AfterCastActDelay: 1000
     CastTime: 1000
     Cooldown: 10000
-  - Id: 9011
+  - Id: 5530
     Name: RG_ENVIOUSEYE
     Description: Envious Eye
     MaxLevel: 10
     TargetType: Passive
-  - Id: 9012
+  - Id: 5531
     Name: RG_SKILLLOCK
     Description: Skill Lock
     MaxLevel: 1
     TargetType: Self
-  - Id: 9013
+  - Id: 5532
     Name: RG_BACKDOOR
     Description: Backdoor Tunnel
     MaxLevel: 5
@@ -494,7 +494,7 @@ Body:
     Flags:
       AllowWhenHidden: true
     Cooldown: 15000
-  - Id: 9014
+  - Id: 5533
     Name: RG_HATERAID
     Description: Hate Raid
     MaxLevel: 5
@@ -504,7 +504,7 @@ Body:
     HitCount: 4
     AfterCastActDelay: 1000
     Cooldown: 60000
-  - Id: 9015
+  - Id: 5534
     Name: RG_GEOPHANTASM
     Description: Geo Phantasmal Strike
     MaxLevel: 5
