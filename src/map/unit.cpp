@@ -2546,13 +2546,27 @@ int32 unit_skilluse_id2(block_list *src, int32 target_id, uint16 skill_id, uint1
 	// Apply cast time and general delays
 	unit_set_castdelay(*ud, tick, (skill_get_cast(skill_id, skill_lv) != 0) ? casttime : 0);
 
+	// [RO Sandbox] Envious Eye: nearby Rogues copy the skill being cast
+	skill_sandbox_envious_copy(src, skill_id, skill_lv);
+
 	if( sc ) {
 		// These 3 status do not stack, so it's efficient to use if-else
  		if( sc->getSCE(SC_CLOAKING) && !(sc->getSCE(SC_CLOAKING)->val4&4) && skill_id != AS_CLOAKING && skill_id != SHC_SHADOW_STAB) {
-			status_change_end(src, SC_CLOAKING);
+			// [RO Sandbox] Cloak and Dagger: a skill cast from Cloaking opens the
+			// no-reveal window instead of breaking the cloak (dagger only).
+			map_session_data *cad_sd = BL_CAST(BL_PC, src);
+			int32 cad_lv;
+			if (cad_sd != nullptr && cad_sd->status.weapon == W_DAGGER && sc->getSCE(SC_CLOAKDAGGER) == nullptr
+				&& (cad_lv = pc_checkskill(cad_sd, AS_CLOAKDAGGER)) > 0) {
+				sc->getSCE(SC_CLOAKING)->val4 |= 2|4;
+				sc_start(src, src, SC_CLOAKDAGGER, 100, cad_lv, 500 * cad_lv);
+				skill_blockpc_start(*cad_sd, AS_CLOAKING, 10000 + 500 * cad_lv);
+			} else {
+				status_change_end(src, SC_CLOAKING);
 
-			if (!src->prev)
-				return 0; // Warped away!
+				if (!src->prev)
+					return 0; // Warped away!
+			}
 		} else if( sc->getSCE(SC_CLOAKINGEXCEED) && !(sc->getSCE(SC_CLOAKINGEXCEED)->val4&4) && skill_id != GC_CLOAKINGEXCEED && skill_id != SHC_SHADOW_STAB  && skill_id != SHC_SAVAGE_IMPACT ) {
 			status_change_end(src,SC_CLOAKINGEXCEED);
 
@@ -2734,13 +2748,27 @@ int32 unit_skilluse_pos2( block_list *src, int16 skill_x, int16 skill_y, uint16 
 	// Apply cast time and general delays
 	unit_set_castdelay(*ud, tick, (skill_get_cast(skill_id, skill_lv) != 0) ? casttime : 0);
 
+	// [RO Sandbox] Envious Eye: nearby Rogues copy the skill being cast
+	skill_sandbox_envious_copy(src, skill_id, skill_lv);
+
 	if( sc ) {
 		// These 3 status do not stack, so it's efficient to use if-else
 		if (sc->getSCE(SC_CLOAKING) && !(sc->getSCE(SC_CLOAKING)->val4&4)) {
-			status_change_end(src, SC_CLOAKING);
+			// [RO Sandbox] Cloak and Dagger: a skill cast from Cloaking opens the
+			// no-reveal window instead of breaking the cloak (dagger only).
+			map_session_data *cad_sd = BL_CAST(BL_PC, src);
+			int32 cad_lv;
+			if (cad_sd != nullptr && cad_sd->status.weapon == W_DAGGER && sc->getSCE(SC_CLOAKDAGGER) == nullptr
+				&& (cad_lv = pc_checkskill(cad_sd, AS_CLOAKDAGGER)) > 0) {
+				sc->getSCE(SC_CLOAKING)->val4 |= 2|4;
+				sc_start(src, src, SC_CLOAKDAGGER, 100, cad_lv, 500 * cad_lv);
+				skill_blockpc_start(*cad_sd, AS_CLOAKING, 10000 + 500 * cad_lv);
+			} else {
+				status_change_end(src, SC_CLOAKING);
 
-			if (!src->prev)
-				return 0; // Warped away!
+				if (!src->prev)
+					return 0; // Warped away!
+			}
 		} else if (sc->getSCE(SC_CLOAKINGEXCEED) && !(sc->getSCE(SC_CLOAKINGEXCEED)->val4&4)) {
 			status_change_end(src, SC_CLOAKINGEXCEED);
 

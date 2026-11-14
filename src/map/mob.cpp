@@ -3012,6 +3012,11 @@ int32 mob_getdroprate(block_list *src, std::shared_ptr<s_mob_db> mob, int32 base
 
 			drop_rate = (int32)( 0.5 + drop_rate * drop_rate_bonus / 100. );
 
+			// [RO Sandbox] Lady Luck Smile: +0.777% item drop rate per level (multiplicative)
+			int32 luck_smile = pc_checkskill(sd, NV_LLSMILE);
+			if (luck_smile > 0)
+				drop_rate = (int32)( 0.5 + drop_rate * (100000 + 777 * luck_smile) / 100000. );
+
 			// [RO Sandbox] Luck drop bonus: flat points, before the cap and the level-gap cut
 			drop_rate += mob_luck_drop_bonus( sd, mob, md, nameid ) * factor;
 

@@ -646,6 +646,7 @@ int32 skill_calc_heal(block_list *src, block_list *target, uint16 skill_id, uint
 int32 skill_trap_splash(block_list* bl, va_list ap);
 bool skill_check_cloaking(block_list *bl, struct status_change_entry *sce);
 int8 skill_isCopyable(map_session_data *sd, uint16 skill_id);
+void skill_sandbox_envious_copy(block_list *src, uint16 skill_id, uint16 skill_lv); // [RO Sandbox] Envious Eye
 
 int32 skill_graffitiremover(block_list *bl, va_list ap); // [Valaris]
 

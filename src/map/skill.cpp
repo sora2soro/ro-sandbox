@@ -808,6 +808,69 @@ int8 skill_isCopyable(map_session_data *sd, uint16 skill_id) {
 	return 0;
 }
 
+// [RO Sandbox] Envious Eye: a Rogue with the passive copies the last skill cast
+// by any enemy within 9 cells into the second copy slot (shared with Reproduce).
+// Skill Lock / Preserve keeps the current copies. Only skills with CopyFlags
+// (Plagiarism or Reproduce) can be copied, which keeps elite skills out.
+static int32 skill_sandbox_envious_sub(block_list *bl, va_list ap) {
+	block_list *src = va_arg(ap, block_list *);
+	uint16 skill_id = (uint16)va_arg(ap, int32);
+	uint16 skill_lv = (uint16)va_arg(ap, int32);
+	map_session_data *psd = BL_CAST(BL_PC, bl);
+	int32 eelv;
+
+	if (psd == nullptr || (eelv = pc_checkskill(psd, RG_ENVIOUSEYE)) <= 0)
+		return 0;
+	if (battle_check_target(src, bl, BCT_ENEMY) <= 0)
+		return 0;
+	if (psd->sc.getSCE(SC_PRESERVE) != nullptr)
+		return 0; // Skill Lock / Preserve keeps the current copies
+
+	uint16 idx = skill_get_index(skill_id);
+
+	if (idx == 0)
+		return 0;
+	if (psd->status.skill[idx].id != 0 && psd->status.skill[idx].flag != SKILL_FLAG_PLAGIARIZED)
+		return 0; // Never overwrite a skill the player actually knows
+
+	s_skill_copyable copyable = skill_db.find(skill_id)->copyable;
+
+	if (!(copyable.option & (SKILL_COPY_PLAGIARISM | SKILL_COPY_REPRODUCE)))
+		return 0;
+
+	uint16 lv = min(skill_lv, (uint16)eelv);
+
+	lv = min(lv, (uint16)skill_get_max(skill_id));
+	if (lv < 1)
+		return 0;
+
+	// The same skill sitting in the Mimicry slot leaves that slot first
+	if (psd->cloneskill_idx > 0 && psd->status.skill[psd->cloneskill_idx].flag == SKILL_FLAG_PLAGIARIZED
+		&& psd->status.skill[psd->cloneskill_idx].id == skill_id)
+		pc_skill_plagiarism_reset(*psd, 1);
+
+	pc_skill_plagiarism_reset(*psd, 2);
+
+	psd->reproduceskill_idx = idx;
+	pc_setglobalreg(psd, add_str(SKILL_VAR_REPRODUCE), skill_id);
+	pc_setglobalreg(psd, add_str(SKILL_VAR_REPRODUCE_LV), lv);
+	psd->status.skill[idx].id = skill_id;
+	psd->status.skill[idx].lv = lv;
+	psd->status.skill[idx].flag = SKILL_FLAG_PLAGIARIZED;
+	clif_addskill(*psd, skill_id);
+	return 1;
+}
+
+void skill_sandbox_envious_copy(block_list *src, uint16 skill_id, uint16 skill_lv) {
+	if (src == nullptr || skill_id == 0 || skill_lv == 0)
+		return;
+	if (src->type != BL_PC && src->type != BL_MOB)
+		return;
+	if (skill_get_index(skill_id) == 0)
+		return;
+	map_foreachinrange(skill_sandbox_envious_sub, src, 9, BL_PC, src, (int32)skill_id, (int32)skill_lv);
+}
+
 /**
  * Check if the skill is ok to cast and when.
  * Done before skill_check_condition_castbegin, requirement
@@ -1222,6 +1285,26 @@ int32 skill_additional_effect( block_list* src, block_list *bl, uint16 skill_id,
 	status_change* tsc = status_get_sc( bl );
 	status_data* sstatus = status_get_status_data(*src);
 	status_data* tstatus = status_get_status_data(*bl);
+
+	// [RO Sandbox] Phase 6 sandbox on-hit effects
+	if (attack_type&BF_WEAPON && dmg_lv > ATK_BLOCK) {
+		// Geo blade: each weapon hit adds a stack (max 5) and slows the target
+		if (sc != nullptr) {
+			status_change_entry *geo = sc->getSCE(SC_GEOBLADE);
+
+			if (geo != nullptr) {
+				if (geo->val1 < 5)
+					geo->val1++;
+				sc_start(src, bl, SC_GEOSLOW, 100, geo->val1, 3000);
+			}
+		}
+		// Corrosive Shower: debuffed targets can have equipment break when hit (not bosses)
+		if (tsc != nullptr && tsc->getSCE(SC_CORROSIVE) != nullptr && !status_has_mode(tstatus, MD_STATUSIMMUNE)) {
+			const uint16 corro_locs[4] = { EQP_WEAPON, EQP_SHIELD, EQP_ARMOR, EQP_HELM };
+
+			skill_break_equip(src, bl, corro_locs[rnd()%4], 50 * tsc->getSCE(SC_CORROSIVE)->val1, BCT_ENEMY);
+		}
+	}
 
 	// Taekwon combos activate on traps, so we need to check them even for targets that don't have status
 	if (sd && skill_id == 0 && !(attack_type&BF_SKILL) && sc) {

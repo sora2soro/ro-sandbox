@@ -424,6 +424,8 @@ Body:
     Type: Weapon
     TargetType: Attack
     Range: 7
+    HitCount: 2
+    Element: Poison
   - Id: 9004
     Name: TF_SWIFT
     Description: Improve Swiftness
@@ -434,6 +436,8 @@ Body:
     Description: Escapade
     MaxLevel: 10
     TargetType: Self
+    Flags:
+      AllowWhenHidden: true
     Cooldown: 10000
   - Id: 9006
     Name: TF_RUTHLESS
@@ -466,6 +470,9 @@ Body:
     Type: Weapon
     TargetType: Ground
     Range: 9
+    Requires:
+      Weapon:
+        Bow: true
     AfterCastActDelay: 1000
     CastTime: 1000
     Cooldown: 10000
@@ -484,6 +491,8 @@ Body:
     Description: Backdoor Tunnel
     MaxLevel: 5
     TargetType: Self
+    Flags:
+      AllowWhenHidden: true
     Cooldown: 15000
   - Id: 9014
     Name: RG_HATERAID
@@ -492,6 +501,7 @@ Body:
     Type: Weapon
     TargetType: Attack
     Range: 2
+    HitCount: 4
     AfterCastActDelay: 1000
     Cooldown: 60000
   - Id: 9015
@@ -501,5 +511,7 @@ Body:
     Type: Weapon
     TargetType: Attack
     Range: 7
+    Flags:
+      AllowWhenHidden: true
     AfterCastActDelay: 1000
     Cooldown: 10000

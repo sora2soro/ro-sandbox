@@ -3092,6 +3092,13 @@ static bool is_attack_critical(struct Damage* wd, block_list *src, const block_l
 	if (skill_id == NPC_CRITICALSLASH || skill_id == LG_PINPOINTATTACK) //Always critical skills
 		return true;
 
+	// [RO Sandbox] Multi-Shadow Strike always crits targets marked by Grim Reaper's Mark
+	if (skill_id == AS_MULTISHADOW) {
+		const status_change *mstsc = status_get_sc(const_cast<block_list *>(target));
+		if (mstsc != nullptr && mstsc->getSCE(SC_GRIMMARK) != nullptr)
+			return true;
+	}
+
 	if( skill_id && !skill_get_nk(skill_id,NK_CRITICAL) )
 		return false;
 
@@ -3132,6 +3139,16 @@ static bool is_attack_critical(struct Damage* wd, block_list *src, const block_l
 
 		if( tsc && tsc->getSCE(SC_SLEEP) )
 			cri *= 2;
+
+		// [RO Sandbox] Grim Reaper's Mark: +1% crit per level against marked targets;
+		// a Sonic Blow-empowered Rapid Strikes carries a crit bonus in val2.
+		if (sd != nullptr) {
+			int32 grim_lv;
+			if (tsc && tsc->getSCE(SC_GRIMMARK) && (grim_lv = pc_checkskill(sd, AS_GRIMMARK)) > 0)
+				cri += 10 * grim_lv;
+			if (sc && sc->getSCE(SC_RSTRIKES) && sc->getSCE(SC_RSTRIKES)->val2 > 0)
+				cri += 10 * sc->getSCE(SC_RSTRIKES)->val2;
+		}
 
 		switch(skill_id) {
 			case 0:
@@ -3789,6 +3806,14 @@ static void battle_calc_element_damage(struct Damage* wd, block_list *src, block
 				ATK_ADD(wd->damage, wd->damage2, 15 * skill_lv);
 				// Envenom applies the attribute table to the base damage and then again to the final damage
 				wd->damage = battle_attr_fix(src, target, wd->damage, right_element, tstatus->def_ele, tstatus->ele_lv, 1);
+				// [RO Sandbox] Ruthless Strikes: double Envenom damage against poisoned targets
+				if (sd != nullptr && pc_checkskill(sd, TF_RUTHLESS) > 0) {
+					const status_change *ruth_tsc = status_get_sc(target);
+					if (ruth_tsc != nullptr && (ruth_tsc->getSCE(SC_POISON) != nullptr || ruth_tsc->getSCE(SC_DPOISON) != nullptr)) {
+						wd->damage += wd->damage;
+						wd->damage2 += wd->damage2;
+					}
+				}
 				break;
 			case NJ_SYURIKEN:
 				ATK_ADD(wd->damage, wd->damage2, 4 * skill_lv);
@@ -3818,6 +3843,17 @@ static void battle_calc_element_damage(struct Damage* wd, block_list *src, block
 		// This has to be applied after mastery bonuses but still before the elemental extra damage
 		if (sc->getSCE(SC_EDP))
 			wd->damage += (wd->damage * sc->getSCE(SC_EDP)->val3) / 100;
+
+		// [RO Sandbox] Phase 6 sandbox damage windows (right hand only, like the other pre-renewal bonuses)
+		if (sc->getSCE(SC_RSTRIKES)) // Rapid Strikes: -75% damage dealt while active
+			wd->damage -= wd->damage * 75 / 100;
+		if (sc->getSCE(SC_GEOBLADE)) // Geo blade: +2% damage per stack
+			wd->damage += wd->damage * 2 * sc->getSCE(SC_GEOBLADE)->val1 / 100;
+		if (sd != nullptr && sc->getSCE(SC_CLOAKING) != nullptr && sd->status.weapon == W_DAGGER) {
+			int32 cad_lv = pc_checkskill(sd, AS_CLOAKDAGGER);
+			if (cad_lv > 0) // Cloak and Dagger: +4% damage per level while cloaked
+				wd->damage += wd->damage * 4 * cad_lv / 100;
+		}
 
 		// This adds a percentual damage bonus based on the damage you would deal with a normal attack
 		// Applies only to player damage; monsters and mercenaries don't get this damage boost
@@ -4262,6 +4298,16 @@ static void battle_calc_skill_base_damage(struct Damage* wd, block_list *src,blo
 				if (bflag & BDMG_CRIT) { // add +crit damage bonuses here in pre-renewal mode [helvetica]
 					if (sd->bonus.crit_atk_rate > 0) {
 						ATK_ADDRATE(wd->damage, wd->damage2, sd->bonus.crit_atk_rate);
+					}
+					// [RO Sandbox] Grim Reaper's Mark: crit damage up by the target's
+					// missing HP% x (0.1 x skill level) against marked targets.
+					const status_change *grim_tsc = status_get_sc(target);
+					int32 grim_lv;
+					if (grim_tsc != nullptr && grim_tsc->getSCE(SC_GRIMMARK) != nullptr
+						&& (grim_lv = pc_checkskill(sd, AS_GRIMMARK)) > 0) {
+						int32 grim_lost = 100 - (int32)((int64)tstatus->hp * 100 / (int64)(tstatus->max_hp > 0 ? tstatus->max_hp : 1));
+						if (grim_lost > 0)
+							ATK_ADDRATE(wd->damage, wd->damage2, grim_lost * grim_lv / 10);
 					}
 				}
 				else if (std::shared_ptr<s_skill_db> skill_tmp = skill_db.find(skill_id); skill_tmp == nullptr || !skill_tmp->inf2[INF2_IGNORENONCRITATKBONUS]) {
@@ -7280,8 +7326,19 @@ enum damage_lv battle_weapon_attack(block_list* src, block_list* target, t_tick 
 		}
 	}
 	if (sc != nullptr && !sc->empty()) {
-		if (sc->getSCE(SC_CLOAKING) && !(sc->getSCE(SC_CLOAKING)->val4 & 2))
-			status_change_end(src, SC_CLOAKING);
+		if (sc->getSCE(SC_CLOAKING) && !(sc->getSCE(SC_CLOAKING)->val4 & 2)) {
+			// [RO Sandbox] Cloak and Dagger: attacking from Cloaking opens a short
+			// no-reveal window instead of breaking the cloak (dagger only). When the
+			// window ends, the cloak breaks (EndOnEnd) and Cloaking is locked.
+			int32 cad_lv;
+			if (sd != nullptr && sd->status.weapon == W_DAGGER && sc->getSCE(SC_CLOAKDAGGER) == nullptr
+				&& (cad_lv = pc_checkskill(sd, AS_CLOAKDAGGER)) > 0) {
+				sc->getSCE(SC_CLOAKING)->val4 |= 2|4;
+				sc_start(src, src, SC_CLOAKDAGGER, 100, cad_lv, 500 * cad_lv);
+				skill_blockpc_start(*sd, AS_CLOAKING, 10000 + 500 * cad_lv);
+			} else
+				status_change_end(src, SC_CLOAKING);
+		}
 		else if (sc->getSCE(SC_CLOAKINGEXCEED) && !(sc->getSCE(SC_CLOAKINGEXCEED)->val4 & 2))
 			status_change_end(src, SC_CLOAKINGEXCEED);
 		else if (sc->getSCE(SC_NEWMOON) && --(sc->getSCE(SC_NEWMOON)->val2) <= 0)

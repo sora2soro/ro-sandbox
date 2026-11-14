@@ -123,6 +123,10 @@ def read_new_skills():
                 errors.append(f"new_skills.csv: {code} is listed twice")
             out[code] = {"Id": int(row["Id"]), "TargetType": row["TargetType"].strip(),
                          "Type": row["Type"].strip(), "Range": int(row["Range"] or 0),
+                         "Hits": (row.get("Hits") or "").strip(),
+                         "Element": (row.get("Element") or "").strip(),
+                         "Weapon": (row.get("Weapon") or "").strip(),
+                         "Flags": (row.get("Flags") or "").strip(),
                          "Icon": row["Icon"].strip()}
     for sid, n in Counter(x["Id"] for x in out.values()).items():
         if n > 1:
@@ -580,6 +584,19 @@ def main():
             lines.append(f"    TargetType: {n['TargetType']}")
             if n["Range"]:
                 lines.append(f"    Range: {n['Range']}")
+            if n["Hits"]:
+                lines.append(f"    HitCount: {n['Hits']}")
+            if n["Element"]:
+                lines.append(f"    Element: {n['Element']}")
+            if n["Flags"]:
+                lines.append("    Flags:")
+                for fl in n["Flags"].split(";"):
+                    lines.append(f"      {fl.strip()}: true")
+            if n["Weapon"]:
+                lines.append("    Requires:")
+                lines.append("      Weapon:")
+                for w in n["Weapon"].split(";"):
+                    lines.append(f"        {w.strip()}: true")
             new_written.append(f"{code} Id {n['Id']} ({display.get(code, code)})")
         elif top_level.get(code, 0) > ra["MaxLevel"]:
             lines.append(f"    MaxLevel: {top}")
