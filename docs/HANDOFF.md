@@ -1,6 +1,6 @@
 # RO Sandbox: Vibe Coding Handoff
 
-Rex Irvin Carpen · Nov 6, 2026
+Rex Irvin Carpen · Nov 6, 2026 · updated Nov 14, 2026
 
 ## Overview
 
@@ -26,17 +26,20 @@ These rules apply server-wide and most need source changes, not just data. Full 
 | Elite skills | Elites share one 45 s cooldown, plus their own (usually 60 s). Charge elites (Vulcan Arrows, Dance of the Macabre) recharge per charge. Multi-Cast and Overcast never apply to elites. |
 | Skill points | 1 point at Job Lv 1, so 50 per 1st and 2nd job. Unused points carry over to the next job. +10 points when an Adept is promoted after transcending. |
 | Quest skills | Free, 1 level, fixed power, never a prerequisite. |
-| Transcendence | Base Level kept, Job Level resets. +10 all stats, +25% HP and MP, stat and Base Level caps 120. Adept changes job at Job Lv 15: same job unlocks the full tree, a different job keeps both kits. Once only; 3rd job is final. |
+| Transcendence | Base Level kept, Job Level resets. +25 to STR, AGI, VIT, INT, DEX and LUK (built in Phase 5), +25% HP and MP, stat and Base Level caps 120. Valkyrie needs only Job Lv 50 in a 2nd job, no Base Level check. Adept changes job at Job Lv 15: same job unlocks the full tree, a different job keeps both kits. Once only; 3rd job is final. |
 | Debuff durations | Soft debuffs curable by items (Silence, Blind, Poison, Curse) may last long. Hard control (stun, freeze, petrify, sleep) stays short with immunity windows. |
 | Reductions multiply | DEF, MDEF and damage reductions from different sources multiply: Value × (1 − r1) × (1 − r2)… They can never reach 100%. |
 | Flat before percent | Damage = (Base + flat bonuses) × percentage bonuses. |
-| Detection | Ruwach and Sight reveal for 3 s, Detect for 1 s; 15 s cooldown (Detect 10 s, 10 Mana). Templar Inquisitors are the detection specialists. |
+| Detection | Ruwach and Sight reveal for 8 s, Detect for 2 s (Duration (s) column of RO_Skill_Trees); 15 s cooldown (Detect 10 s, 10 Mana). Templar Inquisitors are the detection specialists. |
 | Fog of war | Day vision 9x9, night 7x7. Vision skills (Flare Shots and others) share vision with the party. |
 | Potion tolerance | Max 100. Every potion adds 10, fading after 10 / 100 / 1,000 s by tier. Over 80: incurable poison, 10% Max HP per second. At 100: potions stop working, poison doubles. Clear White resets it, then blocks potions for 30 s. Launchers: 3 potions per target per 1,000 s. |
 | Food | No tolerance. Stomach = 10% of weight limit; a dish fills its ingredients' total weight and digests after 5 minutes. Timed food effects refresh instead of stacking. |
 | Heavy armor | Any armor weighing as much as Chain Mail (33) or more. Needs Divine Covenant of the Armor (Templar). |
 | Economy | Negotiate replaces Discount and Overcharge (24% each way). Vending EXP set per item. Items bought from a Merchant can't go back to that seller for 2 weeks. Bounties limited to monsters within 10 levels and 10% of next level's EXP. |
 | Visual cues | Counterplay skills (Water Moon Reflection, Elemental Marks, stack counters) need loud, readable effects and status icons. |
+| EXP rates | Server Base and Job EXP rates are 1x. The old 3.75x Base and 7.5x Job multipliers are built into each monster's EXP by `sheet2yaml.py` (`SERVER_EXP_RATE`), so EXP per kill is unchanged. Quest and script EXP is 1x. |
+| Luck drop bonus | Cards and equipment from the tier file `db/import/luck_drop_tiers.txt` (S 0.25, A 0.5, B 1, C 2 points) drop more often with Luck: bonus = Luck x Tier point x (1 + Level x 0.09999) / 100 percentage points (Luck capped at 99). Level is the player's Base Level for cards and equipment, the monster's level otherwise. The bonus is cut when the player and monster are 10 or more levels apart (90% kept at 10, down to 50% at 20+). Base rates stay; the 90% drop cap applies; MVP rewards get it too. |
+| Leveling Route | Route monsters in 8 Base Level brackets (1–12 up to 80–99) give a Job EXP bonus and more equipment drops (Leveling Route tab of RO_Monster_Drops). Route quests that point players along it are designed, not built (see Open items). |
 
 ## Jobs
 
@@ -71,6 +74,15 @@ Every 2nd job now offers real build choices: with 50 points, players learn 27% t
 | Rogue | Thief | 115 | Mimicry, Envious Eye, Binding Shot, Hate Raid |
 | Kage | Thief | 188 | Physical shadow path and Ninjutsu Elemental Marks |
 
+Skill rules already built (Phase 5 and the Phase 6 start):
+
+- Every job has 1 skill point at Job Lv 1 (N points at Job Lv N). Novice max Job Lv is 25.
+- Job changes no longer require all skill points spent; 1st-job NPCs still require the 9 Basic Skills.
+- Bash skips the attack and act delay. Magnum Break has no after-cast delay and a 1.5 s cooldown.
+- Hindsight sets no after-cast delay (item and card autocasts keep theirs).
+- Lord of Vermilion, Storm Gust and Meteor Storm do x1.25 damage.
+- Free Cast (Sage): walk and attack while casting (classic), and any level removes the after-cast delay of magic spells, including the server's 100 ms minimum delay. Cast time and cooldowns stay.
+
 ## Items and crafting
 
 All 50 custom items have IDs, prices, weights and effects, and every recipe resolves to a real item. Crafted items are priced at the sum of their ingredients, so crafting never creates zeny from NPCs; the two gold items are priced by the player market instead.
@@ -82,6 +94,7 @@ All 50 custom items have IDs, prices, weights and effects, and every recipe reso
 | 30200–30210 | Equipment | Golden Thief Blade, Hunter's Avarice, Mammon's Golden Axe, Golden Cursed Ring, Blade of Golden Lining, 6 runic weapons |
 | 30300–30307 | Recipe pages | One per unique recipe, 0.05% drops (Blade page: Golden Thief Bug, 1%) |
 | 30400–30406 | Food | 7 dishes |
+| 30211–30265 | Route quest gear (planned) | 21 garments, armor and shoes, 34 weapons; on the Route Quest Custom Items tab, not in the item database yet |
 
 | Recipe book | Skill | Recipes |
 | --- | --- | --- |
@@ -145,15 +158,21 @@ Start with data that rAthena already reads, so the server is playable early, and
    - DEF and MDEF: Mitigation = 0.75 x A / (A + k) + 0.25 x B / (B + k), with k = C x attacker level / defender level (C: player 24, normal monster 500, boss 250, MVP 125). A is armor, B is cards, item effects and buffs. After the percentage, subtract VIT DEF + 0.75 x B + 0.25 x A (magic: INT + VIT/2 + the same). Criticals ignore DEF, but crit chance x (1 - Mitigation / 2). No 99 DEF cap.
    - Hard control (stun, freeze, petrify, sleep) is rescaled from its longest base duration (5 / 30 / 20 / 30 s) to a limit: normal monster 15 s, player 6 s, boss 5 s, MVP 3 s. Bosses and MVPs can be controlled. Each effect leaves an immunity window of 20% of the limit.
    - Durations for Ruwach, Sight and Detect come from the Duration (s) column of RO_Skill_Trees. Detect's repeat reveal is not tested in game yet.
-5. **Elite cooldown and 8-skill bar.**
-   - Check: one elite puts the others on cooldown; a 9th skill cannot be equipped.
-6. **Stamina resource.** The largest change: every skill's SP/MP split depends on it.
+5. **Leveling pace and direction.** *Done 2026-11-14 (PRs #18 to #24), except the route quests.*
+   - Check: a new character starts with 1 skill point; Bash chains into another action; Magnum Break has no after-cast delay and a 1.5 s cooldown; a job change works with points unspent.
+   - Also built: Leveling Route EXP and drop boosts, server EXP at 1x with the multiplier in monster EXP, Luck drop bonus, Renewal Izlude on the Pre-Renewal server, Free Cast.
+   - Route quests (URF Receptionist Silbe, 8 gear quests, daily commission) are designed but not built: see the route quest design doc in the claude.ai project.
+6. **New skills for existing jobs.** One job at a time, starting from the 166 sheet rows `skills2yaml.py` skips today.
+   - Check: each new skill works in game on a test character of that job.
+7. **Stamina resource.** The largest change: every skill's SP/MP split depends on it.
    - Check: Stamina regenerates 10 per second and Breathing Mastery adds up to 50.
-7. **Crafting scripts.** Recipe Book (and the Recipes tab export: 30 changed or new alchemy recipes, plus every other book), Gourmet and food stomach, potion tolerance, Clear White.
-   - Check: a 9th Red Potion inside 10 seconds triggers the poison.
-8. **New skills for existing jobs.** One job at a time, starting with the Merchant branch (its crafting is already in place).
-9. **New jobs.** Sword Master, Enchantress, Templar, Ranger and Kage, including client job names and sprites.
+8. **New jobs.** Sword Master, Enchantress, Templar, Ranger and Kage, including client job names and sprites.
+9. **Crafting scripts.** Recipe Book (and the Recipes tab export: 30 changed or new alchemy recipes, plus every other book) and Gourmet.
 10. **Fog of war and economy rules.** Day and night vision, vending EXP, item tagging, bounty limits.
+11. **Potion and food mechanics.** Potion tolerance, Clear White, food stomach.
+    - Check: a 9th Red Potion inside 10 seconds triggers the poison.
+12. **Elite cooldown and 8-skill bar.**
+    - Check: one elite puts the others on cooldown; a 9th skill cannot be equipped.
 
 Keep the sheets as the source and regenerate the import files from them, rather than hand-editing the YAML.
 
@@ -172,3 +191,7 @@ None of these block phases 1 to 4; most are small design calls or cleanups.
 - [ ] Draw icons and sprites for the custom items. For now each borrows an official item's look (Items tab, Client Look column).
 - [ ] Rename or switch off the client's "[ExampleRO]" tag on custom item names (ROTP setting in `SystemEN/itemInfo.lua`).
 - [ ] Check 6 Fletcher's Notes rows whose material names match more than one item (for example, Wooden Mail).
+- [ ] Build the route quests (design doc in the claude.ai project, four tabs on RO_Items_PreRenewal): converter support for custom equipment, client item info, quest_db, the Silbe NPC in six hubs, the 4:00 AM daily reset, then an in-game test.
+- [ ] In-game pace test of the Leveling Route: Novice Job 25 around Base 25, 1st job Job 50 around Base 45, 2nd job Job 50 around Base 65 to 70.
+- [ ] Watch whether 2nd jobs farm the 1st-job route monsters for the +575% Job EXP bonus; lower that bracket if it shows.
+- [ ] Sage "chained spells" quirk (Phase 6 idea): an active Free Cast buff, a spell queue, or a chain combo that shortens cast time.
