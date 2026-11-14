@@ -1985,6 +1985,10 @@ void unit_set_castdelay(unit_data& ud, t_tick tick, int32 casttime) {
 	// Use casttime or minimum delay, whatever is longer
 	t_tick cast_delay = i64max(casttime, battle_config.min_skill_delay_limit);
 
+	// [RO Sandbox] Free Cast: magic spells skip the server's minimum delay as well
+	if (ud.bl != nullptr && ud.bl->type == BL_PC && skill_get_type(ud.skill_id) == BF_MAGIC && pc_checkskill(reinterpret_cast<map_session_data*>(ud.bl), SA_FREECAST) > 0)
+		cast_delay = casttime;
+
 	// Only apply the cast delay, if it is longer than the act delay (set by unit_set_attackdelay)
 	ud.canact_tick = i64max(ud.canact_tick, tick + cast_delay);
 
