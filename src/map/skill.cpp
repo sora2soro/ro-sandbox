@@ -10392,6 +10392,11 @@ int32 skill_delayfix(block_list *bl, uint16 skill_id, uint16 skill_lv)
 	if (bl->type&battle_config.no_skill_delay)
 		return battle_config.min_skill_delay_limit;
 
+	// [RO Sandbox] Free Cast (any level) removes the after-cast delay of magic spells.
+	// Cooldowns are separate and stay. The server's minimum delay still applies.
+	if (bl->type == BL_PC && skill_get_type(skill_id) == BF_MAGIC && pc_checkskill(reinterpret_cast<map_session_data*>(bl), SA_FREECAST) > 0)
+		return battle_config.min_skill_delay_limit;
+
 	int32 delaynodex = skill_get_delaynodex(skill_id);
 	double time = skill_get_delay(skill_id, skill_lv);
 
