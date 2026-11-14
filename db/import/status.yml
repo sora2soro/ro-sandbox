@@ -44,3 +44,9 @@
 Header:
   Type: STATUS_DB
   Version: 4
+Body:
+  - Status: Rstrikes
+    Icon: EFST_TWOHANDQUICKEN
+    CalcFlags:
+      Hit: true
+      Aspd: true
