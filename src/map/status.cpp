@@ -4602,6 +4602,7 @@ int32 status_calc_pc_sub(map_session_data* sd, uint8 opt)
 	if(pc_ismadogear(sd) && pc_checkskill(sd, NC_MAINFRAME) > 0)
 		base_status->def += 20 + (pc_checkskill(sd, NC_MAINFRAME) * 20);
 
+	// [RO Sandbox] No equipment DEF cap: the Pre-Renewal max_def / over_def_bonus block was removed here.
 
 // ----- EQUIPMENT-MDEF CALCULATION -----
 
@@ -4613,6 +4614,7 @@ int32 status_calc_pc_sub(map_session_data* sd, uint8 opt)
 		base_status->mdef = cap_value(i, DEFTYPE_MIN, DEFTYPE_MAX);
 	}
 
+	// [RO Sandbox] No equipment MDEF cap: the Pre-Renewal max_def / over_def_bonus block was removed here.
 
 // ----- ASPD CALCULATION -----
 
@@ -7873,7 +7875,7 @@ static int16 status_calc_def2(block_list *bl, status_change *sc, int32 def2)
 	if(sc->getSCE(SC_BERSERK))
 		return 0;
 	if(sc->getSCE(SC_ETERNALCHAOS))
-		def2 -= def2 * 75 / 100;
+		def2 -= def2 * 75 / 100; // [RO Sandbox] Down Tempo cuts VIT DEF by 75% (was: to 0)
 	if(sc->getSCE(SC_DEFSET))
 		return sc->getSCE(SC_DEFSET)->val1;
 
@@ -11719,7 +11721,7 @@ static bool status_change_start_post_delay(block_list* src, block_list* bl, sc_t
 		case SC_PROVOKE:
 			if (src != nullptr && src->type != BL_PC && val1 == 10) {
 				val2 = 0; // 0% Atk increase
-				val3 = 55; // 55% Def reduction
+				val3 = 55; // [RO Sandbox] 55% Def reduction for monster Provoke Lv 10 (was 100%)
 			}
 			else {
 				val2 = 2 + 3 * val1; // Atk increase
