@@ -1446,6 +1446,19 @@ enum sc_type : int16 {
 	SC_WIND_CHARM_POWER,
 	SC_GROUND_CHARM_POWER,
 
+	// [RO Sandbox] Phase 6 new skills (Thief line)
+	SC_RSTRIKES,      // Rapid Strikes: val1 = skill lv, val2 = crit bonus from Sonic Blow empower
+	SC_SONICEMPOWER,  // next Rapid Strikes is empowered: val1 = Sonic Blow lv
+	SC_ESCAPADE,      // +100% flee and move speed
+	SC_GRIMMARK,      // Grim Reaper's Mark on the target: val1 = mark lv
+	SC_CLOAKDAGGER,   // Cloak and Dagger no-reveal window: val1 = skill lv
+	SC_TWINNEEDLE,    // Twin Needle slow on the target: val1 = skill lv (5%% MS per lv)
+	SC_TWINSTACK,     // Twin Needle stacking-cooldown counter on the caster: val1 = stacks
+	SC_CORROSIVE,     // Corrosive Shower debuff: val1 = skill lv (-2%% DEF per lv, break chance)
+	SC_GEOBLADE,      // Geo Phantasmal Strike blade enchant on the Rogue: val1 = stacks
+	SC_GEOSLOW,       // Geo blade slow on the target: val1 = stacks (-3%% ASPD/MS per stack)
+	SC_BACKDOOR,      // Backdoor Tunnel mark: val1 = x, val2 = y, val3 = map id
+
 	SC_MAX, //Automatically updated max, used in for's to check we are within bounds.
 };
 

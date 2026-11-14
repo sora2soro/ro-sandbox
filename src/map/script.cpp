@@ -9713,7 +9713,10 @@ BUILDIN_FUNC(getequippercentrefinery)
 			return SCRIPT_CMD_SUCCESS;
 		}
 
-		script_pushint( st, cost->chance / 100 );
+		// [RO Sandbox] Lady Luck Smile: +0.777% refine success per level
+		int32 luck_chance = cost->chance + ( 777 * pc_checkskill( sd, NV_LLSMILE ) + 5 ) / 10;
+
+		script_pushint( st, luck_chance / 100 );
 	}
 	else
 		script_pushint(st,0);

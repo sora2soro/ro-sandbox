@@ -98,6 +98,17 @@
 #include "venomsplasher.cpp"
 #include "weaponcrush.cpp"
 
+// [RO Sandbox] Phase 6 new skills
+#include "backdoortunnel.cpp"
+#include "corrosiveshower.cpp"
+#include "escapade.cpp"
+#include "geophantasmalstrike.cpp"
+#include "hateraid.cpp"
+#include "multishadowstrike.cpp"
+#include "rapidstrikes.cpp"
+#include "skilllock.cpp"
+#include "twinneedle.cpp"
+
 std::unique_ptr<const SkillImpl> SkillFactoryThief::create(const e_skill skill_id) const {
 	switch (skill_id) {
 		case ABC_ABYSS_DAGGER:
@@ -304,6 +315,26 @@ std::unique_ptr<const SkillImpl> SkillFactoryThief::create(const e_skill skill_i
 			return std::make_unique<SkillSteal>();
 		case TF_THROWSTONE:
 			return std::make_unique<SkillStoneFling>();
+
+		// [RO Sandbox] Phase 6 new skills (passives need no entry here)
+		case TF_RSTRIKES:
+			return std::make_unique<SkillRapidStrikes>();
+		case TF_TWINNEEDLE:
+			return std::make_unique<SkillTwinNeedle>();
+		case TF_ESCAPADE:
+			return std::make_unique<SkillEscapade>();
+		case AS_MULTISHADOW:
+			return std::make_unique<SkillMultiShadowStrike>();
+		case RG_CORROSIVE:
+			return std::make_unique<SkillCorrosiveShower>();
+		case RG_SKILLLOCK:
+			return std::make_unique<SkillSkillLock>();
+		case RG_BACKDOOR:
+			return std::make_unique<SkillBackdoorTunnel>();
+		case RG_HATERAID:
+			return std::make_unique<SkillHateRaid>();
+		case RG_GEOPHANTASM:
+			return std::make_unique<SkillGeoPhantasmalStrike>();
 
 		default:
 			return nullptr;

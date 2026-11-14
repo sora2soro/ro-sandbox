@@ -2414,7 +2414,10 @@ void pc_reg_received(map_session_data *sd)
 			sd->status.skill[sd->cloneskill_idx].flag = SKILL_FLAG_PLAGIARIZED;
 		}
 	}
-	if ((i = pc_checkskill(sd,SC_REPRODUCE)) > 0) {
+	i = pc_checkskill(sd,SC_REPRODUCE);
+	if (i == 0) // [RO Sandbox] Envious Eye shares the Reproduce copy slot
+		i = pc_checkskill(sd,RG_ENVIOUSEYE);
+	if (i > 0) {
 		uint16 skid = static_cast<uint16>(pc_readglobalreg(sd, add_str(SKILL_VAR_REPRODUCE)));
 		sd->reproduceskill_idx = skill_get_index(skid);
 		if (sd->reproduceskill_idx > 0) {

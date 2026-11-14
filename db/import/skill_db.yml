@@ -385,3 +385,133 @@ Body:
     Name: PR_REDEMPTIO
     CastTime: 15000
     Cooldown: 60000
+  - Id: 5520
+    Name: NV_LLSMILE
+    Description: Lady Luck Smile
+    MaxLevel: 10
+    TargetType: Passive
+  - Id: 5521
+    Name: TF_RSTRIKES
+    Description: Rapid Strikes
+    MaxLevel: 10
+    TargetType: Self
+    Cooldown: 7500
+    Duration1:
+      - Level: 1
+        Time: 1100
+      - Level: 2
+        Time: 1311
+      - Level: 3
+        Time: 1522
+      - Level: 4
+        Time: 1733
+      - Level: 5
+        Time: 1944
+      - Level: 6
+        Time: 2156
+      - Level: 7
+        Time: 2367
+      - Level: 8
+        Time: 2578
+      - Level: 9
+        Time: 2789
+      - Level: 10
+        Time: 3000
+  - Id: 5522
+    Name: TF_TWINNEEDLE
+    Description: Twin Needle
+    MaxLevel: 10
+    Type: Weapon
+    TargetType: Attack
+    Range: 7
+    HitCount: 2
+    Element: Poison
+  - Id: 5523
+    Name: TF_SWIFT
+    Description: Improve Swiftness
+    MaxLevel: 10
+    TargetType: Passive
+  - Id: 5524
+    Name: TF_ESCAPADE
+    Description: Escapade
+    MaxLevel: 10
+    TargetType: Self
+    Flags:
+      AllowWhenHidden: true
+    Cooldown: 10000
+  - Id: 5525
+    Name: TF_RUTHLESS
+    Description: Ruthless Strikes
+    MaxLevel: 1
+    TargetType: Passive
+  - Id: 5526
+    Name: AS_GRIMMARK
+    Description: Grim Reaper's Mark
+    MaxLevel: 10
+    TargetType: Passive
+  - Id: 5527
+    Name: AS_CLOAKDAGGER
+    Description: Cloak and Dagger
+    MaxLevel: 5
+    TargetType: Passive
+  - Id: 5528
+    Name: AS_MULTISHADOW
+    Description: Multi-Shadow Strike
+    MaxLevel: 10
+    Type: Weapon
+    TargetType: Ground
+    Range: 7
+    AfterCastActDelay: 1000
+    Cooldown: 60000
+  - Id: 5529
+    Name: RG_CORROSIVE
+    Description: Corrosive Shower
+    MaxLevel: 10
+    Type: Weapon
+    TargetType: Ground
+    Range: 9
+    Requires:
+      Weapon:
+        Bow: true
+    AfterCastActDelay: 1000
+    CastTime: 1000
+    Cooldown: 10000
+  - Id: 5530
+    Name: RG_ENVIOUSEYE
+    Description: Envious Eye
+    MaxLevel: 10
+    TargetType: Passive
+  - Id: 5531
+    Name: RG_SKILLLOCK
+    Description: Skill Lock
+    MaxLevel: 1
+    TargetType: Self
+  - Id: 5532
+    Name: RG_BACKDOOR
+    Description: Backdoor Tunnel
+    MaxLevel: 5
+    TargetType: Self
+    Flags:
+      AllowWhenHidden: true
+    Cooldown: 15000
+  - Id: 5533
+    Name: RG_HATERAID
+    Description: Hate Raid
+    MaxLevel: 5
+    Type: Weapon
+    TargetType: Attack
+    Range: 2
+    HitCount: 4
+    AfterCastActDelay: 1000
+    Cooldown: 60000
+  - Id: 5534
+    Name: RG_GEOPHANTASM
+    Description: Geo Phantasmal Strike
+    MaxLevel: 5
+    Type: Weapon
+    TargetType: Attack
+    Range: 7
+    Flags:
+      AllowWhenHidden: true
+    AfterCastActDelay: 1000
+    Cooldown: 10000

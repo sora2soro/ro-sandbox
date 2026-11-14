@@ -4535,6 +4535,9 @@ int32 status_calc_pc_sub(map_session_data* sd, uint8 opt)
 	// Absolute modifiers from passive skills
 	if((skill=pc_checkskill(sd,TF_MISS))>0)
 		base_status->flee += skill*(sd->class_&JOBL_2 && (sd->class_&MAPID_FIRSTMASK) == MAPID_THIEF? 4 : 3);
+	// [RO Sandbox] Improve Swiftness: +1.5% attack speed per level (move speed is in status_calc_speed)
+	if((skill=pc_checkskill(sd,TF_SWIFT))>0)
+		base_status->aspd_rate -= 15*skill;
 	if((skill=pc_checkskill(sd,MO_DODGE))>0)
 		base_status->flee += (skill*3) / 2;
 	if (pc_checkskill(sd, SU_POWEROFLIFE) > 0)
@@ -7555,6 +7558,9 @@ static int16 status_calc_hit(block_list *bl, status_change *sc, int32 hit)
 	if(sc == nullptr || sc->empty())
 		return cap_value(hit,1,SHRT_MAX);
 
+	// [RO Sandbox] Rapid Strikes: +190% accuracy while active
+	if(sc->getSCE(SC_RSTRIKES))
+		hit += hit * 190 / 100;
 	if(sc->getSCE(SC_INCHIT))
 		hit += sc->getSCE(SC_INCHIT)->val1;
 	if(sc->getSCE(SC_TRUESIGHT))
@@ -7631,6 +7637,10 @@ static int16 status_calc_flee(block_list *bl, status_change *sc, int32 flee)
 
 	if(sc == nullptr || sc->empty())
 		return cap_value(flee,1,SHRT_MAX);
+
+	// [RO Sandbox] Escapade: +100% flee while active
+	if(sc->getSCE(SC_ESCAPADE))
+		flee += flee;
 	if (sc->getSCE(SC_POISON_MIST))
 		return 0;
 	if(sc->getSCE(SC_OVERED_BOOST)) //Should be final and unmodifiable by any means
@@ -7758,6 +7768,10 @@ static defType status_calc_def(block_list *bl, status_change *sc, int32 def)
 {
 	if(sc == nullptr || sc->empty())
 		return (defType)cap_value(def,DEFTYPE_MIN,DEFTYPE_MAX);
+
+	// [RO Sandbox] Corrosive Shower: -2% DEF per level while active
+	if(sc->getSCE(SC_CORROSIVE))
+		def -= def * 2 * sc->getSCE(SC_CORROSIVE)->val1 / 100;
 
 	if(sc->getSCE(SC_BERSERK))
 		return 0;
@@ -8230,6 +8244,19 @@ static uint16 status_calc_speed(block_list *bl, status_change *sc, int32 speed)
 	if( sc->getSCE(SC_WALKSPEED) && sc->getSCE(SC_WALKSPEED)->val1 > 0 ) // ChangeSpeed
 		speed = speed * 100 / sc->getSCE(SC_WALKSPEED)->val1;
 
+	// [RO Sandbox] Phase 6 sandbox move speed effects
+	if( sd ) {
+		int32 swift = pc_checkskill(sd, TF_SWIFT);
+		if( swift > 0 ) // Improve Swiftness: +1.5% move speed per level
+			speed -= speed * 15 * swift / 1000;
+	}
+	if( sc->getSCE(SC_ESCAPADE) ) // Escapade: +100% move speed
+		speed = speed * 100 / 200;
+	if( sc->getSCE(SC_TWINNEEDLE) ) // Twin Needle: -5% move speed per level
+		speed += speed * 5 * sc->getSCE(SC_TWINNEEDLE)->val1 / 100;
+	if( sc->getSCE(SC_GEOSLOW) ) // Geo blade: -3% move speed per stack
+		speed += speed * 3 * sc->getSCE(SC_GEOSLOW)->val1 / 100;
+
 	return (uint16)cap_value(speed, MIN_WALK_SPEED, MAX_WALK_SPEED);
 }
 
@@ -8418,6 +8445,12 @@ static int16 status_calc_aspd_rate(block_list *bl, status_change *sc, int32 aspd
 
 	if(sc == nullptr || sc->empty())
 		return cap_value(aspd_rate,0,SHRT_MAX);
+
+	// [RO Sandbox] Phase 6 sandbox attack speed effects
+	if(sc->getSCE(SC_RSTRIKES)) // Rapid Strikes: +190% attack speed
+		aspd_rate -= 1900;
+	if(sc->getSCE(SC_GEOSLOW)) // Geo blade: -3% attack speed per stack
+		aspd_rate += 30 * sc->getSCE(SC_GEOSLOW)->val1;
 
 	int32 max = 0;
 	if (sc->getSCE(SC_STAR_COMFORT))
@@ -11224,6 +11257,14 @@ static bool status_change_start_post_delay(block_list* src, block_list* bl, sc_t
 		case SC_KILLING_AURA:
 		case SC_WINKCHARM:
 		case SC_VOICEOFSIREN:
+			// [RO Sandbox] Grim Reaper's Mark: poison applied by an Assassin with the
+			// passive also marks the target, for the poison duration +5 seconds.
+			if ((type == SC_POISON || type == SC_DPOISON) && src != nullptr && src != bl) {
+				map_session_data *grim_sd = BL_CAST(BL_PC, src);
+				int32 grim_lv;
+				if (grim_sd != nullptr && (grim_lv = pc_checkskill(grim_sd, AS_GRIMMARK)) > 0)
+					sc_start(src, bl, SC_GRIMMARK, 100, grim_lv, tick + 5000);
+			}
 			tick_time = status_get_sc_interval(type);
 			val4 = tick - tick_time; // Remaining time
 			break;

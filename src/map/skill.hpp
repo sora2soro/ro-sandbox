@@ -646,6 +646,7 @@ int32 skill_calc_heal(block_list *src, block_list *target, uint16 skill_id, uint
 int32 skill_trap_splash(block_list* bl, va_list ap);
 bool skill_check_cloaking(block_list *bl, struct status_change_entry *sce);
 int8 skill_isCopyable(map_session_data *sd, uint16 skill_id);
+void skill_sandbox_envious_copy(block_list *src, uint16 skill_id, uint16 skill_lv); // [RO Sandbox] Envious Eye
 
 int32 skill_graffitiremover(block_list *bl, va_list ap); // [Valaris]
 
@@ -2603,7 +2604,24 @@ enum e_skill {
 	ABR_DUAL_CANNON_FIRE,
 	ABR_NET_REPAIR,
 	ABR_NET_SUPPORT,
-	ABR_INFINITY_BUSTER
+	ABR_INFINITY_BUSTER,
+
+	// [RO Sandbox] Phase 6 new skills. IDs match tools/sandbox/new_skills.csv.
+	NV_LLSMILE = 5520,
+	TF_RSTRIKES = 5521,
+	TF_TWINNEEDLE = 5522,
+	TF_SWIFT = 5523,
+	TF_ESCAPADE = 5524,
+	TF_RUTHLESS = 5525,
+	AS_GRIMMARK = 5526,
+	AS_CLOAKDAGGER = 5527,
+	AS_MULTISHADOW = 5528,
+	RG_CORROSIVE = 5529,
+	RG_ENVIOUSEYE = 5530,
+	RG_SKILLLOCK = 5531,
+	RG_BACKDOOR = 5532,
+	RG_HATERAID = 5533,
+	RG_GEOPHANTASM = 5534
 };
 
 /// The client view ids for land skills.

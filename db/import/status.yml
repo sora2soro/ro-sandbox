@@ -44,3 +44,33 @@
 Header:
   Type: STATUS_DB
   Version: 4
+Body:
+  # [RO Sandbox] Phase 6 new skills (Thief line). Durations are passed in code.
+  - Status: Rstrikes
+    Icon: EFST_TWOHANDQUICKEN
+    CalcFlags:
+      Hit: true
+      Aspd: true
+  - Status: Sonicempower
+  - Status: Escapade
+    Icon: EFST_INC_AGI
+    CalcFlags:
+      Flee: true
+      Speed: true
+  - Status: Grimmark
+  - Status: Cloakdagger
+    EndOnEnd:
+      Cloaking: true
+  - Status: Twinneedle
+    CalcFlags:
+      Speed: true
+  - Status: Twinstack
+  - Status: Corrosive
+    CalcFlags:
+      Def: true
+  - Status: Geoblade
+  - Status: Geoslow
+    CalcFlags:
+      Speed: true
+      Aspd: true
+  - Status: Backdoor

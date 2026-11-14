@@ -2004,6 +2004,19 @@
 	export_constant(SC_WIND_CHARM_POWER);
 	export_constant(SC_GROUND_CHARM_POWER);
 
+	// [RO Sandbox] Phase 6 new skills (Thief line)
+	export_constant(SC_RSTRIKES);
+	export_constant(SC_SONICEMPOWER);
+	export_constant(SC_ESCAPADE);
+	export_constant(SC_GRIMMARK);
+	export_constant(SC_CLOAKDAGGER);
+	export_constant(SC_TWINNEEDLE);
+	export_constant(SC_TWINSTACK);
+	export_constant(SC_CORROSIVE);
+	export_constant(SC_GEOBLADE);
+	export_constant(SC_GEOSLOW);
+	export_constant(SC_BACKDOOR);
+
 /// Do not modify code below this, until the end of the API hook, since it will be automatically generated again
 /// @APIHOOK_START(EFST_CONST)
 	export_constant(EFST_BLANK);

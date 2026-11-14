@@ -21,8 +21,9 @@
 # those files to go back to the GRF versions.
 #
 # Rules:
-#   - Rows whose rAthena Code isn't an rAthena skill are new skills (Phase 6)
-#     and are skipped. Their names still count when other rows name them.
+#   - Rows whose rAthena Code isn't an rAthena skill are new skills (Phase 6).
+#     Ones mapped in new_skills.csv are generated in full (skill_db, skill_tree
+#     and client files); the rest are skipped. Their names count either way.
 #   - If a skill's New Prerequisites name a skill that doesn't exist yet, the
 #     skill keeps its classic prerequisites until it does.
 #   - New Max Lv 0, or a Move To another job, takes the skill off that job.
@@ -100,6 +101,37 @@ TIMINGS = [("Cast Time (s)", "CastTime"),
            ("Duration (s)", "Duration1")]  # optional column; blank keeps rAthena's value
 
 errors = []
+
+NEW_SKILLS_CSV = os.path.join(os.path.dirname(os.path.abspath(__file__)), "new_skills.csv")
+
+
+def read_new_skills():
+    """code -> {"Id", "TargetType", "Type", "Range", "Icon"} from new_skills.csv.
+
+    New skills mapped there are generated in full (skill_db, skill_tree and
+    client files); new-skill rows without a mapping stay skipped (Phase 6,
+    one job at a time)."""
+    out = {}
+    if not os.path.exists(NEW_SKILLS_CSV):
+        return out
+    with open(NEW_SKILLS_CSV, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            code = row["rAthena Code"].strip()
+            if not code:
+                continue
+            if code in out:
+                errors.append(f"new_skills.csv: {code} is listed twice")
+            out[code] = {"Id": int(row["Id"]), "TargetType": row["TargetType"].strip(),
+                         "Type": row["Type"].strip(), "Range": int(row["Range"] or 0),
+                         "Hits": (row.get("Hits") or "").strip(),
+                         "Element": (row.get("Element") or "").strip(),
+                         "Weapon": (row.get("Weapon") or "").strip(),
+                         "Flags": (row.get("Flags") or "").strip(),
+                         "Icon": row["Icon"].strip()}
+    for sid, n in Counter(x["Id"] for x in out.values()).items():
+        if n > 1:
+            errors.append(f"new_skills.csv: skill ID {sid} is used {n} times")
+    return out
 
 
 def fetch_tab(name):
@@ -327,6 +359,24 @@ def main():
 
     ra_skills = read_rathena_skills()
     ra_trees = read_rathena_trees()
+
+    # New skills mapped in new_skills.csv join ra_skills so the sheet rows
+    # that define them are read like any other skill.
+    new_skills = read_new_skills()
+    for code, n in sorted(new_skills.items()):
+        if code in ra_skills:
+            errors.append(f"new_skills.csv: {code} is already an rAthena skill")
+        elif n["Icon"] not in ra_skills:
+            errors.append(f"new_skills.csv: {code} icon '{n['Icon']}' is not an rAthena skill")
+    taken = {s["Id"]: c for c, s in ra_skills.items()}
+    for code, n in sorted(new_skills.items()):
+        if code in ra_skills:
+            continue
+        if n["Id"] in taken:
+            errors.append(f"new_skills.csv: {code} ID {n['Id']} is taken by {taken[n['Id']]}")
+            continue
+        taken[n["Id"]] = code
+        ra_skills[code] = {"Id": n["Id"], "MaxLevel": 0}
     tab_of_job = {job: tab for tab, (_, job) in TABS.items()}
     for tab, (_, job) in TABS.items():
         if job not in ra_trees:
@@ -334,6 +384,7 @@ def main():
 
     # Read every tab, and every skill name -> code (new skills included).
     tabs, names, points = {}, {}, {}
+    display, sheet_desc = {}, {}
     for tab in TABS:
         rows = []
         raw = fetch_tab(tab)
@@ -343,6 +394,9 @@ def main():
             if not code:
                 continue
             rows.append((rownum, name, code, row))
+            display.setdefault(code, name)
+            if code in new_skills and row.get("Description", "").strip():
+                sheet_desc.setdefault(code, " ".join(row["Description"].split()))
             if norm(name) in names and names[norm(name)] != code:
                 errors.append(f"{tab} row {rownum}: '{name}' is {code} here but "
                               f"{names[norm(name)]} on another tab")
@@ -355,6 +409,7 @@ def main():
     leaves = {job: set() for _, job in TABS.values()}
     timings = {}   # code -> {field: (value, where)}
     top_level = {}  # code -> highest New Max Lv
+    annotated = []  # timings with a note in (), left to source code
     n_new = 0
     for tab, rows in tabs.items():
         job = TABS[tab][1]
@@ -398,8 +453,12 @@ def main():
 
             # Timings come only from rows that define the skill somewhere.
             for column, field in TIMINGS:
+                raw = row.get(column, "")
+                if "(" in raw:  # e.g. "0.5 -> 1.5 (stacking)": source code handles it
+                    annotated.append(f"{where}: {column} '{' '.join(raw.split())}'")
+                    continue
                 try:
-                    value = parse_timing(row.get(column, ""))
+                    value = parse_timing(raw)
                 except ValueError:
                     errors.append(f"{where}: {column} '{row[column].strip()}' should be "
                                   "a number of seconds, '-', or 'a → b'")
@@ -511,12 +570,35 @@ def main():
             tree_entries.append([f"  - Job: {job}", "    Tree:"] + lines)
 
     # skill_db: raised max levels and changed timings.
-    db_entries, raised, timing_changes = [], [], []
+    db_entries, raised, timing_changes, new_written = [], [], [], []
     for code in sorted(set(top_level) | set(timings), key=lambda c: ra_skills[c]["Id"]):
         ra = ra_skills[code]
         top = max(top_level.get(code, 0), ra["MaxLevel"])
         lines = []
-        if top_level.get(code, 0) > ra["MaxLevel"]:
+        if code in new_skills:
+            n = new_skills[code]
+            lines.append(f"    Description: {display.get(code, code)}")
+            lines.append(f"    MaxLevel: {top}")
+            if n["Type"] and n["Type"] != "None":
+                lines.append(f"    Type: {n['Type']}")
+            lines.append(f"    TargetType: {n['TargetType']}")
+            if n["Range"]:
+                lines.append(f"    Range: {n['Range']}")
+            if n["Hits"]:
+                lines.append(f"    HitCount: {n['Hits']}")
+            if n["Element"]:
+                lines.append(f"    Element: {n['Element']}")
+            if n["Flags"]:
+                lines.append("    Flags:")
+                for fl in n["Flags"].split(";"):
+                    lines.append(f"      {fl.strip()}: true")
+            if n["Weapon"]:
+                lines.append("    Requires:")
+                lines.append("      Weapon:")
+                for w in n["Weapon"].split(";"):
+                    lines.append(f"        {w.strip()}: true")
+            new_written.append(f"{code} Id {n['Id']} ({display.get(code, code)})")
+        elif top_level.get(code, 0) > ra["MaxLevel"]:
             lines.append(f"    MaxLevel: {top}")
             raised.append(f"{code} {ra['MaxLevel']} -> {top}")
         for field, (value, _) in sorted(timings.get(code, {}).items()):
@@ -571,10 +653,12 @@ def main():
     print(f"{SKILL_DB_OUT}: {len(db_entries)} skills")
     print(f"{JOB_STATS_OUT}: {', '.join(job_levels) or 'no job level changes'}")
     print(f"Skipped {n_new} rows for new skills (Phase 6).")
-    for title, items in (("Kept classic prerequisites", waits),
+    for title, items in (("New skills written", new_written),
+                         ("Kept classic prerequisites", waits),
                          ("Copied from a parent job", mirrored),
                          ("Max level raised (check source formulas)", raised),
-                         ("Timing changes", timing_changes)):
+                         ("Timing changes", timing_changes),
+                         ("Timings left to source code (annotated)", annotated)):
         if items:
             print(f"{title}:")
             for item in items:
@@ -583,9 +667,23 @@ def main():
     if args.client:
         jobs = [job for _, job in TABS.values()]
         top = {code: lv for code, lv in top_level.items()
-               if lv > ra_skills[code]["MaxLevel"]}
+               if code not in new_skills and lv > ra_skills[code]["MaxLevel"]}
+        new_reqs = {}
+        for skills in desired.values():
+            for code, d in skills.items():
+                if code in new_skills:
+                    new_reqs.setdefault(code, d["req"])
+        new_data = [
+            {"code": code, "id": n["Id"], "icon": n["Icon"],
+             "name": display.get(code, code), "max": top_level.get(code, 1),
+             "range": n["Range"], "passive": n["TargetType"] == "Passive",
+             "desc": sheet_desc.get(code, ""),
+             "req": new_reqs.get(code, []),
+             "req_names": [(display.get(rc, rc), lv) for rc, lv in new_reqs.get(code, [])]}
+            for code, n in sorted(new_skills.items(), key=lambda kv: kv[1]["Id"])
+            if code in top_level]
         write_client(args.client, client_sources, jobs, ra_skills, ra_trees,
-                     finals, desired, leaves, top)
+                     finals, desired, leaves, top, new_data)
 
 
 # ---------- client skill window files ----------
@@ -771,7 +869,9 @@ def read_treeview(text):
 
 
 def write_client(client_dir, sources, jobs, ra_skills, ra_trees, finals, desired,
-                 leaves, top):
+                 leaves, top, new_data):
+    new_codes = {d["code"] for d in new_data}
+
     def effective(own_of, job, code):
         entry = own_of(job).get(code)
         if entry is None:
@@ -794,6 +894,8 @@ def write_client(client_dir, sources, jobs, ra_skills, ra_trees, finals, desired
             codes |= set(classic(parent)) | set(new(parent))
     changes = {}
     for code in sorted(codes):
+        if code in new_codes:
+            continue  # created whole below, prerequisites included
         before = [effective(classic, j, code) for j in jobs]
         after = [effective(new, j, code) for j in jobs]
         if before == after:
@@ -877,8 +979,15 @@ def write_client(client_dir, sources, jobs, ra_skills, ra_trees, finals, desired
         if name == "skilldescript.lub":
             jobid_text = sources.get((folder, "jobinheritlist.lub"), "")
             job_numbers = {j: int(n) for j, n in re.findall(r"(JT_\w+)\s*=\s*(\d+)", jobid_text)}
+            if new_data:
+                text = add_blocks_before_close(text, [line for d in new_data
+                                                      for line in new_descript_block(d)])
             new_text = edit_descript(text, client_changes, client_max, job_numbers)
         elif name == "skillinfolist.lub":
+            if new_data:
+                blocks = [line for d in new_data for line in new_skillinfo_block(
+                    d, to_client(d["icon"]), [(to_client(rc), lv) for rc, lv in d["req"]])]
+                text = add_blocks_before_close(text, blocks)
             new_text, missing = edit_skillinfo(text, client_changes, client_max)
             for code in missing:
                 print(f"  note: {code} is not in the client's {folder}/{name}")
@@ -887,6 +996,10 @@ def write_client(client_dir, sources, jobs, ra_skills, ra_trees, finals, desired
             layouts = {jid: {slot: to_client(code) for slot, code in slots.items()}
                        for jid, slots in layouts_for(ra_text).items()}
             new_text = edit_treeview(text, layouts)
+        elif name == "skillid.lub":
+            if not new_data:
+                continue
+            new_text = add_new_skillid(text, [(d["code"], d["id"]) for d in new_data])
         else:
             continue
         out = os.path.join(client_dir, *CLIENT_PATH.format(dir=folder, file=name).split("\\"))
@@ -894,9 +1007,92 @@ def write_client(client_dir, sources, jobs, ra_skills, ra_trees, finals, desired
         with open(out, "w", encoding="latin-1", newline="") as f:
             f.write(new_text)
         written.append(out)
-    print(f"Client: {len(changes)} skills with new prerequisites or trees")
+    print(f"Client: {len(changes)} skills with new prerequisites or trees, "
+          f"{len(new_data)} new skills added")
     for path in written:
         print(f"  {path}")
+
+
+def lua_quote(s):
+    return s.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def wrap_text(text, width=55):
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        if cur and len(cur) + 1 + len(w) > width:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = f"{cur} {w}" if cur else w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def add_blocks_before_close(text, block_lines):
+    """Insert lines before the file's last closing-brace line."""
+    lines = text.split("\r\n")
+    end = max(i for i, l in enumerate(lines) if l.strip() == "}")
+    lines[end:end] = block_lines
+    return "\r\n".join(lines)
+
+
+def add_new_skillid(text, additions):
+    """Append 'CODE = id' entries inside the SKID table."""
+    lines = text.split("\r\n")
+    end = max(i for i, l in enumerate(lines) if l.strip() == "}")
+    last = max(i for i in range(end) if lines[i].strip())
+    if not lines[last].rstrip().endswith(","):
+        lines[last] = lines[last].rstrip() + ","
+    body = ["\t-- [RO Sandbox] New sandbox skills (tools/sandbox/new_skills.csv)"]
+    body += [f"\t{code} = {sid}," for code, sid in additions]
+    body[-1] = body[-1].rstrip(",")
+    lines[end:end] = body
+    return "\r\n".join(lines)
+
+
+def new_skillinfo_block(d, icon, reqs):
+    """A skillinfolist.lub block for a new skill."""
+    top = d["max"]
+    sp = ", ".join(["0"] * top)
+    ar = ", ".join([str(max(d["range"], 1))] * top)
+    sep = "false" if d["passive"] else "true"
+    out = [f"\t[SKID.{d['code']}] = {{",
+           f"\t\t\"{icon}\",",
+           f"\t\tSkillName = \"{lua_quote(d['name'])}\",",
+           f"\t\tMaxLv = {top},",
+           f"\t\tSpAmount = {{ {sp} }},",
+           f"\t\tbSeperateLv = {sep},",
+           f"\t\tAttackRange = {{ {ar} }}"]
+    if reqs:
+        out[-1] += ","
+        out.append("\t\t_NeedSkillList = {")
+        for i, (rc, lv) in enumerate(reqs):
+            out.append(f"\t\t\t{{ SKID.{rc}, {lv} }}" + ("," if i < len(reqs) - 1 else ""))
+        out.append("\t\t}")
+    out.append("\t},")
+    return out
+
+
+def new_descript_block(d):
+    """A skilldescript.lub block for a new skill."""
+    form = "Passive" if d["passive"] else "Active"
+    out = [f"\t[SKID.{d['code']}] = {{",
+           f"\t\t\"{lua_quote(d['name'])}\",",
+           f"\t\t\"Max Level: {d['max']}\",",
+           f"\t\t\"Skill Form: ^6666CC{form}^000000\","]
+    if d["req_names"]:
+        req = ", ".join(f"{name} {lv}" for name, lv in d["req_names"])
+        out.append(f"\t\t\"^CC3399Requirement: {lua_quote(req)}^000000\",")
+    wrapped = wrap_text(d["desc"]) or ["(No description yet.)"]
+    for i, line in enumerate(wrapped):
+        head = "Description: ^777777" if i == 0 else ""
+        tail = "^000000" if i == len(wrapped) - 1 else ""
+        out.append(f"\t\t\"{head}{lua_quote(line)}{tail}\",")
+    out[-1] = out[-1].rstrip(",")
+    out.append("\t},")
+    return out
 
 
 def edit_descript(text, changes, max_levels, job_numbers):

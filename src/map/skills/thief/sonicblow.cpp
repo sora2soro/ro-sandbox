@@ -11,6 +11,18 @@
 SkillSonicBlow::SkillSonicBlow() : WeaponSkillImpl(AS_SONICBLOW) {
 }
 
+// [RO Sandbox] Shares Rapid Strikes' cooldown, and empowers the next Rapid
+// Strikes cast within 15 seconds: +2% crit and +0.1s duration per level.
+void SkillSonicBlow::castendDamageId(block_list* src, block_list* target, uint16 skill_lv, t_tick tick, int32& flag) const {
+	WeaponSkillImpl::castendDamageId(src, target, skill_lv, tick, flag);
+
+	map_session_data *sd = BL_CAST(BL_PC, src);
+
+	if (sd != nullptr && pc_checkskill(sd, TF_RSTRIKES) > 0)
+		skill_blockpc_start(*sd, TF_RSTRIKES, skill_get_cooldown(getSkillId(), skill_lv));
+	sc_start(src, src, SC_SONICEMPOWER, 100, skill_lv, 15000);
+}
+
 void SkillSonicBlow::calculateSkillRatio(const Damage *wd, const block_list *src, const block_list *target, uint16 skill_lv, int32 &base_skillratio, int32 mflag) const {
 #ifdef RENEWAL
 	const status_data* tstatus = status_get_status_data(*target);

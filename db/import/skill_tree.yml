@@ -71,6 +71,11 @@ Body:
         Requires:
           - Name: NV_BASIC
             Level: 9
+      - Name: NV_LLSMILE
+        MaxLevel: 10
+        Requires:
+          - Name: NV_BASIC
+            Level: 9
   - Job: Swordman
     Tree:
       - Name: SM_SWORD
@@ -183,6 +188,20 @@ Body:
             Level: 0
       - Name: AC_VULTURE
         MaxLevel: 10
+      - Name: TF_RSTRIKES
+        MaxLevel: 10
+        Requires:
+          - Name: TF_DOUBLE
+            Level: 5
+      - Name: TF_TWINNEEDLE
+        MaxLevel: 10
+        Requires:
+          - Name: TF_POISON
+            Level: 5
+          - Name: AC_VULTURE
+            Level: 5
+      - Name: TF_SWIFT
+        MaxLevel: 10
       - Name: RG_SNATCHER
         MaxLevel: 10
         Requires:
@@ -193,6 +212,13 @@ Body:
         Requires:
           - Name: RG_SNATCHER
             Level: 4
+      - Name: TF_ESCAPADE
+        MaxLevel: 10
+        Requires:
+          - Name: TF_SWIFT
+            Level: 5
+      - Name: TF_RUTHLESS
+        MaxLevel: 1
   - Job: Knight
     Tree:
       - Name: KN_BOWLINGBASH
@@ -341,12 +367,36 @@ Body:
             Level: 0
   - Job: Assassin
     Tree:
+      - Name: AS_SONICBLOW
+        MaxLevel: 10
+        Requires:
+          - Name: TF_RSTRIKES
+            Level: 5
+          - Name: AS_KATAR
+            Level: 4
       - Name: ASC_BREAKER
         MaxLevel: 10
         Requires:
           - Name: AS_ENCHANTPOISON
             Level: 5
           - Name: AS_SPLASHER
+            Level: 3
+      - Name: AS_GRIMMARK
+        MaxLevel: 10
+        Requires:
+          - Name: AS_ENCHANTPOISON
+            Level: 3
+      - Name: AS_CLOAKDAGGER
+        MaxLevel: 5
+        Requires:
+          - Name: AS_CLOAKING
+            Level: 5
+      - Name: AS_MULTISHADOW
+        MaxLevel: 10
+        Requires:
+          - Name: AS_GRIMMARK
+            Level: 5
+          - Name: AS_CLOAKDAGGER
             Level: 3
   - Job: Rogue
     Tree:
@@ -360,3 +410,39 @@ Body:
         Requires:
           - Name: TF_STEAL
             Level: 6
+      - Name: RG_CORROSIVE
+        MaxLevel: 10
+        Requires:
+          - Name: AC_DOUBLE
+            Level: 5
+          - Name: RG_STRIPARMOR
+            Level: 1
+      - Name: RG_ENVIOUSEYE
+        MaxLevel: 10
+        Requires:
+          - Name: RG_PLAGIARISM
+            Level: 5
+      - Name: RG_SKILLLOCK
+        MaxLevel: 1
+        Requires:
+          - Name: RG_PLAGIARISM
+            Level: 10
+      - Name: RG_BACKDOOR
+        MaxLevel: 5
+        Requires:
+          - Name: RG_TUNNELDRIVE
+            Level: 3
+      - Name: RG_HATERAID
+        MaxLevel: 5
+        Requires:
+          - Name: RG_STRIPWEAPON
+            Level: 3
+          - Name: RG_BACKSTAP
+            Level: 5
+      - Name: RG_GEOPHANTASM
+        MaxLevel: 5
+        Requires:
+          - Name: RG_BACKSTAP
+            Level: 3
+          - Name: RG_TUNNELDRIVE
+            Level: 3
