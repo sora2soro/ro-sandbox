@@ -1446,6 +1446,9 @@ enum sc_type : int16 {
 	SC_WIND_CHARM_POWER,
 	SC_GROUND_CHARM_POWER,
 
+	// [RO Sandbox] Rapid Strikes (Thief reskin of Adrenaline Rush)
+	SC_RSTRIKES,
+
 	SC_MAX, //Automatically updated max, used in for's to check we are within bounds.
 };
 

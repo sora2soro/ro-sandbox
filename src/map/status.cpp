@@ -3675,7 +3675,7 @@ bool status_calc_weight(map_session_data *sd, enum e_status_calc_weight_opt flag
 	if (flag&CALCWT_MAXBONUS) {
 		// Skill/Status bonus weight increases
 		sd->max_weight += sd->add_max_weight; // From bAddMaxWeight
-		if ((skill = pc_checkskill(sd, MC_INCCARRY)) > 0)
+		if ((sd->class_&MAPID_FIRSTMASK)!=MAPID_THIEF && (skill = pc_checkskill(sd, MC_INCCARRY)) > 0) // [RO Sandbox] Thief reskins MC_INCCARRY as Improve Swiftness
 			sd->max_weight += 2000 * skill;
 		if (pc_isriding(sd) && pc_checkskill(sd, KN_RIDING) > 0)
 			sd->max_weight += 10000;
@@ -4535,6 +4535,9 @@ int32 status_calc_pc_sub(map_session_data* sd, uint8 opt)
 	// Absolute modifiers from passive skills
 	if((skill=pc_checkskill(sd,TF_MISS))>0)
 		base_status->flee += skill*(sd->class_&JOBL_2 && (sd->class_&MAPID_FIRSTMASK) == MAPID_THIEF? 4 : 3);
+	// [RO Sandbox] Improve Swiftness (Thief reskin of MC_INCCARRY): +1.5% attack speed per level
+	if((sd->class_&MAPID_FIRSTMASK)==MAPID_THIEF && (skill=pc_checkskill(sd,MC_INCCARRY))>0)
+		base_status->aspd_rate -= 15*skill;
 	if((skill=pc_checkskill(sd,MO_DODGE))>0)
 		base_status->flee += (skill*3) / 2;
 	if (pc_checkskill(sd, SU_POWEROFLIFE) > 0)
@@ -7594,6 +7597,8 @@ static int16 status_calc_hit(block_list *bl, status_change *sc, int32 hit)
 		hit += sc->getSCE(SC_BLESSING)->val1 * 2;
 	if (sc->getSCE(SC_TWOHANDQUICKEN))
 		hit += sc->getSCE(SC_TWOHANDQUICKEN)->val1 * 2;
+	if (sc->getSCE(SC_RSTRIKES)) // [RO Sandbox] Rapid Strikes: +190% accuracy
+		hit += hit * 190 / 100;
 	if (sc->getSCE(SC_ADRENALINE))
 		hit += sc->getSCE(SC_ADRENALINE)->val1 * 3 + 5;
 	if (sc->getSCE(SC_NIBELUNGEN) && sc->getSCE(SC_NIBELUNGEN)->val2 == RINGNBL_HIT)
@@ -8230,6 +8235,13 @@ static uint16 status_calc_speed(block_list *bl, status_change *sc, int32 speed)
 	if( sc->getSCE(SC_WALKSPEED) && sc->getSCE(SC_WALKSPEED)->val1 > 0 ) // ChangeSpeed
 		speed = speed * 100 / sc->getSCE(SC_WALKSPEED)->val1;
 
+	// [RO Sandbox] Improve Swiftness (Thief reskin of MC_INCCARRY): +1.5% move speed per level
+	if( map_session_data* sd = BL_CAST(BL_PC, bl); sd != nullptr && (sd->class_&MAPID_FIRSTMASK)==MAPID_THIEF ) {
+		int32 swift = pc_checkskill(sd, MC_INCCARRY);
+		if( swift > 0 )
+			speed -= speed * 15 * swift / 1000;
+	}
+
 	return (uint16)cap_value(speed, MIN_WALK_SPEED, MAX_WALK_SPEED);
 }
 
@@ -8418,6 +8430,10 @@ static int16 status_calc_aspd_rate(block_list *bl, status_change *sc, int32 aspd
 
 	if(sc == nullptr || sc->empty())
 		return cap_value(aspd_rate,0,SHRT_MAX);
+
+	// [RO Sandbox] Rapid Strikes: +190% attack speed
+	if(sc->getSCE(SC_RSTRIKES))
+		aspd_rate -= 1900;
 
 	int32 max = 0;
 	if (sc->getSCE(SC_STAR_COMFORT))

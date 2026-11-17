@@ -46,6 +46,8 @@ Header:
 Body:
   - Job: Novice
     Tree:
+      - Name: NV_HELPANGEL
+        MaxLevel: 1
       - Name: MG_SRECOVERY
         MaxLevel: 10
         Requires:
@@ -171,6 +173,13 @@ Body:
             Level: 1
   - Job: Thief
     Tree:
+      - Name: MC_INCCARRY
+        MaxLevel: 10
+      - Name: BS_ADRENALINE
+        MaxLevel: 5
+        Requires:
+          - Name: MC_INCCARRY
+            Level: 1
       - Name: TF_MISS
         MaxLevel: 10
         Requires:

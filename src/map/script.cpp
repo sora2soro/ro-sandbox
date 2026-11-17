@@ -9713,7 +9713,10 @@ BUILDIN_FUNC(getequippercentrefinery)
 			return SCRIPT_CMD_SUCCESS;
 		}
 
-		script_pushint( st, cost->chance / 100 );
+		// [RO Sandbox] Lady Luck (Novice reskin of NV_HELPANGEL): +7.77% refine success (single level)
+		int32 luck_chance = cost->chance + ( pc_checkskill( sd, NV_HELPANGEL ) > 0 ? 777 : 0 );
+
+		script_pushint( st, luck_chance / 100 );
 	}
 	else
 		script_pushint(st,0);

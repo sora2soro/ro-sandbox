@@ -385,3 +385,9 @@ Body:
     Name: PR_REDEMPTIO
     CastTime: 15000
     Cooldown: 60000
+  - Id: 111
+    Name: BS_ADRENALINE
+    Requires:
+      Weapon:
+        Dagger: true
+        Bow: true

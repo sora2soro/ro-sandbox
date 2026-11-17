@@ -3819,6 +3819,10 @@ static void battle_calc_element_damage(struct Damage* wd, block_list *src, block
 		if (sc->getSCE(SC_EDP))
 			wd->damage += (wd->damage * sc->getSCE(SC_EDP)->val3) / 100;
 
+		// [RO Sandbox] Rapid Strikes: -75% damage dealt while active
+		if (sc->getSCE(SC_RSTRIKES))
+			wd->damage -= wd->damage * 75 / 100;
+
 		// This adds a percentual damage bonus based on the damage you would deal with a normal attack
 		// Applies only to player damage; monsters and mercenaries don't get this damage boost
 		if (sd && sc->getSCE(SC_WATK_ELEMENT)) {
